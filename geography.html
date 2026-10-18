@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>中1地理 10月考査</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* Layout: 地図帳のような配色。上部にタブ、まとめは地域ごとの章、問題は1問ずつのカード */
+:root{
+  --bg:#eef2f3; --paper:#ffffff; --ink:#1d2b36; --sub:#5a6b77; --line:#d3dce0;
+  --accent:#1f6f8b; --accent-ink:#ffffff; --mark:#fff1a8; --red:#c8323c; --ok:#2f7d4f; --mid:#b07a12;
+  --cn:#c94f3d; --kr:#3d6fc9; --sea:#2f8f5b; --sa:#d08a1e; --wa:#8a5bb5;
+  --display:"Dela Gothic One","Hiragino Sans","Yu Gothic",sans-serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121a20; --paper:#1a242c; --ink:#e3eaee; --sub:#9aabb6; --line:#2c3a44;
+  --accent:#5fb3d0; --accent-ink:#0d1a20; --mark:#5c5220; --red:#ff7a82; --ok:#6fd39a; --mid:#e6b04f;
+  --cn:#ff8a78; --kr:#82a8ff; --sea:#6fd39a; --sa:#f0b45a; --wa:#c39af0; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121a20; --paper:#1a242c; --ink:#e3eaee; --sub:#9aabb6; --line:#2c3a44;
+  --accent:#5fb3d0; --accent-ink:#0d1a20; --mark:#5c5220; --red:#ff7a82; --ok:#6fd39a; --mid:#e6b04f;
+  --cn:#ff8a78; --kr:#82a8ff; --sea:#6fd39a; --sa:#f0b45a; --wa:#c39af0; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.75;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:760px;margin:0 auto;padding-block:20px 60px}
+h1{font-family:var(--display);font-weight:400;font-size:1.7rem;line-height:1.3;margin:0;text-wrap:balance}
+h1 small{display:block;font-family:var(--body);font-size:.85rem;font-weight:500;color:var(--sub);letter-spacing:.04em}
+.info{margin-top:14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.info div{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.88rem;line-height:1.6}
+.info b{display:block;font-size:.75rem;color:var(--sub);letter-spacing:.06em}
+.bar{display:flex;height:10px;border-radius:5px;overflow:hidden;margin:6px 0 2px}
+.bar i{display:block}
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:6px;padding-block:12px;margin-top:6px;border-bottom:1px solid var(--line)}
+.tabs button{flex:1;font:inherit;font-weight:700;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,label:focus-within{outline:3px solid var(--accent);outline-offset:2px}
+.tool{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0 4px;font-size:.88rem;color:var(--sub)}
+.chip{font:inherit;font-size:.85rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+.chip.on{background:var(--red);border-color:var(--red);color:#fff}
+.group{margin-top:26px}
+.group>h2{font-size:.8rem;letter-spacing:.12em;color:var(--sub);margin:0 0 6px;font-weight:700}
+.group>h2 span{color:var(--ink);background:var(--mark);padding:1px 6px;border-radius:4px;margin-left:6px;letter-spacing:.02em}
+section.reg{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 18px 14px;margin-top:12px;border-top:6px solid var(--c)}
+section.reg h3{font-family:var(--display);font-weight:400;font-size:1.3rem;margin:0 0 4px;color:var(--c)}
+section.reg h4{font-size:.95rem;margin:16px 0 4px;padding-left:8px;border-left:3px solid var(--c)}
+section.reg ul{margin:0;padding-left:1.2em}
+section.reg li{margin:3px 0}
+.k{font-weight:700;color:var(--red);background:linear-gradient(transparent 62%,var(--mark) 62%);border-radius:2px;cursor:default}
+body.sheet .k{color:transparent;background:var(--red);opacity:.85;cursor:pointer;user-select:none}
+body.sheet .k.show{color:var(--red);background:linear-gradient(transparent 62%,var(--mark) 62%);opacity:1}
+.why{background:var(--bg);border-radius:10px;padding:10px 12px;margin-top:12px;font-size:.9rem}
+.why b{display:block;font-size:.78rem;letter-spacing:.06em;color:var(--sub)}
+.places{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.places label{display:inline-flex;gap:5px;align-items:center;font-size:.85rem;padding:3px 10px;border:1px solid var(--line);border-radius:999px;cursor:pointer}
+.places input{accent-color:var(--c);margin:0}
+.places label:has(input:checked){background:var(--bg);color:var(--sub);text-decoration:line-through}
+.note{font-size:.82rem;color:var(--sub);margin-top:22px}
+/* quiz */
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:16px}
+.panel h3{margin:0 0 6px;font-size:1rem}
+.opts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.opt{display:inline-flex;gap:6px;align-items:center;padding:8px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;font-size:.92rem}
+.opt input{accent-color:var(--accent);margin:0}
+.opt:has(input:checked){border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.btn{font:inherit;font-weight:700;padding:11px 18px;border-radius:10px;border:0;background:var(--accent);color:var(--accent-ink);cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.btn:disabled{opacity:.4;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.prog{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:12px}
+.prog i{display:block;height:100%;background:var(--accent);transition:width .3s}
+.meta{display:flex;justify-content:space-between;gap:8px;font-size:.8rem;color:var(--sub);margin-bottom:8px;flex-wrap:wrap}
+.tag{display:inline-block;font-size:.75rem;font-weight:700;color:#fff;background:var(--c);padding:1px 8px;border-radius:999px}
+.qtext{font-size:1.1rem;font-weight:500;margin:6px 0 14px}
+.choices{display:grid;gap:8px}
+.choices button{font:inherit;text-align:left;padding:11px 14px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;display:flex;gap:10px}
+.choices button b{color:var(--sub)}
+.choices button.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 15%,transparent)}
+.choices button.wrong{border-color:var(--red);background:color-mix(in srgb,var(--red) 12%,transparent)}
+#fillIn,#expIn{font:inherit;width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+#expIn{min-height:96px;resize:vertical}
+.fb{margin-top:14px;padding:12px 14px;border-radius:10px;background:var(--bg);font-size:.93rem}
+.fb .v{font-weight:700;font-size:1rem}
+.fb .v.ok{color:var(--ok)} .fb .v.ng{color:var(--red)}
+.kw{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.kw span{font-size:.8rem;padding:2px 8px;border-radius:6px;background:var(--mark);font-weight:700}
+.score{font-family:var(--display);font-size:3rem;line-height:1;font-variant-numeric:tabular-nums}
+.res{display:grid;gap:6px;margin:14px 0;font-size:.9rem}
+.res div{display:grid;grid-template-columns:9em 1fr 3.5em;gap:8px;align-items:center}
+.res .t{height:8px;background:var(--line);border-radius:4px;overflow:hidden}
+.res .t i{display:block;height:100%;background:var(--c)}
+.res span:last-child{text-align:right;font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:480px){h1{font-size:1.4rem}.res div{grid-template-columns:7em 1fr 3em}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1><small>2026年度 10月考査</small>中1地理 まとめ＆問題</h1>
+    <div style="font-size:.85rem;margin-top:4px"><a href="https://k2me14.github.io/test-2026-10/history.html" style="color:var(--accent)">歴史のページへ</a>　<a href="https://k2me14.github.io/test-2026-10/" style="color:var(--accent)">科目えらびにもどる</a></div>
+    <div class="info">
+      <div><b>出題と配点</b>授業内容 80点（南アジア・西／中央アジア）＋ 7月範囲 20点（中国・朝鮮半島・東南アジア）
+        <div class="bar" aria-hidden="true"><i style="width:80%;background:var(--sa)"></i><i style="width:20%;background:var(--cn)"></i></div></div>
+      <div><b>問題の形式</b>穴埋め・記号選択が約7割、説明問題が約3割。説明は「理由」まで書けるように。</div>
+      <div><b>先生への質問</b>テスト前日まで。Teamsは平日20:30まで（学校にいる間は使わない）、休日は土曜のみ20:30まで。</div>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button role="tab" id="tab-sum" aria-selected="true" aria-controls="pane-sum">まとめ</button>
+    <button role="tab" id="tab-quiz" aria-selected="false" aria-controls="pane-quiz">問題にチャレンジ</button>
+  </nav>
+
+  <!-- ===================== まとめ ===================== -->
+  <div id="pane-sum" role="tabpanel">
+    <div class="tool">
+      <button class="chip" id="sheetBtn" type="button">赤シートモード</button>
+      <span>オンにすると赤字が隠れます。タップでめくれます。</span>
+    </div>
+
+    <div class="group">
+      <h2>授業範囲<span>80点</span></h2>
+
+      <section class="reg" style="--c:var(--sa)">
+        <h3>南アジア</h3>
+        <h4>自然と気候</h4>
+        <ul>
+          <li>北に世界最高峰エベレストのある<span class="k">ヒマラヤ山脈</span>。インドを東に流れる<span class="k">ガンジス川</span>、パキスタンを流れる<span class="k">インダス川</span>。インド半島の内陸は<span class="k">デカン高原</span>。</li>
+          <li><span class="k">季節風（モンスーン）</span>の影響が大きい。夏はインド洋から<span class="k">南西</span>の湿った風 → <span class="k">雨季</span>。冬は大陸から<span class="k">北東</span>の乾いた風 → <span class="k">乾季</span>。</li>
+        </ul>
+        <h4>宗教と社会</h4>
+        <ul>
+          <li>インドは<span class="k">ヒンドゥー教</span>が約8割。<span class="k">牛</span>は神聖な動物なので食べない。ガンジス川で<span class="k">沐浴</span>する。</li>
+          <li>ヒンドゥー教と結びついた身分制度<span class="k">カースト</span>。現在は憲法で差別が禁止されているが、結婚や職業に影響が残る。</li>
+          <li>パキスタン・バングラデシュは<span class="k">イスラム教</span>、スリランカは<span class="k">仏教</span>が多い。</li>
+          <li>インドの人口は約14億人。2023年に中国を抜いて<span class="k">世界一</span>になった。</li>
+        </ul>
+        <h4>農業</h4>
+        <ul>
+          <li>雨が多いガンジス川下流域・バングラデシュ → <span class="k">稲</span>（米）。雨の少ないガンジス川上流やインダス川流域（パンジャブ地方） → <span class="k">小麦</span>。</li>
+          <li>デカン高原 → <span class="k">綿花</span>。インド北東部の<span class="k">アッサム地方</span>やスリランカ → <span class="k">茶</span>。</li>
+        </ul>
+        <h4>工業・産業</h4>
+        <ul>
+          <li><span class="k">ICT（情報通信技術）産業</span>が成長。南部の<span class="k">ベンガルール（バンガロール）</span>に企業が集まる。</li>
+          <li>日本などの外国企業が進出し、<span class="k">自動車</span>やオートバイの生産も伸びている。</li>
+        </ul>
+        <div class="why"><b>説明問題の型：インドでICT産業が発達した理由</b>
+          ① <span class="k">英語</span>を話せる人が多い　② <span class="k">数学</span>の教育水準が高く技術者が多い　③ アメリカと<span class="k">昼夜が逆（時差が約半日）</span>なので、アメリカの夜にインドで仕事を引き継げる　④ 技術者の<span class="k">賃金が比較的安い</span></div>
+        <div class="why"><b>白地図でチェック</b>
+          <div class="places" data-r="sa"></div></div>
+      </section>
+
+      <section class="reg" style="--c:var(--wa)">
+        <h3>西アジア・中央アジア</h3>
+        <h4>自然と暮らし</h4>
+        <ul>
+          <li>大部分が<span class="k">乾燥帯</span>。砂漠が広がり、雨が少ない。</li>
+          <li>水が得られる<span class="k">オアシス</span>で、<span class="k">なつめやし</span>や小麦をつくる。</li>
+          <li>草や水を求めて羊・ラクダなどと移動する<span class="k">遊牧</span>。</li>
+          <li>中央アジアは内陸で、<span class="k">カスピ海</span>がある。昔は東西を結ぶ<span class="k">シルクロード</span>が通っていた。</li>
+        </ul>
+        <h4>イスラム教</h4>
+        <ul>
+          <li>西アジア・中央アジアでは<span class="k">イスラム教</span>を信仰する人が多い。アラブの国々では<span class="k">アラビア語</span>。</li>
+          <li>聖典は<span class="k">コーラン（クルアーン）</span>。聖地はサウジアラビアの<span class="k">メッカ</span>。</li>
+          <li>1日<span class="k">5回</span>、メッカの方向に礼拝する。<span class="k">豚肉</span>を食べない・酒を飲まない。</li>
+          <li><span class="k">ラマダン</span>の月は日の出から日没まで断食する。教えにそった食品は<span class="k">ハラール</span>。</li>
+        </ul>
+        <h4>石油と経済</h4>
+        <ul>
+          <li><span class="k">ペルシア湾</span>の沿岸は世界有数の<span class="k">石油（原油）</span>の産地。サウジアラビア、イラン、イラク、クウェート、アラブ首長国連邦など。</li>
+          <li>産油国は<span class="k">OPEC（石油輸出国機構）</span>をつくり、生産量や価格に影響を与えている。</li>
+          <li>日本は輸入する原油の<span class="k">9割以上</span>を西アジア（中東）からタンカーで運んでいる。</li>
+          <li>石油など特定の産物の輸出にたよる経済＝<span class="k">モノカルチャー経済</span>。</li>
+          <li>アラブ首長国連邦の<span class="k">ドバイ</span>は、石油にたよらないよう<span class="k">観光</span>や金融、物流に力を入れている。</li>
+          <li>中央アジアの国々は<span class="k">ソ連（ソビエト連邦）</span>の一部だった。石油・天然ガスや、携帯電話などに使われる<span class="k">レアメタル</span>が豊富。</li>
+        </ul>
+        <div class="why"><b>説明問題の型：石油にたよる経済の問題点</b>
+          石油の<span class="k">価格が変わる</span>と国の収入が<span class="k">不安定</span>になる。また石油は<span class="k">いつかなくなる資源</span>なので、観光業や工業など<span class="k">ほかの産業</span>を育てる必要がある。</div>
+        <div class="why"><b>白地図でチェック</b>
+          <div class="places" data-r="wa"></div></div>
+      </section>
+    </div>
+
+    <div class="group">
+      <h2>7月考査の範囲<span>20点</span></h2>
+
+      <section class="reg" style="--c:var(--cn)">
+        <h3>中国</h3>
+        <ul>
+          <li>人口は約14億人。約9割が<span class="k">漢民族</span>、ほかに<span class="k">55</span>の少数民族。</li>
+          <li>人口をおさえるため1979年から<span class="k">一人っ子政策</span>（2015年に廃止）。その結果<span class="k">少子高齢化</span>が急に進んでいる。</li>
+          <li>北部を<span class="k">黄河</span>、中部を<span class="k">長江</span>が流れる。西部には<span class="k">チベット高原</span>や砂漠。</li>
+          <li>農業：北部（降水量少）は<span class="k">畑作</span>で小麦・とうもろこし、南部（温暖・雨多）は<span class="k">稲作</span>、東北は大豆・とうもろこし、西部の乾燥地は<span class="k">牧畜</span>。</li>
+          <li>外国企業を呼び込むため沿岸部に<span class="k">経済特区</span>（シェンチェンなど）。工業製品を世界に輸出し<span class="k">「世界の工場」</span>に。</li>
+          <li>沿岸部と内陸部の<span class="k">経済格差</span> → 内陸部を開発する<span class="k">西部大開発</span>。急速な工業化で<span class="k">大気汚染</span>などの環境問題も。</li>
+        </ul>
+        <div class="why"><b>説明問題の型：沿岸部と内陸部に格差が生まれた理由</b>
+          <span class="k">経済特区</span>が<span class="k">沿岸部</span>につくられ、外国企業が進出して工業が発達したから。内陸部は農村が多く、収入が低いままだった。</div>
+        <div class="why"><b>白地図でチェック</b><div class="places" data-r="cn"></div></div>
+      </section>
+
+      <section class="reg" style="--c:var(--kr)">
+        <h3>朝鮮半島</h3>
+        <ul>
+          <li>南は<span class="k">大韓民国（韓国）</span>、首都<span class="k">ソウル</span>。北は<span class="k">朝鮮民主主義人民共和国（北朝鮮）</span>、首都<span class="k">ピョンヤン</span>。</li>
+          <li>独自の文字<span class="k">ハングル</span>。年長者を敬う<span class="k">儒教</span>の教えが大切にされてきた。床下暖房の<span class="k">オンドル</span>、キムチなどの食文化。</li>
+          <li>韓国は1960年代から急速に工業化し<span class="k">アジアNIES</span>の一つに。現在は<span class="k">半導体</span>・電子機器・自動車・造船がさかん。</li>
+          <li>首都ソウルに人口や産業が<span class="k">集中</span>している。</li>
+        </ul>
+        <div class="why"><b>白地図でチェック</b><div class="places" data-r="kr"></div></div>
+      </section>
+
+      <section class="reg" style="--c:var(--sea)">
+        <h3>東南アジア</h3>
+        <ul>
+          <li>大部分が<span class="k">熱帯</span>。<span class="k">季節風</span>の影響で雨季と乾季がある。</li>
+          <li>メコン川などの流域で<span class="k">稲作</span>。1年に2回米をつくる<span class="k">二期作</span>も。タイ・ベトナムは米の輸出が多い。</li>
+          <li>植民地時代に開かれた大農園<span class="k">プランテーション</span>：<span class="k">天然ゴム</span>、<span class="k">油やし</span>（パーム油：マレーシア・インドネシア）、バナナ（フィリピン）、コーヒー（ベトナム）。</li>
+          <li>宗教：インドネシア・マレーシアは<span class="k">イスラム教</span>、フィリピンは<span class="k">キリスト教</span>、タイは<span class="k">仏教</span>。中国から移り住んだ<span class="k">華人</span>も多い。</li>
+          <li>1967年に<span class="k">ASEAN（東南アジア諸国連合）</span>を結成。2025年に東ティモールが加わり11か国（教科書では10か国と書かれていることもある）。</li>
+          <li>賃金が安く労働力が豊富なので、日本などの企業が<span class="k">工業団地</span>に工場をつくった。</li>
+          <li>えびの養殖池をつくるため<span class="k">マングローブ</span>が切られ、環境問題になっている。熱帯雨林の伐採も問題。</li>
+        </ul>
+        <div class="why"><b>白地図でチェック</b><div class="places" data-r="sea"></div></div>
+      </section>
+    </div>
+
+    <p class="note">教科書や授業プリントによって言い回しが少しちがうことがあります。テストではプリント（Ⅰ-6〜Ⅰ-13、Ⅱ-1〜Ⅱ-7）と資料集の書き方を優先してください。白地図チェックの印はこの端末に保存されます。</p>
+  </div>
+
+  <!-- ===================== 問題 ===================== -->
+  <div id="pane-quiz" role="tabpanel" hidden>
+    <div class="panel" id="setup">
+      <h3>範囲</h3>
+      <div class="opts" id="rangeOpts"></div>
+      <h3>問題の形式</h3>
+      <div class="opts">
+        <label class="opt"><input type="checkbox" id="t-f" value="f" checked>穴埋め</label>
+        <label class="opt"><input type="checkbox" id="t-c" value="c" checked>記号選択</label>
+        <label class="opt"><input type="checkbox" id="t-e" value="e" checked>説明問題</label>
+      </div>
+      <h3>問題数</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="n" id="n10" value="10" checked>10問</label>
+        <label class="opt"><input type="radio" name="n" id="n20" value="20">20問</label>
+        <label class="opt"><input type="radio" name="n" id="nall" value="999">全部</label>
+      </div>
+      <div class="row">
+        <button class="btn" id="startBtn" type="button">スタート</button>
+        <button class="btn ghost" id="wrongBtn" type="button">まちがえた問題だけ</button>
+        <span id="poolInfo" style="font-size:.85rem;color:var(--sub)"></span>
+      </div>
+    </div>
+    <div class="panel" id="play" hidden></div>
+    <div class="panel" id="result" hidden></div>
+  </div>
+</div>
+
+<script>
+const R={
+  sa:{n:'南アジア',g:'cls',c:'var(--sa)'},
+  wa:{n:'西・中央アジア',g:'cls',c:'var(--wa)'},
+  cn:{n:'中国',g:'jul',c:'var(--cn)'},
+  kr:{n:'朝鮮半島',g:'jul',c:'var(--kr)'},
+  sea:{n:'東南アジア',g:'jul',c:'var(--sea)'}
+};
+const PLACES={
+  sa:['インド（ニューデリー）','パキスタン','バングラデシュ','スリランカ','ネパール','ヒマラヤ山脈','ガンジス川','インダス川','デカン高原','ベンガルール','アッサム地方','インド洋'],
+  wa:['サウジアラビア','メッカ','イラン','イラク','アラブ首長国連邦（ドバイ）','クウェート','トルコ','アラビア半島','ペルシア湾','カスピ海','カザフスタン','ウズベキスタン'],
+  cn:['ペキン（北京）','シャンハイ（上海）','ホンコン（香港）','シェンチェン（深圳）','黄河','長江','チベット高原','ゴビ砂漠'],
+  kr:['ソウル','ピョンヤン','プサン','日本海','黄海'],
+  sea:['インドシナ半島','マレー半島','メコン川','タイ（バンコク）','ベトナム（ハノイ）','フィリピン（マニラ）','インドネシア（ジャカルタ）','マレーシア（クアラルンプール）','シンガポール']
+};
+// t: f=穴埋め c=記号選択 e=説明
+const Q=[
+// ---- 南アジア ----
+{r:'sa',t:'f',q:'インドで最も多くの人が信仰している宗教は何か。',a:['ヒンドゥー教','ヒンズー教','ヒンドゥ教'],x:'インドの人口の約8割がヒンドゥー教徒です。'},
+{r:'sa',t:'f',q:'ヒンドゥー教徒が沐浴（体を清めること）をする、インドを流れる大河は何か。',a:['ガンジス川','ガンジス','ガンジス川（ガンガー）','ガンガー'],x:'ガンジス川は聖なる川とされています。'},
+{r:'sa',t:'f',q:'ヒンドゥー教と結びついて生まれた、インドの伝統的な身分制度を何というか。',a:['カースト','カースト制度','カースト制'],x:'憲法で差別は禁止されていますが、結婚や職業に影響が残っています。'},
+{r:'sa',t:'f',q:'インド北部にそびえ、世界最高峰エベレストがある山脈は何か。',a:['ヒマラヤ山脈','ヒマラヤ'],x:''},
+{r:'sa',t:'f',q:'インド南部にあり、ICT（情報通信技術）関連企業が集まる都市はどこか。',a:['ベンガルール','バンガロール'],x:'「インドのシリコンバレー」と呼ばれることもあります。'},
+{r:'sa',t:'f',q:'インド半島の内陸に広がり、綿花の栽培がさかんな高原は何か。',a:['デカン高原','デカン'],x:''},
+{r:'sa',t:'f',q:'インド北東部のアッサム地方やスリランカで栽培がさかんな作物は何か。',a:['茶','お茶','ちゃ','紅茶'],x:''},
+{r:'sa',t:'f',q:'季節によって吹く向きが変わり、南アジアに雨季と乾季をもたらす風を何というか。',a:['季節風','モンスーン'],x:'夏は南西の湿った風、冬は北東の乾いた風です。'},
+{r:'sa',t:'f',q:'2023年に人口が中国を上回り、世界一になった国はどこか。',a:['インド'],x:'人口は約14億人です。'},
+{r:'sa',t:'c',q:'インドのヒンドゥー教徒が神聖な動物と考え、食べない動物はどれか。',ch:['牛','豚','羊','鶏'],x:'豚を食べないのはイスラム教徒のきまりです。混同に注意。'},
+{r:'sa',t:'c',q:'パキスタンとバングラデシュで最も多く信仰されている宗教はどれか。',ch:['イスラム教','ヒンドゥー教','仏教','キリスト教'],x:'インドと違い、両国はイスラム教徒が多数です。'},
+{r:'sa',t:'c',q:'スリランカで最も多く信仰されている宗教はどれか。',ch:['仏教','ヒンドゥー教','イスラム教','キリスト教'],x:''},
+{r:'sa',t:'c',q:'夏に南アジアに吹く季節風について正しいものはどれか。',ch:['南西から湿った風が吹き、雨季になる','北東から乾いた風が吹き、乾季になる','南西から乾いた風が吹き、乾季になる','北東から湿った風が吹き、雨季になる'],x:'夏＝海（インド洋）から南西の湿った風。冬＝大陸から北東の乾いた風。'},
+{r:'sa',t:'c',q:'降水量が多いガンジス川の下流域やバングラデシュで、主に栽培されている作物はどれか。',ch:['稲（米）','小麦','綿花','なつめやし'],x:'雨の多い下流域は稲、雨の少ない上流域やパンジャブ地方は小麦です。'},
+{r:'sa',t:'c',q:'インダス川流域のパンジャブ地方など、降水量が少ない地域で主に栽培されている作物はどれか。',ch:['小麦','稲（米）','茶','天然ゴム'],x:''},
+{r:'sa',t:'c',q:'インドの産業について正しいものはどれか。',ch:['外国企業が進出し、自動車の生産が伸びている','石油の輸出が国の収入のほとんどをしめている','天然ゴムのプランテーションが最大の産業である','工業化は進んでおらず農業だけの国である'],x:'ICT産業に加え、日本などの企業による自動車生産も伸びています。'},
+{r:'sa',t:'e',q:'インドでICT（情報通信技術）産業が発達した理由を説明しなさい。',m:'英語を話せる人が多く、数学の教育水準が高いため優秀な技術者が多い。また、アメリカとの時差が約半日あるため、アメリカが夜の間に仕事を引き継ぐことができ、技術者の賃金も比較的安いから。',kw:['英語','数学','時差（昼夜が逆）','賃金が安い']},
+{r:'sa',t:'e',q:'南アジアで夏と冬に吹く季節風の向きと、それによる気候の特色を説明しなさい。',m:'夏はインド洋から南西の湿った季節風が吹いて雨季となり、冬は大陸から北東の乾いた季節風が吹いて乾季となる。',kw:['夏＝南西・湿った風','雨季','冬＝北東・乾いた風','乾季']},
+{r:'sa',t:'e',q:'インドのガンジス川流域で、下流と上流で栽培される作物がちがう理由を説明しなさい。',m:'降水量が多い下流域では水を多く使う稲作がさかんで、降水量が少ない上流域では乾燥に強い小麦の栽培がさかんだから。',kw:['下流＝雨が多い→稲','上流＝雨が少ない→小麦']},
+// ---- 西・中央アジア ----
+{r:'wa',t:'f',q:'西アジアや中央アジアで多くの人が信仰している宗教は何か。',a:['イスラム教','イスラーム','イスラム'],x:''},
+{r:'wa',t:'f',q:'イスラム教の聖地で、サウジアラビアにある都市はどこか。',a:['メッカ','マッカ'],x:'礼拝はメッカの方向に向かって行います。'},
+{r:'wa',t:'f',q:'イスラム教の聖典を何というか。',a:['コーラン','クルアーン'],x:''},
+{r:'wa',t:'f',q:'イスラム教徒が、日の出から日没まで飲食をしない月を何というか。',a:['ラマダン','ラマダーン','断食月'],x:''},
+{r:'wa',t:'f',q:'イスラム教のきまりにそって作られた食品などを何というか。',a:['ハラール','ハラル'],x:'日本でもハラール対応のレストランが増えています。'},
+{r:'wa',t:'f',q:'世界有数の石油（原油）の産地となっている、アラビア半島とイランの間の湾は何か。',a:['ペルシア湾','ペルシャ湾'],x:''},
+{r:'wa',t:'f',q:'産油国が石油の生産量や価格に影響力をもつためにつくった組織の略称は何か。',a:['OPEC','ＯＰＥＣ','オペック','石油輸出国機構'],x:'正式名は石油輸出国機構です。'},
+{r:'wa',t:'f',q:'砂漠の中で、地下水やわき水などで水が得られる場所を何というか。',a:['オアシス'],x:'なつめやしや小麦などを育てます。'},
+{r:'wa',t:'f',q:'草や水を求めて、羊やラクダなどの家畜とともに移動しながら暮らすことを何というか。',a:['遊牧'],x:''},
+{r:'wa',t:'f',q:'石油など、特定の農産物や鉱産資源の輸出にたよる経済を何というか。',a:['モノカルチャー経済','モノカルチャー'],x:''},
+{r:'wa',t:'f',q:'中央アジアで産出され、携帯電話などの電子機器に使われる、量が少ない貴重な金属を何というか。',a:['レアメタル','希少金属'],x:''},
+{r:'wa',t:'f',q:'中央アジアの国々の多くは、1991年まで何という国の一部だったか。',a:['ソ連','ソビエト連邦','ソビエト','ソヴィエト連邦'],x:''},
+{r:'wa',t:'f',q:'アラブの国々で主に話されている言語は何か。',a:['アラビア語'],x:''},
+{r:'wa',t:'c',q:'西アジア・中央アジアの大部分をしめる気候帯はどれか。',ch:['乾燥帯','熱帯','温帯','冷帯（亜寒帯）'],x:''},
+{r:'wa',t:'c',q:'イスラム教のきまりとして正しいものはどれか。',ch:['1日5回、メッカの方向に礼拝する','牛を神聖な動物として食べない','ガンジス川で沐浴をする','1日3回、教会でいのる'],x:'牛を食べない・ガンジス川で沐浴はヒンドゥー教です。'},
+{r:'wa',t:'c',q:'イスラム教徒が食べてはいけないとされている肉はどれか。',ch:['豚肉','牛肉','羊肉','鶏肉'],x:''},
+{r:'wa',t:'c',q:'砂漠のオアシスで栽培され、実が食用になる作物はどれか。',ch:['なつめやし','油やし','天然ゴム','茶'],x:'油やしは東南アジアのプランテーション作物。名前が似ているので注意。'},
+{r:'wa',t:'c',q:'石油にたよらない経済をめざし、観光業や金融業に力を入れている都市ドバイがある国はどれか。',ch:['アラブ首長国連邦','インド','カザフスタン','タイ'],x:''},
+{r:'wa',t:'c',q:'日本が輸入している原油について正しいものはどれか。',ch:['9割以上を西アジア（中東）から輸入している','ほとんどを中国から輸入している','ほとんどを東南アジアから輸入している','国内でとれるので輸入していない'],x:'サウジアラビアやアラブ首長国連邦などからタンカーで運ばれます。'},
+{r:'wa',t:'c',q:'中央アジアにある国はどれか。',ch:['カザフスタン','サウジアラビア','バングラデシュ','マレーシア'],x:'中央アジアにはカザフスタン、ウズベキスタンなど「〜スタン」の国が多いです。'},
+{r:'wa',t:'e',q:'西アジアの産油国のように、石油の輸出にたよる経済の問題点を説明しなさい。',m:'石油の価格が上がったり下がったりすると、国の収入が大きく変わり不安定になる。また石油は限りある資源なので、いつかなくなってしまう。',kw:['価格の変動','収入が不安定','限りある資源']},
+{r:'wa',t:'e',q:'アラブ首長国連邦のドバイなどが、観光業や金融業に力を入れている理由を説明しなさい。',m:'石油はいつかなくなる資源であり、価格の変動で収入が不安定になるため、石油にたよらない産業を育てようとしているから。',kw:['石油にたよらない','限りある資源','産業を多様にする']},
+{r:'wa',t:'e',q:'イスラム教徒の生活に見られるきまりを、2つ以上あげて説明しなさい。',m:'1日5回、聖地メッカの方向に向かって礼拝する。豚肉を食べず、酒を飲まない。ラマダンの月には日の出から日没まで断食をする。',kw:['1日5回の礼拝','豚肉・酒','ラマダン（断食）']},
+// ---- 中国 ----
+{r:'cn',t:'f',q:'中国の人口の約9割をしめる民族を何というか。',a:['漢民族','漢族'],x:'ほかに55の少数民族がいます。'},
+{r:'cn',t:'f',q:'中国で人口の増加をおさえるため、1979年から行われた政策は何か。',a:['一人っ子政策','ひとりっ子政策','一人っ子'],x:'2015年に廃止されました。'},
+{r:'cn',t:'f',q:'外国企業を呼び込むために、中国の沿岸部に設けられた地域を何というか。',a:['経済特区'],x:'シェンチェン（深圳）などが代表です。'},
+{r:'cn',t:'f',q:'工業製品を世界中に輸出するようになった中国は「世界の（　）」と呼ばれる。（　）に入る語は何か。',a:['工場'],x:''},
+{r:'cn',t:'f',q:'中国の沿岸部と内陸部の格差を小さくするため、内陸部の開発を進めた政策は何か。',a:['西部大開発'],x:''},
+{r:'cn',t:'f',q:'中国の中部を流れ、中国で最も長い川は何か。',a:['長江','ちょうこう'],x:'北部を流れるのは黄河です。'},
+{r:'cn',t:'c',q:'中国の農業について正しいものはどれか。',ch:['北部では畑作、南部では稲作がさかん','北部では稲作、南部では畑作がさかん','西部の乾燥地では稲作がさかん','全国どこでも稲作だけが行われている'],x:'雨の多い温暖な南部は稲作、雨の少ない北部は小麦などの畑作、西部は牧畜です。'},
+{r:'cn',t:'c',q:'中国で経済特区が置かれた都市はどれか。',ch:['シェンチェン（深圳）','ラサ','ウルムチ','チョンチン（重慶）'],x:''},
+{r:'cn',t:'e',q:'中国で沿岸部と内陸部の間に経済格差が生まれた理由を説明しなさい。',m:'沿岸部に経済特区がつくられ、外国企業が進出して工業が発達し収入が増えた一方、内陸部は農村が多く収入が低いままだったから。',kw:['経済特区','沿岸部','外国企業','内陸部は農村']},
+{r:'cn',t:'e',q:'中国の一人っ子政策によって、現在どのような問題が起きているか説明しなさい。',m:'子どもの数が減ったため、少子高齢化が急速に進み、将来働く人が不足したり、高齢者を支える負担が大きくなったりしている。',kw:['少子高齢化','働く人の不足']},
+// ---- 朝鮮半島 ----
+{r:'kr',t:'f',q:'大韓民国（韓国）の首都はどこか。',a:['ソウル'],x:''},
+{r:'kr',t:'f',q:'朝鮮半島で使われている独自の文字を何というか。',a:['ハングル'],x:''},
+{r:'kr',t:'f',q:'朝鮮半島の伝統的な住居で使われる、床下に暖かい空気を通す暖房を何というか。',a:['オンドル'],x:''},
+{r:'kr',t:'f',q:'韓国で大切にされてきた、親や年長者を敬うことを重んじる教えは何か。',a:['儒教'],x:''},
+{r:'kr',t:'c',q:'急速に工業化した韓国・台湾・ホンコン・シンガポールをまとめて何というか。',ch:['アジアNIES','ASEAN','OPEC','EU'],x:'NIESは新興工業経済地域の略です。'},
+{r:'kr',t:'c',q:'現在の韓国で特にさかんな工業はどれか。',ch:['半導体などの電子工業','石油の輸出','天然ゴムの生産','綿花の栽培'],x:''},
+{r:'kr',t:'c',q:'朝鮮民主主義人民共和国（北朝鮮）の首都はどこか。',ch:['ピョンヤン','ソウル','プサン','ペキン'],x:''},
+// ---- 東南アジア ----
+{r:'sea',t:'f',q:'東南アジアの国々が1967年に結成した、地域協力のための組織の略称は何か。',a:['ASEAN','ＡＳＥＡＮ','アセアン','東南アジア諸国連合'],x:'正式名は東南アジア諸国連合です。'},
+{r:'sea',t:'f',q:'同じ田で1年に2回米をつくることを何というか。',a:['二期作','２期作','2期作'],x:'同じ畑で1年に2種類の作物をつくる「二毛作」とのちがいに注意。'},
+{r:'sea',t:'f',q:'植民地時代に開かれた、輸出向けの作物を大規模に栽培する農園を何というか。',a:['プランテーション'],x:''},
+{r:'sea',t:'f',q:'マレーシアやインドネシアで栽培がさかんで、パーム油の原料となる作物は何か。',a:['油やし','アブラヤシ','あぶらやし','油ヤシ'],x:''},
+{r:'sea',t:'f',q:'中国から東南アジアに移り住んだ人々とその子孫を何というか。',a:['華人','華僑'],x:'現地の国籍をもつ人を華人、中国籍のままの人を華僑と呼びます。'},
+{r:'sea',t:'f',q:'海岸や河口に生える林で、えびの養殖池をつくるために伐採が進んだものは何か。',a:['マングローブ'],x:''},
+{r:'sea',t:'c',q:'インドネシアやマレーシアで最も多く信仰されている宗教はどれか。',ch:['イスラム教','仏教','キリスト教','ヒンドゥー教'],x:''},
+{r:'sea',t:'c',q:'フィリピンで最も多く信仰されている宗教はどれか。',ch:['キリスト教','イスラム教','仏教','ヒンドゥー教'],x:'スペインの植民地だった影響です。'},
+{r:'sea',t:'c',q:'タイで最も多く信仰されている宗教はどれか。',ch:['仏教','イスラム教','キリスト教','ヒンドゥー教'],x:''},
+{r:'sea',t:'e',q:'日本などの外国企業が、東南アジアに工場を進出させた理由を説明しなさい。',m:'東南アジアは賃金が安く、働く人（労働力）が豊富なので、製品を安くつくることができるから。',kw:['賃金が安い','労働力が豊富']},
+{r:'sea',t:'e',q:'東南アジアでマングローブが減少している理由を説明しなさい。',m:'日本などへ輸出するえびの養殖池をつくるために、マングローブが伐採されたから。',kw:['えびの養殖','伐採','輸出']}
+];
+Q.forEach((q,i)=>q.id=i);
+
+const $=s=>document.querySelector(s);
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+
+/* tabs */
+const tabs={sum:$('#tab-sum'),quiz:$('#tab-quiz')};
+function showTab(k){for(const n in tabs){const on=n===k;tabs[n].setAttribute('aria-selected',on);$('#pane-'+n).hidden=!on}store.set('geo-tab',k)}
+tabs.sum.onclick=()=>showTab('sum');tabs.quiz.onclick=()=>showTab('quiz');
+showTab(store.get('geo-tab','sum'));
+
+/* red sheet */
+const sb=$('#sheetBtn');
+sb.onclick=()=>{const on=document.body.classList.toggle('sheet');sb.classList.toggle('on',on);document.querySelectorAll('.k.show').forEach(e=>e.classList.remove('show'))};
+document.addEventListener('click',e=>{const k=e.target.closest('.k');if(k&&document.body.classList.contains('sheet'))k.classList.toggle('show')});
+
+/* places */
+const done=store.get('geo-places',{});
+document.querySelectorAll('.places').forEach(box=>{
+  const r=box.dataset.r;
+  PLACES[r].forEach((p,i)=>{const id='pl-'+r+'-'+i;const l=document.createElement('label');l.innerHTML=`<input type="checkbox" id="${id}">${p}`;const c=l.firstChild;c.checked=!!done[id];c.onchange=()=>{done[id]=c.checked;store.set('geo-places',done)};box.appendChild(l)});
+});
+
+/* quiz setup */
+const ro=$('#rangeOpts');
+Object.entries(R).forEach(([k,v])=>{const l=document.createElement('label');l.className='opt';l.innerHTML=`<input type="checkbox" id="r-${k}" value="${k}" checked><span class="tag" style="--c:${v.c}">${v.g==='cls'?'授業':'7月'}</span>${v.n}`;ro.appendChild(l)});
+let wrong=new Set(store.get('geo-wrong',[]));
+const saveWrong=()=>store.set('geo-wrong',[...wrong]);
+function pool(){const rs=[...ro.querySelectorAll('input:checked')].map(i=>i.value);const ts=['f','c','e'].filter(t=>$('#t-'+t).checked);return Q.filter(q=>rs.includes(q.r)&&ts.includes(q.t))}
+function upd(){const p=pool();$('#poolInfo').textContent=`対象 ${p.length}問 ／ まちがえた問題 ${wrong.size}問`;$('#startBtn').disabled=!p.length;$('#wrongBtn').disabled=!wrong.size}
+document.querySelectorAll('#setup input').forEach(i=>i.addEventListener('change',upd));upd();
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+
+let S=null;
+$('#startBtn').onclick=()=>{const n=+document.querySelector('input[name=n]:checked').value;start(shuffle(pool()).slice(0,n))};
+$('#wrongBtn').onclick=()=>start(shuffle(Q.filter(q=>wrong.has(q.id))));
+function start(list){S={list,i:0,score:[]};$('#setup').hidden=true;$('#result').hidden=true;$('#play').hidden=false;render()}
+
+const norm=s=>s.normalize('NFKC').replace(/[\s　・（）()「」]/g,'').toLowerCase();
+const KANA='アイウエ';
+function head(q){const r=R[q.r];const tn={f:'穴埋め',c:'記号選択',e:'説明'}[q.t];
+  return `<div class="prog"><i style="width:${S.i/S.list.length*100}%"></i></div>
+  <div class="meta"><span><span class="tag" style="--c:${r.c}">${r.n}</span>　${tn}</span><span>${S.i+1} / ${S.list.length}</span></div>
+  <div class="qtext">${q.q}</div>`}
+function render(){
+  const q=S.list[S.i],p=$('#play');
+  if(q.t==='f'){
+    p.innerHTML=head(q)+`<div class="row"><input id="fillIn" autocomplete="off" placeholder="答えを入力" style="flex:1;min-width:0"><button class="btn" id="chk" type="button">答え合わせ</button></div><div id="fb"></div>`;
+    const inp=$('#fillIn');inp.focus({preventScroll:true});
+    const go=()=>{if($('#chk').disabled)return;const ok=q.a.some(a=>norm(a)===norm(inp.value));$('#chk').disabled=true;inp.disabled=true;
+      $('#fb').innerHTML=`<div class="fb"><div class="v ${ok?'ok':'ng'}">${ok?'正解':'不正解'}</div>正解：<b>${q.a[0]}</b>${q.x?'<br>'+q.x:''}
+      <div class="row" style="margin-top:10px">${ok?'':'<button class="btn ghost" id="ovr" type="button">合ってた（書き方のちがい）</button>'}<button class="btn" id="nx" type="button">次へ</button></div></div>`;
+      let res=ok?1:0;
+      if(!ok)$('#ovr').onclick=()=>{res=1;$('#ovr').remove();$('#fb .v').className='v ok';$('#fb .v').textContent='正解（表記ちがい）'};
+      $('#nx').onclick=()=>next(q,res);$('#nx').focus({preventScroll:true})};
+    $('#chk').onclick=go;inp.onkeydown=e=>{if(e.key==='Enter'&&!e.isComposing)go()};
+  }else if(q.t==='c'){
+    const order=shuffle(q.ch.map((c,i)=>({c,i})));
+    p.innerHTML=head(q)+`<div class="choices">${order.map((o,k)=>`<button type="button" data-i="${o.i}"><b>${KANA[k]}</b><span>${o.c}</span></button>`).join('')}</div><div id="fb"></div>`;
+    p.querySelectorAll('.choices button').forEach(b=>b.onclick=()=>{
+      if(p.querySelector('.choices').dataset.done)return;p.querySelector('.choices').dataset.done=1;
+      const ok=b.dataset.i==='0';b.classList.add(ok?'right':'wrong');
+      p.querySelector('[data-i="0"]').classList.add('right');
+      $('#fb').innerHTML=`<div class="fb"><div class="v ${ok?'ok':'ng'}">${ok?'正解':'不正解'}</div>正解：<b>${q.ch[0]}</b>${q.x?'<br>'+q.x:''}<div class="row" style="margin-top:10px"><button class="btn" id="nx" type="button">次へ</button></div></div>`;
+      $('#nx').onclick=()=>next(q,ok?1:0);$('#nx').focus({preventScroll:true})});
+  }else{
+    p.innerHTML=head(q)+`<textarea id="expIn" placeholder="まず自分の言葉で書いてみよう（書かずに考えるだけでもOK）"></textarea>
+    <div class="row" style="margin-top:10px"><button class="btn" id="show" type="button">模範解答を見る</button></div><div id="fb"></div>`;
+    $('#show').onclick=()=>{$('#show').disabled=true;
+      $('#fb').innerHTML=`<div class="fb"><div class="v">模範解答</div>${q.m}<div style="margin-top:8px;font-size:.85rem;color:var(--sub)">入っていてほしいキーワード</div><div class="kw">${q.kw.map(k=>`<span>${k}</span>`).join('')}</div>
+      <div style="font-size:.85rem;margin-top:6px">自分の答えを採点しよう</div><div class="row" style="margin-top:6px">
+      <button class="btn" data-s="1" type="button">◯ 書けた</button><button class="btn ghost" data-s="0.5" type="button">△ 半分くらい</button><button class="btn ghost" data-s="0" type="button">✕ 書けなかった</button></div></div>`;
+      $('#fb').querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>next(q,+b.dataset.s))};
+  }
+}
+function next(q,s){S.score.push({q,s});if(s<1)wrong.add(q.id);else wrong.delete(q.id);saveWrong();S.i++;if(S.i<S.list.length)render();else finish()}
+function finish(){
+  $('#play').hidden=true;const r=$('#result');r.hidden=false;
+  const tot=S.score.reduce((a,b)=>a+b.s,0),pct=Math.round(tot/S.score.length*100);
+  const by={};S.score.forEach(({q,s})=>{(by[q.r]=by[q.r]||{n:0,s:0});by[q.r].n++;by[q.r].s+=s});
+  const msg=pct>=90?'すばらしい！この調子でキープ。':pct>=70?'いい感じ。まちがえた問題をもう一度やってみよう。':'まとめを読み直してから、もう一度チャレンジしよう。';
+  r.innerHTML=`<div class="meta"><span>結果</span><span>${S.score.length}問</span></div><div class="score">${pct}<span style="font-size:1.2rem">点</span></div><p style="margin:6px 0 0">${msg}</p>
+  <div class="res">${Object.keys(R).filter(k=>by[k]).map(k=>`<div style="--c:${R[k].c}"><span>${R[k].n}</span><span class="t"><i style="width:${by[k].s/by[k].n*100}%"></i></span><span>${Math.round(by[k].s/by[k].n*100)}%</span></div>`).join('')}</div>
+  <div class="row"><button class="btn" id="again" type="button">設定にもどる</button>${wrong.size?`<button class="btn ghost" id="rev" type="button">まちがえた問題を復習（${wrong.size}問）</button>`:''}</div>`;
+  $('#again').onclick=()=>{r.hidden=true;$('#setup').hidden=false;upd()};
+  if($('#rev'))$('#rev').onclick=()=>start(shuffle(Q.filter(q=>wrong.has(q.id))));
+}
+</script>
+
+</body>
+</html>
