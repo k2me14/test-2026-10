@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>中1英語 10月考査</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Lexend:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* Layout: 地理・歴史と同じ骨組み。まとめは文法ごとの章と変化表、問題は1問ずつのカード */
+:root{
+  --bg:#eff0f4; --paper:#ffffff; --ink:#23253a; --sub:#5f6276; --line:#d7d9e3;
+  --accent:#4338a0; --accent-ink:#ffffff; --mark:#fff1a8; --red:#c8323c; --ok:#2f7d4f; --warn:#a86a00;
+  --pr:#3d6fc9; --wh:#8a5bb5; --pp:#2f8f5b; --tel:#c46a2c; --rv:#6b6f7a;
+  --display:"Dela Gothic One","Hiragino Sans","Yu Gothic",sans-serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+  --en:"Lexend","Zen Kaku Gothic New","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15161f; --paper:#1e2030; --ink:#e7e8f2; --sub:#a3a6bd; --line:#33364a;
+  --accent:#a99cff; --accent-ink:#15121f; --mark:#5c5220; --red:#ff7a82; --ok:#6fd39a; --warn:#f0b45a;
+  --pr:#82a8ff; --wh:#c39af0; --pp:#6fd39a; --tel:#f0a06a; --rv:#aab0bd; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15161f; --paper:#1e2030; --ink:#e7e8f2; --sub:#a3a6bd; --line:#33364a;
+  --accent:#a99cff; --accent-ink:#15121f; --mark:#5c5220; --red:#ff7a82; --ok:#6fd39a; --warn:#f0b45a;
+  --pr:#82a8ff; --wh:#c39af0; --pp:#6fd39a; --tel:#f0a06a; --rv:#aab0bd; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.75;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:var(--accent)}
+.en{font-family:var(--en)}
+.wrap{max-width:760px;margin:0 auto;padding-block:20px 60px}
+h1{font-family:var(--display);font-weight:400;font-size:1.7rem;line-height:1.3;margin:0;text-wrap:balance}
+h1 small{display:block;font-family:var(--body);font-size:.85rem;font-weight:500;color:var(--sub);letter-spacing:.04em}
+.sib{font-size:.85rem;margin-top:4px}
+.info{margin-top:14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.info div{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.88rem;line-height:1.6}
+.info b{display:block;font-size:.75rem;color:var(--sub);letter-spacing:.06em}
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:6px;padding-block:12px;margin-top:6px;border-bottom:1px solid var(--line)}
+.tabs button{flex:1;font:inherit;font-weight:700;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,label:focus-within{outline:3px solid var(--accent);outline-offset:2px}
+.tool{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0 4px;font-size:.88rem;color:var(--sub)}
+.chip{font:inherit;font-size:.85rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+.chip.on{background:var(--red);border-color:var(--red);color:#fff}
+section.reg{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 18px 14px;margin-top:14px;border-top:6px solid var(--c)}
+section.reg h3{font-family:var(--display);font-weight:400;font-size:1.3rem;margin:0 0 4px;color:var(--c)}
+section.reg h3 small{font-family:var(--body);font-size:.8rem;color:var(--sub);font-weight:500;margin-left:6px}
+section.reg h4{font-size:.95rem;margin:16px 0 4px;padding-left:8px;border-left:3px solid var(--c)}
+section.reg ul{margin:0;padding-left:1.2em}
+section.reg li{margin:3px 0}
+.ex{font-family:var(--en);display:block;padding-left:.2em}
+.ex+.ja,.ja{display:block;font-size:.85rem;color:var(--sub)}
+.k{font-weight:700;color:var(--red);background:linear-gradient(transparent 62%,var(--mark) 62%);border-radius:2px;cursor:default}
+body.sheet .k{color:transparent;background:var(--red);opacity:.85;cursor:pointer;user-select:none}
+body.sheet .k.show{color:var(--red);background:linear-gradient(transparent 62%,var(--mark) 62%);opacity:1}
+.why{background:var(--bg);border-radius:10px;padding:10px 12px;margin-top:12px;font-size:.9rem}
+.why b{display:block;font-size:.78rem;letter-spacing:.06em;color:var(--sub)}
+.tbl{overflow-x:auto;margin-top:8px}
+table{border-collapse:collapse;font-size:.92rem;min-width:100%}
+th,td{border-bottom:1px solid var(--line);padding:6px 10px;text-align:left;white-space:nowrap}
+th{font-size:.78rem;color:var(--sub);font-weight:700;letter-spacing:.04em}
+td{font-family:var(--en)}
+td:first-child{font-family:var(--body);color:var(--sub);font-size:.85rem}
+.note{font-size:.82rem;color:var(--sub);margin-top:22px}
+/* quiz */
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:16px}
+.panel h3{margin:0 0 6px;font-size:1rem}
+.opts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.opt{display:inline-flex;gap:6px;align-items:center;padding:8px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;font-size:.92rem}
+.opt input{accent-color:var(--accent);margin:0}
+.opt:has(input:checked){border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.btn{font:inherit;font-weight:700;padding:11px 18px;border-radius:10px;border:0;background:var(--accent);color:var(--accent-ink);cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.btn:disabled{opacity:.4;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.prog{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:12px}
+.prog i{display:block;height:100%;background:var(--accent);transition:width .3s}
+.meta{display:flex;justify-content:space-between;gap:8px;font-size:.8rem;color:var(--sub);margin-bottom:8px;flex-wrap:wrap}
+.tag{display:inline-block;font-size:.75rem;font-weight:700;color:#fff;background:var(--c);padding:1px 8px;border-radius:999px}
+.qtext{font-size:1.1rem;font-weight:500;margin:6px 0 14px}
+.qtext .en{display:block;font-size:1.15rem;margin-top:4px}
+.choices{display:grid;gap:8px}
+.choices button{font:inherit;text-align:left;padding:11px 14px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;display:flex;gap:10px}
+.choices button span{font-family:var(--en)}
+.choices button b{color:var(--sub)}
+.choices button.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 15%,transparent)}
+.choices button.wrong{border-color:var(--red);background:color-mix(in srgb,var(--red) 12%,transparent)}
+#fillIn{font-family:var(--en);font-size:1.05rem;width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.built{min-height:52px;padding:10px 12px;border-radius:10px;border:1px dashed var(--line);background:var(--bg);font-family:var(--en);font-size:1.1rem;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.built:empty::before{content:"下の語を順にタップ";font-family:var(--body);font-size:.85rem;color:var(--sub)}
+.bank{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.w{font-family:var(--en);font-size:1rem;padding:7px 12px;border-radius:8px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+.built .w{background:var(--paper)}
+.w:disabled{opacity:.25;cursor:default}
+.fb{margin-top:14px;padding:12px 14px;border-radius:10px;background:var(--bg);font-size:.93rem}
+.fb .v{font-weight:700;font-size:1rem}
+.fb .v.ok{color:var(--ok)} .fb .v.ng{color:var(--red)} .fb .v.mid{color:var(--warn)}
+.fb .ans{font-family:var(--en);font-weight:600}
+.score{font-family:var(--display);font-size:3rem;line-height:1;font-variant-numeric:tabular-nums}
+.res{display:grid;gap:6px;margin:14px 0;font-size:.9rem}
+.res div{display:grid;grid-template-columns:9em 1fr 3.5em;gap:8px;align-items:center}
+.res .t{height:8px;background:var(--line);border-radius:4px;overflow:hidden}
+.res .t i{display:block;height:100%;background:var(--c)}
+.res span:last-child{text-align:right;font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:480px){h1{font-size:1.4rem}.res div{grid-template-columns:7em 1fr 3em}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1><small>2026年度 10月考査</small>中1英語 まとめ＆問題</h1>
+    <div class="sib"><a href="https://k2me14.github.io/test-2026-10/">科目えらびにもどる</a></div>
+    <div class="info">
+      <div><b>範囲（一般生・帰国生共通）</b>NEW HORIZON Unit 6・7（pp.71〜77、81〜87、89）、新中学問題集 6・10・11・13・17章、90 second-Challenge のプリント</div>
+      <div><b>書き方の注意</b>大文字・小文字、コンマ（,）、ピリオド（.）ははっきり書く。あいまいなものは減点。</div>
+      <div><b>解答用紙</b>一般生用と帰国生用に分かれている。ちがう面に書くと採点されない。</div>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button role="tab" id="tab-sum" aria-selected="true" aria-controls="pane-sum">まとめ</button>
+    <button role="tab" id="tab-quiz" aria-selected="false" aria-controls="pane-quiz">問題にチャレンジ</button>
+  </nav>
+
+  <!-- ===================== まとめ ===================== -->
+  <div id="pane-sum" role="tabpanel">
+    <div class="tool">
+      <button class="chip" id="sheetBtn" type="button">赤シートモード</button>
+      <span>オンにすると赤字が隠れます。タップでめくれます。</span>
+    </div>
+
+    <section class="reg" style="--c:var(--pr)">
+      <h3>代名詞の変化<small>Unit 6</small></h3>
+      <ul>
+        <li>「〜を・〜に」のときは<span class="k">目的格</span>を使う。動詞や前置詞（with, for, to など）のあとに来る。</li>
+      </ul>
+      <span class="ex">I like <span class="k">him</span>. / I often play with <span class="k">them</span>.</span>
+      <span class="ja">私は彼が好きです。／私はよく彼らと遊びます。</span>
+      <div class="tbl"><table>
+        <thead><tr><th></th><th>〜は</th><th>〜の</th><th>〜を・〜に</th><th>〜のもの</th></tr></thead>
+        <tbody>
+          <tr><td>私</td><td>I</td><td><span class="k">my</span></td><td><span class="k">me</span></td><td><span class="k">mine</span></td></tr>
+          <tr><td>あなた</td><td>you</td><td><span class="k">your</span></td><td><span class="k">you</span></td><td><span class="k">yours</span></td></tr>
+          <tr><td>彼</td><td>he</td><td><span class="k">his</span></td><td><span class="k">him</span></td><td><span class="k">his</span></td></tr>
+          <tr><td>彼女</td><td>she</td><td><span class="k">her</span></td><td><span class="k">her</span></td><td><span class="k">hers</span></td></tr>
+          <tr><td>それ</td><td>it</td><td><span class="k">its</span></td><td><span class="k">it</span></td><td>―</td></tr>
+          <tr><td>私たち</td><td>we</td><td><span class="k">our</span></td><td><span class="k">us</span></td><td><span class="k">ours</span></td></tr>
+          <tr><td>あなたたち</td><td>you</td><td><span class="k">your</span></td><td><span class="k">you</span></td><td><span class="k">yours</span></td></tr>
+          <tr><td>彼ら・それら</td><td>they</td><td><span class="k">their</span></td><td><span class="k">them</span></td><td><span class="k">theirs</span></td></tr>
+          <tr><td>ケン</td><td>Ken</td><td><span class="k">Ken's</span></td><td><span class="k">Ken</span></td><td><span class="k">Ken's</span></td></tr>
+        </tbody>
+      </table></div>
+      <div class="why"><b>まちがえやすいところ</b>
+        「それの」は <span class="k en">its</span>（アポストロフィなし）。<span class="en">it's</span> は it is の短縮形。<br>
+        「彼の」と「彼のもの」はどちらも <span class="k en">his</span>。「彼女の」と「彼女を」はどちらも <span class="k en">her</span>。</div>
+    </section>
+
+    <section class="reg" style="--c:var(--wh)">
+      <h3>Whose と Which<small>Unit 6</small></h3>
+      <h4>Whose 〜？「だれの〜ですか」</h4>
+      <span class="ex"><span class="k">Whose</span> bag is this? — It's <span class="k">mine</span>.</span>
+      <span class="ja">これはだれのかばんですか。— 私のものです。</span>
+      <ul style="margin-top:6px">
+        <li>答えは「〜のもの」（mine, yours, his, hers…）や <span class="k en">Ken's</span> のように 's をつけた形。</li>
+        <li>Yes / No では答えない。</li>
+      </ul>
+      <h4>Which 〜？「どちらが・どちらを〜ですか」</h4>
+      <span class="ex"><span class="k">Which</span> do you like, tea <span class="k">or</span> coffee? — I like tea.</span>
+      <span class="ja">紅茶とコーヒーでは、どちらが好きですか。— 紅茶が好きです。</span>
+      <span class="ex" style="margin-top:6px"><span class="k">Which</span> bike is yours? — The red one is.</span>
+      <span class="ja">どちらの自転車があなたのものですか。— 赤いのです。</span>
+      <ul style="margin-top:6px">
+        <li>「A と B のどちら」は文の最後に <span class="k en">A or B</span> をつける。</li>
+        <li>前に出てきた名詞のくり返しをさけるときは <span class="k en">one</span>（the red one）。</li>
+      </ul>
+    </section>
+
+    <section class="reg" style="--c:var(--pp)">
+      <h3>現在進行形<small>Unit 7</small></h3>
+      <ul>
+        <li>「（今）〜しているところです」は <span class="k">be動詞（am / is / are）＋ 動詞の ing 形</span>。</li>
+      </ul>
+      <span class="ex">I <span class="k">am watching</span> TV now.</span><span class="ja">私は今テレビを見ています。</span>
+      <span class="ex" style="margin-top:6px"><span class="k">Is</span> Ken <span class="k">playing</span> the guitar? — Yes, he <span class="k">is</span>. / No, he <span class="k">isn't</span>.</span>
+      <span class="ex" style="margin-top:6px">They <span class="k">are not</span> swimming now.</span><span class="ja">彼らは今泳いでいません。</span>
+      <span class="ex" style="margin-top:6px"><span class="k">What are</span> you <span class="k">doing</span>? — I'm making lunch.</span><span class="ja">何をしているのですか。— お昼ごはんを作っています。</span>
+      <h4>ing 形の作り方</h4>
+      <div class="tbl"><table>
+        <thead><tr><th>ルール</th><th>例</th></tr></thead>
+        <tbody>
+          <tr><td>そのまま ing</td><td>play → <span class="k">playing</span>　study → <span class="k">studying</span>　read → <span class="k">reading</span></td></tr>
+          <tr><td>e で終わる → e をとって ing</td><td>make → <span class="k">making</span>　write → <span class="k">writing</span>　use → <span class="k">using</span>　dance → <span class="k">dancing</span></td></tr>
+          <tr><td>最後の1字を重ねて ing</td><td>run → <span class="k">running</span>　swim → <span class="k">swimming</span>　sit → <span class="k">sitting</span>　get → <span class="k">getting</span></td></tr>
+        </tbody>
+      </table></div>
+      <div class="why"><b>まちがえやすいところ</b>
+        be動詞を忘れない（✕ <span class="en">I watching TV.</span>）。<br>
+        疑問文の答えは be動詞で（<span class="en">Yes, I <span class="k">am</span>.</span> ✕ <span class="en">Yes, I do.</span>）。<br>
+        <span class="k en">like / know / want</span> や「持っている」の <span class="en">have</span> は、ふつう進行形にしない。<br>
+        毎日のこと（<span class="en">every day</span>）はふつうの現在形、今していること（<span class="en">now, Look!</span>）は進行形。</div>
+    </section>
+
+    <section class="reg" style="--c:var(--tel)">
+      <h3>電話・会話の表現<small>Unit 7</small></h3>
+      <span class="ex"><span class="k">Hello?</span> <span class="k">This is</span> Mika.</span><span class="ja">もしもし、ミカです。（電話では I'm ではなく This is を使う）</span>
+      <span class="ex" style="margin-top:6px"><span class="k">Can I speak to</span> Emma, please?</span><span class="ja">エマさんをお願いできますか。</span>
+      <span class="ex" style="margin-top:6px"><span class="k">Hold on</span>, please.</span><span class="ja">（電話を切らずに）少々お待ちください。</span>
+      <span class="ex" style="margin-top:6px">What are you doing now? — I'm doing my homework.</span><span class="ja">今何してるの？ — 宿題をしているよ。</span>
+    </section>
+
+    <section class="reg" style="--c:var(--rv)">
+      <h3>三人称単数現在の復習<small>前のUnitから</small></h3>
+      <ul>
+        <li>主語が he / she / it や Ken など1人・1つのとき、現在の文では動詞に <span class="k">s / es</span> をつける。</li>
+        <li>play → <span class="k en">plays</span>、watch → <span class="k en">watches</span>、go → <span class="k en">goes</span>、study → <span class="k en">studies</span>、have → <span class="k en">has</span></li>
+        <li>疑問文は <span class="k en">Does</span> ＋主語＋動詞の原形、否定文は <span class="k en">doesn't</span> ＋動詞の原形。</li>
+      </ul>
+      <span class="ex" style="margin-top:6px"><span class="k">Does</span> she <span class="k">like</span> music? — Yes, she <span class="k">does</span>.</span>
+    </section>
+
+    <p class="note">教科書は2025年度版 NEW HORIZON 1 を想定し、Unit 6（代名詞、Whose・Which）と Unit 7（現在進行形）の文法をまとめています。教科書本文の暗記が必要な部分は、教科書と 90 second-Challenge のプリントで確認してください。帰国生用の追加範囲は写真で途中までしか見えなかったため、入れていません。</p>
+  </div>
+
+  <!-- ===================== 問題 ===================== -->
+  <div id="pane-quiz" role="tabpanel" hidden>
+    <div class="panel" id="setup">
+      <h3>範囲</h3>
+      <div class="opts" id="rangeOpts"></div>
+      <h3>問題の形式</h3>
+      <div class="opts">
+        <label class="opt"><input type="checkbox" id="t-f" value="f" checked>穴埋め</label>
+        <label class="opt"><input type="checkbox" id="t-c" value="c" checked>記号選択</label>
+        <label class="opt"><input type="checkbox" id="t-o" value="o" checked>並べかえ</label>
+        <label class="opt"><input type="checkbox" id="t-w" value="w" checked>英作文</label>
+      </div>
+      <h3>問題数</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="n" id="n10" value="10" checked>10問</label>
+        <label class="opt"><input type="radio" name="n" id="n20" value="20">20問</label>
+        <label class="opt"><input type="radio" name="n" id="nall" value="999">全部</label>
+      </div>
+      <div class="row">
+        <button class="btn" id="startBtn" type="button">スタート</button>
+        <button class="btn ghost" id="wrongBtn" type="button">まちがえた問題だけ</button>
+        <span id="poolInfo" style="font-size:.85rem;color:var(--sub)"></span>
+      </div>
+    </div>
+    <div class="panel" id="play" hidden></div>
+    <div class="panel" id="result" hidden></div>
+  </div>
+</div>
+
+<script>
+const R={
+  pr:{n:'代名詞',c:'var(--pr)'},
+  wh:{n:'Whose・Which',c:'var(--wh)'},
+  pp:{n:'現在進行形',c:'var(--pp)'},
+  tel:{n:'電話・会話',c:'var(--tel)'},
+  rv:{n:'三単現の復習',c:'var(--rv)'}
+};
+// t: f=穴埋め(a:正解の表記) c=記号選択(ch[0]が正解) o=並べかえ(o:語の順, p:文末記号) w=英作文(a:正解例)
+// q: 日本語の指示, s: 英文（___ が空欄）
+const Q=[
+// ---- 代名詞 ----
+{r:'pr',t:'f',q:'（　）に入る語を書きなさい。（彼女を）',s:'Do you know Ms. Green? — Yes. I know ___ well.',a:['her']},
+{r:'pr',t:'f',q:'（　）に入る語を書きなさい。（彼と）',s:'This is my brother. I often play tennis with ___.',a:['him']},
+{r:'pr',t:'f',q:'（　）に入る語を書きなさい。（それらが）',s:'Look at those cats. I like ___.',a:['them']},
+{r:'pr',t:'f',q:'（　）に入る語を書きなさい。（私たちを）',s:'Please help ___.',a:['us']},
+{r:'pr',t:'f',q:'（　）に入る語を書きなさい。（彼の）',s:'That is Mr. Sato. ___ car is red.',a:['His'],x:'文の最初なので大文字で書きます。'},
+{r:'pr',t:'f',q:'（　）に入る語を書きなさい。（私を）',s:'Can you see ___?',a:['me']},
+{r:'pr',t:'f',q:'（　）に入る語を書きなさい。（それの）',s:'I have a dog. ___ name is Kuro.',a:['Its'],x:'it\'s（it is）とまちがえないように。'},
+{r:'pr',t:'c',q:'（　）に入る正しいものを選びなさい。',s:'Ken and Tom are my friends. I often play soccer with ( ).',ch:['them','they','their','theirs']},
+{r:'pr',t:'c',q:'（　）に入る正しいものを選びなさい。',s:'Ms. Brown is our teacher. We like ( ) very much.',ch:['her','she','hers','his']},
+{r:'pr',t:'c',q:'（　）に入る正しいものを選びなさい。',s:'This is ( ) sister, Yumi.',ch:['my','me','mine','I']},
+{r:'pr',t:'o',q:'日本語に合うように並べかえなさい。「あなたは彼女のことをよく知っていますか。」',o:['Do','you','know','her','well'],p:'?'},
+{r:'pr',t:'o',q:'日本語に合うように並べかえなさい。「私はよく彼らといっしょに勉強します。」',o:['I','often','study','with','them'],p:'.'},
+{r:'pr',t:'w',q:'英語にしなさい。「私は彼が好きです。」',a:['I like him.']},
+// ---- Whose / Which ----
+{r:'wh',t:'f',q:'（　）に入る語を書きなさい。',s:'___ bike is this? — It\'s mine.',a:['Whose']},
+{r:'wh',t:'f',q:'（　）に入る語を書きなさい。（私のもの）',s:'Whose pen is this? — It\'s ___.',a:['mine']},
+{r:'wh',t:'f',q:'（　）に入る語を書きなさい。（彼女のもの）',s:'Is this your bag? — No, it isn\'t. It\'s ___.',a:['hers']},
+{r:'wh',t:'f',q:'（　）に入る語を書きなさい。',s:'___ do you like, dogs or cats? — I like dogs.',a:['Which']},
+{r:'wh',t:'f',q:'（　）に入る語を書きなさい。（彼らのもの）',s:'Are these your books? — No. They are ___.',a:['theirs']},
+{r:'wh',t:'f',q:'（　）に入る語を書きなさい。',s:'Which do you want, tea ___ coffee?',a:['or']},
+{r:'wh',t:'c',q:'次の質問への答えとして正しいものを選びなさい。',s:'Whose umbrella is this?',ch:['It\'s Yuki\'s.','Yes, it is.','It\'s blue.','I\'m Yuki.']},
+{r:'wh',t:'c',q:'次の質問への答えとして正しいものを選びなさい。',s:'Which do you want, juice or milk?',ch:['I want milk.','Yes, I do.','No, I don\'t.','It\'s mine.']},
+{r:'wh',t:'c',q:'「これはだれのギターですか。」を正しく表している英文を選びなさい。',ch:['Whose guitar is this?','Who guitar is this?','Whose is guitar this?','Which guitar is this?']},
+{r:'wh',t:'c',q:'次の質問への答えとして正しいものを選びなさい。',s:'Which bike is yours?',ch:['The black one is.','Yes, it is.','It\'s my bike.','I like bikes.']},
+{r:'wh',t:'o',q:'日本語に合うように並べかえなさい。「どちらがあなたのノートですか。」',o:['Which','is','your','notebook'],p:'?'},
+{r:'wh',t:'o',q:'日本語に合うように並べかえなさい。「あれはだれの家ですか。」',o:['Whose','house','is','that'],p:'?'},
+{r:'wh',t:'w',q:'英語にしなさい。「これはだれのかばんですか。」',a:['Whose bag is this?']},
+{r:'wh',t:'w',q:'英語にしなさい。「そのペンは私のものです。」',a:['The pen is mine.','That pen is mine.']},
+// ---- 現在進行形 ----
+{r:'pp',t:'f',q:'次の動詞を ing 形にしなさい。',s:'swim',a:['swimming']},
+{r:'pp',t:'f',q:'次の動詞を ing 形にしなさい。',s:'make',a:['making']},
+{r:'pp',t:'f',q:'次の動詞を ing 形にしなさい。',s:'run',a:['running']},
+{r:'pp',t:'f',q:'次の動詞を ing 形にしなさい。',s:'write',a:['writing']},
+{r:'pp',t:'f',q:'次の動詞を ing 形にしなさい。',s:'study',a:['studying']},
+{r:'pp',t:'f',q:'次の動詞を ing 形にしなさい。',s:'sit',a:['sitting']},
+{r:'pp',t:'f',q:'次の動詞を ing 形にしなさい。',s:'use',a:['using']},
+{r:'pp',t:'f',q:'（　）に入る語を書きなさい。（watch を適切な形に）',s:'I am ___ TV now.',a:['watching']},
+{r:'pp',t:'f',q:'（　）に入る語を書きなさい。',s:'Ken ___ running in the park now.',a:['is']},
+{r:'pp',t:'f',q:'（　）に入る語を書きなさい。',s:'What are you ___? — I\'m reading a book.',a:['doing']},
+{r:'pp',t:'f',q:'今していることを表す文に書きかえるとき、（　）に入る2語を書きなさい。',s:'I play the guitar. → I ___ the guitar now.',a:['am playing']},
+{r:'pp',t:'f',q:'（　）に入る語を書きなさい。',s:'Are they swimming? — No, they ___.',a:['aren\'t','are not']},
+{r:'pp',t:'c',q:'正しい英文を選びなさい。',ch:['She is cooking dinner now.','She cooking dinner now.','She is cook dinner now.','She cookings dinner now.']},
+{r:'pp',t:'c',q:'次の質問への答えとして正しいものを選びなさい。',s:'Are you studying now?',ch:['Yes, I am.','Yes, I do.','Yes, you are.','No, I don\'t.']},
+{r:'pp',t:'c',q:'（　）に入る正しいものを選びなさい。',s:'Look! The bird ( ) in the sky.',ch:['is flying','flies','fly','are flying']},
+{r:'pp',t:'c',q:'（　）に入る正しいものを選びなさい。',s:'I ( ) tennis every Sunday.',ch:['play','am playing','playing','plays'],x:'every Sunday は「いつもすること」なので、ふつうの現在形です。'},
+{r:'pp',t:'c',q:'正しい英文を選びなさい。',ch:['I know Mr. Brown.','I am knowing Mr. Brown.','I knowing Mr. Brown.','I am know Mr. Brown.'],x:'know は「状態」を表す動詞なので、ふつう進行形にしません。'},
+{r:'pp',t:'c',q:'（　）に入る正しいものを選びなさい。',s:'My sisters ( ) dancing now.',ch:['are','is','am','do']},
+{r:'pp',t:'o',q:'日本語に合うように並べかえなさい。「ミカは今ピアノをひいていますか。」',o:['Is','Mika','playing','the','piano','now'],p:'?'},
+{r:'pp',t:'o',q:'日本語に合うように並べかえなさい。「あなたは何を作っているのですか。」',o:['What','are','you','making'],p:'?'},
+{r:'pp',t:'o',q:'日本語に合うように並べかえなさい。「彼は今テレビを見ていません。」',o:['He','is','not','watching','TV','now'],p:'.'},
+{r:'pp',t:'w',q:'英語にしなさい。「私は今、宿題をしています。」',a:['I am doing my homework now.']},
+{r:'pp',t:'w',q:'英語にしなさい。「彼は何をしていますか。」',a:['What is he doing?']},
+{r:'pp',t:'w',q:'英語にしなさい。「彼らは今、泳いでいません。」',a:['They are not swimming now.']},
+// ---- 電話・会話 ----
+{r:'tel',t:'f',q:'電話で「もしもし、ケンです。」と言うとき、（　）に入る語を書きなさい。',s:'Hello? ___ is Ken.',a:['This']},
+{r:'tel',t:'f',q:'電話で「エマさんをお願いできますか。」と言うとき、（　）に入る語を書きなさい。',s:'Can I ___ to Emma, please?',a:['speak','talk']},
+{r:'tel',t:'f',q:'電話で「少々お待ちください。」と言うとき、（　）に入る語を書きなさい。',s:'Hold ___, please.',a:['on']},
+{r:'tel',t:'c',q:'電話で自分の名前を伝えるときの言い方として正しいものを選びなさい。',ch:['This is Kumi.','That is Kumi.','It is Kumi\'s.','Kumi is this.']},
+{r:'tel',t:'c',q:'「今何をしているの？」と聞かれたときの答えとして正しいものを選びなさい。',s:'What are you doing now?',ch:['I\'m reading a comic book.','Yes, I am.','I read a comic book.','I\'m fine, thank you.']},
+{r:'tel',t:'o',q:'日本語に合うように並べかえなさい。「トムさんをお願いできますか。」',o:['Can','I','speak','to','Tom',',','please'],p:'?'},
+// ---- 三単現の復習 ----
+{r:'rv',t:'f',q:'（　）内の語を適切な形にしなさい。',s:'Tom ___ tennis every day. (play)',a:['plays']},
+{r:'rv',t:'f',q:'（　）内の語を適切な形にしなさい。',s:'My sister ___ TV after dinner. (watch)',a:['watches']},
+{r:'rv',t:'f',q:'（　）内の語を適切な形にしなさい。',s:'He ___ English hard. (study)',a:['studies']},
+{r:'rv',t:'f',q:'（　）内の語を適切な形にしなさい。',s:'She ___ a cat. (have)',a:['has']},
+{r:'rv',t:'f',q:'（　）に入る語を書きなさい。',s:'Does she like music? — Yes, she ___.',a:['does']},
+{r:'rv',t:'c',q:'正しい英文を選びなさい。',ch:['Ken doesn\'t have a dog.','Ken don\'t have a dog.','Ken doesn\'t has a dog.','Ken isn\'t have a dog.']},
+{r:'rv',t:'o',q:'日本語に合うように並べかえなさい。「あなたのお兄さんは野球をしますか。」',o:['Does','your','brother','play','baseball'],p:'?'},
+{r:'rv',t:'w',q:'英語にしなさい。「彼女は毎朝コーヒーを飲みます。」',a:['She drinks coffee every morning.']}
+];
+Q.forEach((q,i)=>q.id=i);
+
+const $=s=>document.querySelector(s);
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+
+const tabs={sum:$('#tab-sum'),quiz:$('#tab-quiz')};
+function showTab(k){for(const n in tabs){const on=n===k;tabs[n].setAttribute('aria-selected',on);$('#pane-'+n).hidden=!on}store.set('eng-tab',k)}
+tabs.sum.onclick=()=>showTab('sum');tabs.quiz.onclick=()=>showTab('quiz');
+showTab(store.get('eng-tab','sum'));
+
+const sb=$('#sheetBtn');
+sb.onclick=()=>{const on=document.body.classList.toggle('sheet');sb.classList.toggle('on',on);document.querySelectorAll('.k.show').forEach(e=>e.classList.remove('show'))};
+document.addEventListener('click',e=>{const k=e.target.closest('.k');if(k&&document.body.classList.contains('sheet'))k.classList.toggle('show')});
+
+/* setup */
+const ro=$('#rangeOpts');
+Object.entries(R).forEach(([k,v])=>{const l=document.createElement('label');l.className='opt';l.innerHTML=`<input type="checkbox" id="r-${k}" value="${k}" checked><span class="tag" style="--c:${v.c}">&nbsp;</span>${v.n}`;ro.appendChild(l)});
+let wrong=new Set(store.get('eng-wrong',[]));
+const saveWrong=()=>store.set('eng-wrong',[...wrong]);
+const TYPES=['f','c','o','w'];
+function pool(){const rs=[...ro.querySelectorAll('input:checked')].map(i=>i.value);const ts=TYPES.filter(t=>$('#t-'+t).checked);return Q.filter(q=>rs.includes(q.r)&&ts.includes(q.t))}
+function upd(){const p=pool();$('#poolInfo').textContent=`対象 ${p.length}問 ／ まちがえた問題 ${wrong.size}問`;$('#startBtn').disabled=!p.length;$('#wrongBtn').disabled=!wrong.size}
+document.querySelectorAll('#setup input').forEach(i=>i.addEventListener('change',upd));upd();
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+
+let S=null;
+$('#startBtn').onclick=()=>{const n=+document.querySelector('input[name=n]:checked').value;start(shuffle(pool()).slice(0,n))};
+$('#wrongBtn').onclick=()=>start(shuffle(Q.filter(q=>wrong.has(q.id))));
+function start(list){S={list,i:0,score:[]};$('#setup').hidden=true;$('#result').hidden=true;$('#play').hidden=false;render()}
+
+/* 英語の答え合わせ：ゆるい一致（大文字・記号・短縮形を無視）と、きっちり一致（そのまま書けているか）の2段階 */
+const CONTR={"i'm":"i am","you're":"you are","he's":"he is","she's":"she is","it's":"it is","we're":"we are","they're":"they are","what's":"what is","isn't":"is not","aren't":"are not","don't":"do not","doesn't":"does not","can't":"cannot"};
+const clean=s=>s.normalize('NFKC').replace(/[’‘`]/g,"'").replace(/\s+/g,' ').trim();
+function loose(s){let t=clean(s).toLowerCase().replace(/[.?!,]/g,' ').replace(/\s+/g,' ').trim();
+  return t.split(' ').map(w=>CONTR[w]||w).join(' ').replace(/\bcan not\b/g,'cannot')}
+function judge(input,answers){const c=clean(input);
+  if(answers.some(a=>clean(a)===c))return 'ok';
+  if(answers.some(a=>loose(a)===loose(c)))return 'mid';
+  return 'ng'}
+
+const KANA='アイウエ';
+function head(q){const r=R[q.r];const tn={f:'穴埋め',c:'記号選択',o:'並べかえ',w:'英作文'}[q.t];
+  const s=q.s?`<span class="en">${esc(q.s).replace('___','（　　）')}</span>`:'';
+  return `<div class="prog"><i style="width:${S.i/S.list.length*100}%"></i></div>
+  <div class="meta"><span><span class="tag" style="--c:${r.c}">${r.n}</span>　${tn}</span><span>${S.i+1} / ${S.list.length}</span></div>
+  <div class="qtext">${q.q}${s}</div>`}
+function fbHtml(state,ans,x,extra){
+  const v={ok:['ok','正解'],mid:['mid','正解（ただし大文字・記号・つづりの形を確認）'],ng:['ng','不正解']}[state];
+  return `<div class="fb"><div class="v ${v[0]}">${v[1]}</div>正解：<span class="ans">${esc(ans)}</span>${x?'<br>'+x:''}<div class="row" style="margin-top:10px">${extra||''}<button class="btn" id="nx" type="button">次へ</button></div></div>`}
+function render(){
+  const q=S.list[S.i],p=$('#play');
+  if(q.t==='f'||q.t==='w'){
+    const ph=q.t==='w'?'英文を書く（大文字・ピリオドも）':'答えを入力';
+    p.innerHTML=head(q)+`<div class="row"><input id="fillIn" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${ph}" style="flex:1;min-width:0"><button class="btn" id="chk" type="button">答え合わせ</button></div><div id="fb"></div>`;
+    const inp=$('#fillIn');inp.focus({preventScroll:true});
+    const go=()=>{if($('#chk').disabled||!inp.value.trim())return;$('#chk').disabled=true;inp.disabled=true;
+      const st=judge(inp.value,q.a);let res=st==='ng'?0:1;
+      $('#fb').innerHTML=fbHtml(st,q.a[0],q.x,st==='ng'?'<button class="btn ghost" id="ovr" type="button">合ってた（別の言い方）</button>':'');
+      if(st==='ng')$('#ovr').onclick=()=>{res=1;$('#ovr').remove();$('#fb .v').className='v ok';$('#fb .v').textContent='正解（別の言い方）'};
+      $('#nx').onclick=()=>next(q,res);$('#nx').focus({preventScroll:true})};
+    $('#chk').onclick=go;inp.onkeydown=e=>{if(e.key==='Enter'&&!e.isComposing)go()};
+  }else if(q.t==='c'){
+    const order=shuffle(q.ch.map((c,i)=>({c,i})));
+    p.innerHTML=head(q)+`<div class="choices">${order.map((o,k)=>`<button type="button" data-i="${o.i}"><b>${KANA[k]}</b><span>${esc(o.c)}</span></button>`).join('')}</div><div id="fb"></div>`;
+    p.querySelectorAll('.choices button').forEach(b=>b.onclick=()=>{
+      const box=p.querySelector('.choices');if(box.dataset.done)return;box.dataset.done=1;
+      const ok=b.dataset.i==='0';b.classList.add(ok?'right':'wrong');p.querySelector('[data-i="0"]').classList.add('right');
+      $('#fb').innerHTML=fbHtml(ok?'ok':'ng',q.ch[0],q.x);
+      $('#nx').onclick=()=>next(q,ok?1:0);$('#nx').focus({preventScroll:true})});
+  }else{ // 並べかえ
+    let pick=[];
+    // 先頭語は小文字にして出す（どれが最初の語かのヒントにならないように）。I はそのまま
+    const words=q.o.map((w,i)=>({w:i===0&&w!=='I'?w.toLowerCase():w,i}));
+    const bank=shuffle(words);
+    p.innerHTML=head(q)+`<div class="built" id="built"></div>
+      <div class="bank" id="bank">${bank.map(o=>`<button class="w" type="button" data-i="${o.i}">${esc(o.w)}</button>`).join('')}</div>
+      <div style="font-size:.8rem;color:var(--sub);margin-top:6px">文の最初の語は大文字で考えよう。最後の「${q.p}」は自動でつきます。並べた語をタップすると戻せます。</div>
+      <div class="row" style="margin-top:10px"><button class="btn" id="chk" type="button" disabled>答え合わせ</button><button class="btn ghost" id="clr" type="button">やり直し</button></div><div id="fb"></div>`;
+    const built=$('#built');
+    const draw=()=>{built.innerHTML=pick.map(i=>`<button class="w" type="button" data-b="${i}">${esc(words.find(o=>o.i===i).w)}</button>`).join('')+(pick.length===q.o.length?`<span>${q.p}</span>`:'');
+      p.querySelectorAll('#bank .w').forEach(b=>b.disabled=pick.includes(+b.dataset.i));
+      $('#chk').disabled=pick.length!==q.o.length;
+      built.querySelectorAll('[data-b]').forEach(b=>b.onclick=()=>{if($('#fb').innerHTML)return;pick=pick.filter(x=>x!==+b.dataset.b);draw()})};
+    p.querySelectorAll('#bank .w').forEach(b=>b.onclick=()=>{if($('#fb').innerHTML)return;pick.push(+b.dataset.i);draw()});
+    $('#clr').onclick=()=>{if($('#fb').innerHTML)return;pick=[];draw()};
+    const full=q.o.join(' ').replace(' ,',',')+q.p;
+    $('#chk').onclick=()=>{const ok=pick.every((v,k)=>q.o[v]!==undefined&&q.o[v].toLowerCase()===q.o[k].toLowerCase());
+      $('#chk').disabled=true;$('#clr').disabled=true;
+      $('#fb').innerHTML=fbHtml(ok?'ok':'ng',full,ok?'':'最初の語は大文字で書き出します。');
+      $('#nx').onclick=()=>next(q,ok?1:0);$('#nx').focus({preventScroll:true})};
+    draw();
+  }
+}
+function next(q,s){S.score.push({q,s});if(s<1)wrong.add(q.id);else wrong.delete(q.id);saveWrong();S.i++;if(S.i<S.list.length)render();else finish()}
+function finish(){
+  $('#play').hidden=true;const r=$('#result');r.hidden=false;
+  const tot=S.score.reduce((a,b)=>a+b.s,0),pct=Math.round(tot/S.score.length*100);
+  const by={};S.score.forEach(({q,s})=>{(by[q.r]=by[q.r]||{n:0,s:0});by[q.r].n++;by[q.r].s+=s});
+  const msg=pct>=90?'すばらしい！この調子でキープ。':pct>=70?'いい感じ。まちがえた問題をもう一度やってみよう。':'まとめを読み直してから、もう一度チャレンジしよう。';
+  r.innerHTML=`<div class="meta"><span>結果</span><span>${S.score.length}問</span></div><div class="score">${pct}<span style="font-size:1.2rem">点</span></div><p style="margin:6px 0 0">${msg}</p>
+  <div class="res">${Object.keys(R).filter(k=>by[k]).map(k=>`<div style="--c:${R[k].c}"><span>${R[k].n}</span><span class="t"><i style="width:${by[k].s/by[k].n*100}%"></i></span><span>${Math.round(by[k].s/by[k].n*100)}%</span></div>`).join('')}</div>
+  <div class="row"><button class="btn" id="again" type="button">設定にもどる</button>${wrong.size?`<button class="btn ghost" id="rev" type="button">まちがえた問題を復習（${wrong.size}問）</button>`:''}</div>`;
+  $('#again').onclick=()=>{r.hidden=true;$('#setup').hidden=false;upd()};
+  if($('#rev'))$('#rev').onclick=()=>start(shuffle(Q.filter(q=>wrong.has(q.id))));
+}
+</script>
+
+</body>
+</html>

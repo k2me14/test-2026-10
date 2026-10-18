@@ -14,14 +14,14 @@
 /* Layout: 科目カードを縦に並べるだけのシンプルな入口 */
 :root{
   --bg:#eff1f2; --paper:#ffffff; --ink:#22282d; --sub:#5f6a72; --line:#d6dce0;
-  --geo:#1f6f8b; --his:#8b2f4a;
+  --geo:#1f6f8b; --his:#8b2f4a; --eng:#4338a0;
   --display:"Dela Gothic One","Hiragino Sans","Yu Gothic",sans-serif;
   --body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#15191c; --paper:#1e2428; --ink:#e6ebee; --sub:#a0acb4; --line:#323b41; --geo:#5fb3d0; --his:#e58aa3; color-scheme:dark}}
+  --bg:#15191c; --paper:#1e2428; --ink:#e6ebee; --sub:#a0acb4; --line:#323b41; --geo:#5fb3d0; --his:#e58aa3; --eng:#a99cff; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#15191c; --paper:#1e2428; --ink:#e6ebee; --sub:#a0acb4; --line:#323b41; --geo:#5fb3d0; --his:#e58aa3; color-scheme:dark}
+  --bg:#15191c; --paper:#1e2428; --ink:#e6ebee; --sub:#a0acb4; --line:#323b41; --geo:#5fb3d0; --his:#e58aa3; --eng:#a99cff; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.7;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
@@ -51,6 +51,11 @@ a.card:focus-visible{outline:3px solid var(--c);outline-offset:2px}
     <a class="card" href="https://k2me14.github.io/test-2026-10/history.html" style="--c:var(--his)">
       <div class="mark">歴</div>
       <div><b>歴史</b><span>絶対王政、三大市民革命、産業革命、19世紀の文化 ＋ 7月範囲</span></div>
+      <div class="arrow" aria-hidden="true">→</div>
+    </a>
+    <a class="card" href="https://k2me14.github.io/test-2026-10/english.html" style="--c:var(--eng)">
+      <div class="mark">英</div>
+      <div><b>英語</b><span>NEW HORIZON Unit 6・7：代名詞、Whose・Which、現在進行形</span></div>
       <div class="arrow" aria-hidden="true">→</div>
     </a>
   </div>
