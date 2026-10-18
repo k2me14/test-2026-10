@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>中1歴史 10月考査</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* Layout: 地理と同じ骨組み。まとめは時代順の章と年表、問題は1問ずつのカード */
+:root{
+  --bg:#f1efee; --paper:#ffffff; --ink:#2a2224; --sub:#6b5f62; --line:#ddd5d4;
+  --accent:#8b2f4a; --accent-ink:#ffffff; --mark:#fff1a8; --red:#c8323c; --ok:#2f7d4f;
+  --ab:#9a6a16; --uk:#3d5fb0; --en:#6b7b2a; --us:#2c7f8c; --fr:#c24a5a; --ir:#5b5f66; --c19:#7a4fae; --jul:#3f8f5a;
+  --display:"Dela Gothic One","Hiragino Sans","Yu Gothic",sans-serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1a1517; --paper:#241d20; --ink:#efe6e8; --sub:#b0a1a5; --line:#3a3034;
+  --accent:#e58aa3; --accent-ink:#1a1014; --mark:#5c5220; --red:#ff7a82; --ok:#6fd39a;
+  --ab:#e0b05a; --uk:#8aa6f0; --en:#b5c46a; --us:#6fc6d3; --fr:#ff8f9c; --ir:#a9adb5; --c19:#c39af0; --jul:#7fd39a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1a1517; --paper:#241d20; --ink:#efe6e8; --sub:#b0a1a5; --line:#3a3034;
+  --accent:#e58aa3; --accent-ink:#1a1014; --mark:#5c5220; --red:#ff7a82; --ok:#6fd39a;
+  --ab:#e0b05a; --uk:#8aa6f0; --en:#b5c46a; --us:#6fc6d3; --fr:#ff8f9c; --ir:#a9adb5; --c19:#c39af0; --jul:#7fd39a; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.75;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:var(--accent)}
+.wrap{max-width:760px;margin:0 auto;padding-block:20px 60px}
+h1{font-family:var(--display);font-weight:400;font-size:1.7rem;line-height:1.3;margin:0;text-wrap:balance}
+h1 small{display:block;font-family:var(--body);font-size:.85rem;font-weight:500;color:var(--sub);letter-spacing:.04em}
+.sib{font-size:.85rem;margin-top:4px}
+.info{margin-top:14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.info div{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.88rem;line-height:1.6}
+.info b{display:block;font-size:.75rem;color:var(--sub);letter-spacing:.06em}
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:6px;padding-block:12px;margin-top:6px;border-bottom:1px solid var(--line)}
+.tabs button{flex:1;font:inherit;font-weight:700;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,label:focus-within{outline:3px solid var(--accent);outline-offset:2px}
+.tool{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0 4px;font-size:.88rem;color:var(--sub)}
+.chip{font:inherit;font-size:.85rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+.chip.on{background:var(--red);border-color:var(--red);color:#fff}
+.group{margin-top:26px}
+.group>h2{font-size:.8rem;letter-spacing:.12em;color:var(--sub);margin:0 0 6px;font-weight:700}
+.group>h2 span{color:var(--ink);background:var(--mark);padding:1px 6px;border-radius:4px;margin-left:6px;letter-spacing:.02em}
+section.reg{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 18px 14px;margin-top:12px;border-top:6px solid var(--c)}
+section.reg h3{font-family:var(--display);font-weight:400;font-size:1.3rem;margin:0 0 4px;color:var(--c)}
+section.reg h3 small{font-family:var(--body);font-size:.8rem;color:var(--sub);font-weight:500;margin-left:6px}
+section.reg h4{font-size:.95rem;margin:16px 0 4px;padding-left:8px;border-left:3px solid var(--c)}
+section.reg ul{margin:0;padding-left:1.2em}
+section.reg li{margin:3px 0}
+.k{font-weight:700;color:var(--red);background:linear-gradient(transparent 62%,var(--mark) 62%);border-radius:2px;cursor:default}
+body.sheet .k{color:transparent;background:var(--red);opacity:.85;cursor:pointer;user-select:none}
+body.sheet .k.show{color:var(--red);background:linear-gradient(transparent 62%,var(--mark) 62%);opacity:1}
+.why{background:var(--bg);border-radius:10px;padding:10px 12px;margin-top:12px;font-size:.9rem}
+.why b{display:block;font-size:.78rem;letter-spacing:.06em;color:var(--sub)}
+/* 年表 */
+.tl{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:2px}
+.tl label{display:grid;grid-template-columns:1.2em 4.6em 1fr;gap:8px;align-items:baseline;padding:5px 8px;border-radius:8px;cursor:pointer;border-left:4px solid var(--c)}
+.tl label:hover{background:var(--bg)}
+.tl input{accent-color:var(--c);margin:0}
+.tl .y{font-weight:700;font-variant-numeric:tabular-nums}
+.tl label:has(input:checked){color:var(--sub)}
+.tl label:has(input:checked) .e{text-decoration:line-through}
+body.sheet .tl .y{color:transparent;background:var(--red);border-radius:3px;opacity:.85}
+body.sheet .tl label:hover .y{color:var(--ink);background:none;opacity:1}
+.legend{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:.78rem;color:var(--sub);margin-top:6px}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--c);margin-right:4px;vertical-align:-1px}
+.note{font-size:.82rem;color:var(--sub);margin-top:22px}
+/* quiz */
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:16px}
+.panel h3{margin:0 0 6px;font-size:1rem}
+.opts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.opt{display:inline-flex;gap:6px;align-items:center;padding:8px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;font-size:.92rem}
+.opt input{accent-color:var(--accent);margin:0}
+.opt:has(input:checked){border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.btn{font:inherit;font-weight:700;padding:11px 18px;border-radius:10px;border:0;background:var(--accent);color:var(--accent-ink);cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.btn:disabled{opacity:.4;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.prog{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:12px}
+.prog i{display:block;height:100%;background:var(--accent);transition:width .3s}
+.meta{display:flex;justify-content:space-between;gap:8px;font-size:.8rem;color:var(--sub);margin-bottom:8px;flex-wrap:wrap}
+.tag{display:inline-block;font-size:.75rem;font-weight:700;color:#fff;background:var(--c);padding:1px 8px;border-radius:999px}
+.qtext{font-size:1.1rem;font-weight:500;margin:6px 0 14px}
+.choices{display:grid;gap:8px}
+.choices button{font:inherit;text-align:left;padding:11px 14px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;display:flex;gap:10px}
+.choices button b{color:var(--sub)}
+.choices button.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 15%,transparent)}
+.choices button.wrong{border-color:var(--red);background:color-mix(in srgb,var(--red) 12%,transparent)}
+#fillIn,#expIn{font:inherit;width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+#expIn{min-height:96px;resize:vertical}
+.fb{margin-top:14px;padding:12px 14px;border-radius:10px;background:var(--bg);font-size:.93rem}
+.fb .v{font-weight:700;font-size:1rem}
+.fb .v.ok{color:var(--ok)} .fb .v.ng{color:var(--red)}
+.kw{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.kw span{font-size:.8rem;padding:2px 8px;border-radius:6px;background:var(--mark);font-weight:700}
+.score{font-family:var(--display);font-size:3rem;line-height:1;font-variant-numeric:tabular-nums}
+.res{display:grid;gap:6px;margin:14px 0;font-size:.9rem}
+.res div{display:grid;grid-template-columns:9em 1fr 3.5em;gap:8px;align-items:center}
+.res .t{height:8px;background:var(--line);border-radius:4px;overflow:hidden}
+.res .t i{display:block;height:100%;background:var(--c)}
+.res span:last-child{text-align:right;font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:480px){h1{font-size:1.4rem}.res div{grid-template-columns:7em 1fr 3em}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1><small>2026年度 10月考査</small>中1歴史 まとめ＆問題</h1>
+    <div class="sib"><a href="https://k2me14.github.io/geo-test-2026-10/" target="_blank" rel="noopener">地理のページはこちら</a></div>
+    <div class="info">
+      <div><b>範囲</b>世界史（近代）：絶対王政、三大市民革命、産業革命、19世紀の文化など。プリントNo.11〜16、実力錬成テキストp.82〜87。</div>
+      <div><b>出題と配点</b>穴埋め・記号選びが約80点、文章で説明する問題が約20点。このうち20点分は7月考査範囲の確認問題。</div>
+      <div><b>先生から</b>板書が中心。教科書はよく読んでおくこと（教えていないことも出ます）。質問はテスト前日まで。</div>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button role="tab" id="tab-sum" aria-selected="true" aria-controls="pane-sum">まとめ</button>
+    <button role="tab" id="tab-quiz" aria-selected="false" aria-controls="pane-quiz">問題にチャレンジ</button>
+  </nav>
+
+  <!-- ===================== まとめ ===================== -->
+  <div id="pane-sum" role="tabpanel">
+    <div class="tool">
+      <button class="chip" id="sheetBtn" type="button">赤シートモード</button>
+      <span>オンにすると赤字と年号が隠れます。タップでめくれます。</span>
+    </div>
+
+    <section class="reg" style="--c:var(--accent);margin-top:18px">
+      <h3>年表チェック</h3>
+      <div style="font-size:.88rem;color:var(--sub)">覚えたらチェック。並び順（どれが先か）もよく問われます。</div>
+      <ul class="tl" id="timeline"></ul>
+      <div class="legend" id="legend"></div>
+    </section>
+
+    <div class="group">
+      <h2>今回の範囲（近代）<span>約80点</span></h2>
+
+      <section class="reg" style="--c:var(--ab)">
+        <h3>絶対王政<small>16〜18世紀</small></h3>
+        <ul>
+          <li>国王が強い権力をにぎり、思うままに国を治める政治＝<span class="k">絶対王政</span>。王の権力は神から授けられたとする<span class="k">王権神授説</span>が支えになった。</li>
+          <li>王は<span class="k">常備軍</span>（いつもいる軍隊）と<span class="k">官僚</span>を整え、商工業者を保護して税を集めた（<span class="k">重商主義</span>）。</li>
+          <li>スペイン：<span class="k">フェリペ2世</span>のころ全盛。「太陽のしずまない国」。1588年、<span class="k">無敵艦隊</span>がイギリスに敗れる。</li>
+          <li>イギリス：<span class="k">エリザベス1世</span>。1600年に<span class="k">東インド会社</span>をつくりアジアと貿易。</li>
+          <li>フランス：<span class="k">ルイ14世</span>（太陽王）。豪華な<span class="k">ヴェルサイユ宮殿</span>を建てた。</li>
+        </ul>
+      </section>
+
+      <section class="reg" style="--c:var(--uk)">
+        <h3>イギリスの革命<small>17世紀</small></h3>
+        <ul>
+          <li>国王が議会を無視して税を課すなどの専制政治 → 議会が反発。</li>
+          <li>1642年 <span class="k">ピューリタン革命</span>（清教徒革命）。<span class="k">クロムウェル</span>が議会側を指導し、国王<span class="k">チャールズ1世</span>を処刑して<span class="k">共和政</span>に。</li>
+          <li>クロムウェルの死後、王政が復活。再び国王が専制を行う。</li>
+          <li>1688年 <span class="k">名誉革命</span>。血を流さずに国王を追放し、オランダから<span class="k">ウィリアム3世とメアリ2世</span>を迎えた。</li>
+          <li>1689年 <span class="k">権利章典</span>。議会の同意なしに法律の停止や課税ができないことを確認 → <span class="k">立憲君主制</span>と<span class="k">議会政治</span>が始まる。</li>
+        </ul>
+        <div class="why"><b>説明問題の型：名誉革命でイギリスの政治はどう変わったか</b>
+          <span class="k">権利章典</span>が出され、国王は<span class="k">議会の同意</span>なしに法律の停止や課税ができなくなった。国王も法に従う<span class="k">立憲君主制</span>と、議会が中心となる<span class="k">議会政治</span>が確立した。</div>
+      </section>
+
+      <section class="reg" style="--c:var(--en)">
+        <h3>啓蒙思想<small>17〜18世紀</small></h3>
+        <ul>
+          <li>人は生まれながらに<span class="k">自由・平等</span>だという考え。市民革命の支えとなった。</li>
+          <li><span class="k">ロック</span>（イギリス）『統治二論』：政府が人々の権利をおかしたら、人々は<span class="k">抵抗する権利（抵抗権）</span>をもつ。</li>
+          <li><span class="k">モンテスキュー</span>（フランス）『<span class="k">法の精神</span>』：権力を立法・行政・司法に分ける<span class="k">三権分立</span>。</li>
+          <li><span class="k">ルソー</span>（フランス）『<span class="k">社会契約論</span>』：国の主権は人民にある＝<span class="k">人民主権</span>。</li>
+        </ul>
+      </section>
+
+      <section class="reg" style="--c:var(--us)">
+        <h3>アメリカの独立<small>18世紀後半</small></h3>
+        <ul>
+          <li>イギリスは北アメリカ東海岸に<span class="k">13</span>の植民地をもっていた。</li>
+          <li>イギリスが植民地に新しい税（印紙法・茶法など）を課す → 植民地側は「<span class="k">代表なくして課税なし</span>」と反対。1773年 <span class="k">ボストン茶会事件</span>。</li>
+          <li>1775年 <span class="k">独立戦争</span>。総司令官は<span class="k">ワシントン</span>。フランスなどが植民地側を支援。</li>
+          <li>1776年7月4日 <span class="k">独立宣言</span>（<span class="k">ジェファソン</span>らが起草）。人は平等で、生命・自由・幸福追求の権利をもつ。</li>
+          <li>1783年 イギリスが独立を認める。1787年 <span class="k">合衆国憲法</span>（<span class="k">三権分立</span>、人民主権）。初代大統領は<span class="k">ワシントン</span>。</li>
+        </ul>
+        <div class="why"><b>説明問題の型：独立戦争が起こった理由</b>
+          植民地の人々はイギリス本国の議会に<span class="k">代表を送れない</span>のに、イギリスが<span class="k">一方的に税</span>を課したため反発したから。</div>
+      </section>
+
+      <section class="reg" style="--c:var(--fr)">
+        <h3>フランス革命とナポレオン<small>1789年〜</small></h3>
+        <h4>革命前（旧体制＝<span class="k">アンシャン・レジーム</span>）</h4>
+        <ul>
+          <li>第一身分＝<span class="k">聖職者</span>、第二身分＝<span class="k">貴族</span>は税を免除される特権あり。第三身分＝<span class="k">平民</span>（農民・商工業者）が人口の9割以上で、重い税を負担。</li>
+        </ul>
+        <h4>革命の流れ</h4>
+        <ul>
+          <li>国王<span class="k">ルイ16世</span>が財政難のため1789年に<span class="k">三部会</span>を開く → 第三身分が<span class="k">国民議会</span>をつくる。</li>
+          <li>1789年7月14日 パリの民衆が<span class="k">バスチーユ牢獄</span>を襲撃 → 革命が始まる。</li>
+          <li>1789年8月 <span class="k">人権宣言</span>：自由・平等、<span class="k">国民主権</span>、私有財産の不可侵。</li>
+          <li>1792年 王政を廃止し<span class="k">共和政</span>に。1793年 ルイ16世と王妃<span class="k">マリー・アントワネット</span>を処刑。<span class="k">ロベスピエール</span>の恐怖政治。</li>
+        </ul>
+        <h4>ナポレオン</h4>
+        <ul>
+          <li>軍人<span class="k">ナポレオン</span>が1799年に権力をにぎり、1804年に<span class="k">皇帝</span>となる。同年 <span class="k">ナポレオン法典</span>（民法典：法の下の平等など）。</li>
+          <li>ヨーロッパの大部分を支配 → 1812年<span class="k">ロシア遠征</span>に失敗して没落。</li>
+          <li>その後 <span class="k">ウィーン会議</span>（1814〜15年）でヨーロッパの秩序を話し合った。</li>
+        </ul>
+        <div class="why"><b>説明問題の型：フランス革命が起こった原因</b>
+          <span class="k">聖職者と貴族</span>は税を免除される特権をもつ一方、<span class="k">平民</span>が重い税を負担していた。財政難をきっかけに平民の不満が高まり、<span class="k">啓蒙思想</span>の影響も受けて革命が起こった。</div>
+      </section>
+
+      <section class="reg" style="--c:var(--ir)">
+        <h3>産業革命<small>18世紀後半〜</small></h3>
+        <ul>
+          <li>18世紀後半、<span class="k">イギリス</span>で始まった、機械の発明による産業と社会の大きな変化＝<span class="k">産業革命</span>。</li>
+          <li>まず<span class="k">綿工業</span>で機械化（紡績機・力織機）。<span class="k">ワット</span>が<span class="k">蒸気機関</span>を改良し、工場の動力に。</li>
+          <li><span class="k">スティーブンソン</span>が蒸気機関車を実用化。1825年に鉄道が開通。蒸気船も登場。</li>
+          <li>イギリスは工業製品を世界に輸出し「<span class="k">世界の工場</span>」と呼ばれた。</li>
+          <li>工場や機械をもつ<span class="k">資本家</span>が<span class="k">労働者</span>を雇って利益を上げる<span class="k">資本主義</span>が広まった。</li>
+          <li>社会問題：低賃金・長時間労働、<span class="k">子ども</span>や女性の労働、都市の不衛生・公害 → 労働者は<span class="k">労働組合</span>をつくった。</li>
+          <li>平等な社会をめざす<span class="k">社会主義</span>の考え。<span class="k">マルクス</span>が『資本論』で説いた。</li>
+        </ul>
+        <div class="why"><b>説明問題の型：産業革命がイギリスで最初に起こった理由</b>
+          貿易などで<span class="k">資本（お金）</span>がたくわえられていた。<span class="k">石炭や鉄</span>が豊富だった。農村から都市に移った人が<span class="k">労働力</span>になった。製品を売る<span class="k">植民地（市場）</span>をもっていた。</div>
+      </section>
+
+      <section class="reg" style="--c:var(--c19)">
+        <h3>19世紀の欧米と文化</h3>
+        <h4>国の統一と南北戦争</h4>
+        <ul>
+          <li>イタリア：1861年に統一（<span class="k">イタリア王国</span>）。</li>
+          <li>ドイツ：プロイセンの首相<span class="k">ビスマルク</span>が「<span class="k">鉄血政策</span>」で軍備を強化し、1871年に<span class="k">ドイツ帝国</span>を成立させた。</li>
+          <li>アメリカ：1861年<span class="k">南北戦争</span>。工業が発達し奴隷制に反対する<span class="k">北部</span>と、綿花のプランテーションで奴隷を使う<span class="k">南部</span>が対立。</li>
+          <li>大統領<span class="k">リンカン</span>が1863年<span class="k">奴隷解放宣言</span>。同年の演説「<span class="k">人民の、人民による、人民のための政治</span>」。北部が勝利。</li>
+        </ul>
+        <h4>19世紀の文化・科学</h4>
+        <ul>
+          <li>音楽：<span class="k">ベートーベン</span>（ドイツ）、<span class="k">ショパン</span>（ポーランド）。</li>
+          <li>文学：<span class="k">ユゴー</span>『レ・ミゼラブル』、<span class="k">ディケンズ</span>『クリスマス・キャロル』。</li>
+          <li>美術：<span class="k">ミレー</span>『落穂拾い』、<span class="k">ドラクロワ</span>『民衆を導く自由の女神』、<span class="k">モネ</span>やゴッホなど印象派。</li>
+          <li>科学：<span class="k">ダーウィン</span>『種の起源』（進化論）、<span class="k">パスツール</span>・<span class="k">コッホ</span>（細菌学、コッホは結核菌）、<span class="k">エジソン</span>（電球・蓄音機）、<span class="k">ノーベル</span>（ダイナマイト）、<span class="k">ベル</span>（電話）。</li>
+        </ul>
+        <div class="why"><b>説明問題の型：南北戦争で北部と南部が対立した理由</b>
+          <span class="k">北部</span>は工業が発達し、奴隷制に反対していた。<span class="k">南部</span>は綿花の大農園で<span class="k">奴隷の労働</span>にたよっており、奴隷制を続けようとしたから。</div>
+      </section>
+    </div>
+
+    <div class="group">
+      <h2>7月考査範囲の確認<span>20点</span></h2>
+      <section class="reg" style="--c:var(--jul)">
+        <h3>ヨーロッパの近世<small>14〜16世紀</small></h3>
+        <ul>
+          <li><span class="k">ルネサンス</span>（文芸復興）：14世紀に<span class="k">イタリア</span>で始まる。古代ギリシャ・ローマの文化を見直す。<span class="k">レオナルド・ダ・ヴィンチ</span>『モナ・リザ』、<span class="k">ミケランジェロ</span>『ダビデ』。</li>
+          <li>火薬・羅針盤・活版印刷の改良。活版印刷は<span class="k">グーテンベルク</span>。</li>
+          <li><span class="k">宗教改革</span>：1517年、ドイツの<span class="k">ルター</span>がローマ教皇の<span class="k">免罪符（贖宥状）</span>販売を批判。スイスでは<span class="k">カルバン</span>。新しい宗派＝<span class="k">プロテスタント</span>。</li>
+          <li>カトリック側は<span class="k">イエズス会</span>をつくり海外へ布教（<span class="k">ザビエル</span>が日本へ）。</li>
+          <li><span class="k">大航海時代</span>：アジアの<span class="k">香辛料</span>を直接手に入れ、キリスト教を広めるため。<span class="k">コロンブス</span>1492年 西インド諸島、<span class="k">バスコ・ダ・ガマ</span>1498年 インド、<span class="k">マゼラン</span>の船隊が世界一周。</li>
+          <li>スペインがアステカ王国・インカ帝国をほろぼした。</li>
+        </ul>
+        <div class="why"><b>説明問題の型：宗教改革が起こった理由</b>
+          ローマ教皇が大聖堂の修築費を集めるため<span class="k">免罪符</span>を売り出したことに対し、<span class="k">ルター</span>が「信仰のよりどころは<span class="k">聖書</span>だけ」と批判したから。</div>
+      </section>
+    </div>
+
+    <p class="note">7月考査範囲は、実力錬成テキストp.48〜53の内容（ルネサンス・宗教改革・大航海時代）と仮定して作っています。7月の範囲表とちがう場合は、そちらを優先してください。教科書・板書の言い回しも優先してください。年表のチェックはこの端末に保存されます。</p>
+  </div>
+
+  <!-- ===================== 問題 ===================== -->
+  <div id="pane-quiz" role="tabpanel" hidden>
+    <div class="panel" id="setup">
+      <h3>範囲</h3>
+      <div class="opts" id="rangeOpts"></div>
+      <h3>問題の形式</h3>
+      <div class="opts">
+        <label class="opt"><input type="checkbox" id="t-f" value="f" checked>穴埋め</label>
+        <label class="opt"><input type="checkbox" id="t-c" value="c" checked>記号選び</label>
+        <label class="opt"><input type="checkbox" id="t-e" value="e" checked>説明問題</label>
+      </div>
+      <h3>問題数</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="n" id="n10" value="10" checked>10問</label>
+        <label class="opt"><input type="radio" name="n" id="n20" value="20">20問</label>
+        <label class="opt"><input type="radio" name="n" id="nall" value="999">全部</label>
+      </div>
+      <div class="row">
+        <button class="btn" id="startBtn" type="button">スタート</button>
+        <button class="btn ghost" id="wrongBtn" type="button">まちがえた問題だけ</button>
+        <span id="poolInfo" style="font-size:.85rem;color:var(--sub)"></span>
+      </div>
+    </div>
+    <div class="panel" id="play" hidden></div>
+    <div class="panel" id="result" hidden></div>
+  </div>
+</div>
+
+<script>
+const R={
+  ab:{n:'絶対王政',c:'var(--ab)'},
+  uk:{n:'イギリスの革命',c:'var(--uk)'},
+  en:{n:'啓蒙思想',c:'var(--en)'},
+  us:{n:'アメリカの独立',c:'var(--us)'},
+  fr:{n:'フランス革命',c:'var(--fr)'},
+  ir:{n:'産業革命',c:'var(--ir)'},
+  c19:{n:'19世紀の欧米・文化',c:'var(--c19)'},
+  jul:{n:'7月範囲',c:'var(--jul)'}
+};
+const TL=[
+ ['jul','1492','コロンブスが西インド諸島に到達'],
+ ['jul','1498','バスコ・ダ・ガマがインドに到達'],
+ ['jul','1517','ルターが宗教改革を始める'],
+ ['ab','1588','スペインの無敵艦隊がイギリスに敗れる'],
+ ['ab','1600','イギリスが東インド会社を設立'],
+ ['uk','1642','ピューリタン革命が始まる'],
+ ['uk','1649','チャールズ1世を処刑、共和政へ'],
+ ['uk','1688','名誉革命'],
+ ['uk','1689','権利章典'],
+ ['us','1773','ボストン茶会事件'],
+ ['us','1775','アメリカ独立戦争が始まる'],
+ ['us','1776','独立宣言'],
+ ['us','1787','合衆国憲法'],
+ ['fr','1789','フランス革命（バスチーユ襲撃・人権宣言）'],
+ ['fr','1793','ルイ16世を処刑'],
+ ['fr','1804','ナポレオンが皇帝に／ナポレオン法典'],
+ ['fr','1814','ウィーン会議（〜1815）'],
+ ['ir','1825','イギリスで蒸気機関車の鉄道が開通'],
+ ['c19','1861','南北戦争が始まる／イタリア統一'],
+ ['c19','1863','リンカンの奴隷解放宣言'],
+ ['c19','1871','ドイツ帝国の成立']
+];
+// t: f=穴埋め c=記号選び（ch[0]が正解） e=説明
+const Q=[
+// ---- 絶対王政 ----
+{r:'ab',t:'f',q:'16〜18世紀のヨーロッパで、国王が強い権力をにぎって国を治めた政治を何というか。',a:['絶対王政','絶対主義','絶対君主制'],x:''},
+{r:'ab',t:'f',q:'国王の権力は神から授けられたものだとする考えを何というか。',a:['王権神授説'],x:''},
+{r:'ab',t:'f',q:'「太陽王」と呼ばれ、豪華なヴェルサイユ宮殿を建てたフランスの国王はだれか。',a:['ルイ14世','ルイ十四世'],x:'処刑されたルイ16世と混同しないように。'},
+{r:'ab',t:'f',q:'1588年にスペインの無敵艦隊を破ったときのイギリスの女王はだれか。',a:['エリザベス1世','エリザベス一世','エリザベス'],x:''},
+{r:'ab',t:'c',q:'1600年にイギリスがアジアとの貿易のためにつくった会社はどれか。',ch:['東インド会社','西インド会社','南海会社','ハドソン湾会社'],x:''},
+{r:'ab',t:'c',q:'絶対王政の国王が権力を支えるために整えたものの組み合わせとして正しいものはどれか。',ch:['常備軍と官僚','議会と憲法','労働組合と政党','教会と修道院'],x:'いつもいる軍隊（常備軍）と、王の命令で政治を行う役人（官僚）です。'},
+{r:'ab',t:'c',q:'16世紀に全盛期をむかえ「太陽のしずまない国」と呼ばれた国はどれか。',ch:['スペイン','イギリス','フランス','ドイツ'],x:'フェリペ2世のころです。'},
+// ---- イギリス ----
+{r:'uk',t:'f',q:'1642年、国王と議会の対立から始まったイギリスの革命を何というか。',a:['ピューリタン革命','清教徒革命'],x:''},
+{r:'uk',t:'f',q:'ピューリタン革命で議会側を指導し、国王を処刑して共和政をしいた人物はだれか。',a:['クロムウェル','オリバー・クロムウェル','オリヴァー・クロムウェル'],x:''},
+{r:'uk',t:'f',q:'1688年、血を流さずに国王を追放し、新しい国王を迎えた革命を何というか。',a:['名誉革命'],x:''},
+{r:'uk',t:'f',q:'名誉革命の翌年（1689年）に出され、議会の権利を確認した文書を何というか。',a:['権利章典','権利の章典'],x:''},
+{r:'uk',t:'f',q:'国王も憲法や法律に従って政治を行うしくみを何というか。',a:['立憲君主制','立憲君主政'],x:''},
+{r:'uk',t:'c',q:'ピューリタン革命で処刑されたイギリスの国王はだれか。',ch:['チャールズ1世','ジェームズ2世','ルイ16世','ジョージ3世'],x:'ジェームズ2世は名誉革命で追放された国王です。'},
+{r:'uk',t:'c',q:'名誉革命でオランダから迎えられ、イギリスの国王となったのはだれか。',ch:['ウィリアム3世とメアリ2世','エリザベス1世','クロムウェル','ナポレオン'],x:''},
+{r:'uk',t:'c',q:'次のできごとを古い順に正しく並べたものはどれか。',ch:['ピューリタン革命 → 名誉革命 → 権利章典','名誉革命 → ピューリタン革命 → 権利章典','権利章典 → ピューリタン革命 → 名誉革命','ピューリタン革命 → 権利章典 → 名誉革命'],x:'1642年 → 1688年 → 1689年。'},
+{r:'uk',t:'e',q:'名誉革命と権利章典によって、イギリスの政治はどのように変わったか説明しなさい。',m:'権利章典によって、国王は議会の同意なしに法律の停止や課税ができなくなった。国王も法に従う立憲君主制と、議会を中心とする議会政治が確立した。',kw:['権利章典','議会の同意','立憲君主制','議会政治']},
+// ---- 啓蒙思想 ----
+{r:'en',t:'f',q:'『法の精神』を書き、三権分立を説いたフランスの思想家はだれか。',a:['モンテスキュー'],x:''},
+{r:'en',t:'f',q:'『社会契約論』を書き、人民主権を説いたフランスの思想家はだれか。',a:['ルソー'],x:''},
+{r:'en',t:'f',q:'『統治二論』を書き、人々は政府に抵抗する権利をもつと説いたイギリスの思想家はだれか。',a:['ロック','ジョン・ロック'],x:''},
+{r:'en',t:'c',q:'三権分立の「三権」の組み合わせとして正しいものはどれか。',ch:['立法・行政・司法','立法・軍事・宗教','行政・財政・外交','司法・教育・宗教'],x:''},
+{r:'en',t:'c',q:'思想家とその主張の組み合わせとして正しいものはどれか。',ch:['ロック ― 抵抗権','ルソー ― 三権分立','モンテスキュー ― 人民主権','ロック ― 王権神授説'],x:'ロック＝抵抗権、モンテスキュー＝三権分立、ルソー＝人民主権。'},
+// ---- アメリカ ----
+{r:'us',t:'f',q:'イギリスが北アメリカの東海岸につくった植民地はいくつあったか。（数字で）',a:['13','十三'],x:''},
+{r:'us',t:'f',q:'1773年、イギリスの茶の政策に反対した人々が、船の茶箱を海に投げ捨てた事件を何というか。',a:['ボストン茶会事件','ボストンティーパーティー','ボストン・ティーパーティー'],x:''},
+{r:'us',t:'f',q:'1776年7月4日に発表された、アメリカの独立を宣言した文書を何というか。',a:['独立宣言','アメリカ独立宣言'],x:''},
+{r:'us',t:'f',q:'独立戦争で植民地軍の総司令官をつとめ、のちに初代大統領となった人物はだれか。',a:['ワシントン','ジョージ・ワシントン'],x:''},
+{r:'us',t:'f',q:'1787年に定められ、三権分立を取り入れたアメリカの憲法を何というか。',a:['合衆国憲法','アメリカ合衆国憲法'],x:''},
+{r:'us',t:'c',q:'イギリスの課税に反対した植民地の人々の主張として正しいものはどれか。',ch:['代表なくして課税なし','朕は国家なり','人民の、人民による、人民のための政治','万国の労働者よ、団結せよ'],x:'本国の議会に代表を送っていないのに税を課すのはおかしい、という主張です。'},
+{r:'us',t:'c',q:'アメリカ独立宣言を中心となって起草した人物はだれか。',ch:['ジェファソン','リンカン','ワシントン','ロック'],x:''},
+{r:'us',t:'e',q:'アメリカの独立戦争が起こった理由を説明しなさい。',m:'植民地の人々はイギリス本国の議会に代表を送っていないのに、イギリスが印紙法や茶法などで一方的に税を課したため、植民地の人々が反発したから。',kw:['代表を送れない','一方的な課税','反発']},
+// ---- フランス ----
+{r:'fr',t:'f',q:'フランス革命前の、身分によって権利や義務がちがう社会のしくみを何というか。',a:['アンシャン・レジーム','アンシャンレジーム','旧体制','旧制度'],x:''},
+{r:'fr',t:'f',q:'1789年7月14日、パリの民衆が襲撃し、フランス革命の始まりとなった建物は何か。',a:['バスチーユ牢獄','バスティーユ牢獄','バスチーユ','バスティーユ','バスチーユ監獄','バスティーユ監獄'],x:''},
+{r:'fr',t:'f',q:'1789年8月に発表され、自由・平等・国民主権などを唱えた宣言を何というか。',a:['人権宣言','フランス人権宣言','人間と市民の権利の宣言'],x:''},
+{r:'fr',t:'f',q:'フランス革命中の1793年に処刑されたフランスの国王はだれか。',a:['ルイ16世','ルイ十六世'],x:''},
+{r:'fr',t:'f',q:'1804年に皇帝となり、ヨーロッパの大部分を支配した軍人はだれか。',a:['ナポレオン','ナポレオン・ボナパルト','ナポレオン1世'],x:''},
+{r:'fr',t:'f',q:'ナポレオンが定めた、法の下の平等や私有財産の保護などを定めた法律を何というか。',a:['ナポレオン法典','民法典','フランス民法典'],x:''},
+{r:'fr',t:'f',q:'財政難になったルイ16世が1789年に開いた、3つの身分の代表による議会を何というか。',a:['三部会','全国三部会'],x:''},
+{r:'fr',t:'c',q:'革命前のフランスで、重い税を負担していたのはどの身分か。',ch:['第三身分（平民）','第一身分（聖職者）','第二身分（貴族）','国王'],x:'聖職者と貴族は税を免除される特権をもっていました。'},
+{r:'fr',t:'c',q:'次のできごとを古い順に正しく並べたものはどれか。',ch:['バスチーユ牢獄襲撃 → 人権宣言 → ルイ16世の処刑 → ナポレオンが皇帝に','人権宣言 → バスチーユ牢獄襲撃 → ナポレオンが皇帝に → ルイ16世の処刑','ルイ16世の処刑 → バスチーユ牢獄襲撃 → 人権宣言 → ナポレオンが皇帝に','バスチーユ牢獄襲撃 → ナポレオンが皇帝に → 人権宣言 → ルイ16世の処刑'],x:'1789年7月 → 1789年8月 → 1793年 → 1804年。'},
+{r:'fr',t:'c',q:'ナポレオンの失脚後、ヨーロッパの秩序を話し合うために開かれた会議はどれか。',ch:['ウィーン会議','パリ講和会議','ベルリン会議','三部会'],x:''},
+{r:'fr',t:'c',q:'フランス革命中に反対派を次々と処刑する恐怖政治を行った人物はだれか。',ch:['ロベスピエール','ナポレオン','ルイ14世','モンテスキュー'],x:''},
+{r:'fr',t:'e',q:'フランス革命が起こった原因を、身分制度にふれて説明しなさい。',m:'第一身分の聖職者と第二身分の貴族は税を免除される特権をもつ一方、人口の大部分をしめる第三身分の平民が重い税を負担していた。国の財政難をきっかけに平民の不満が高まり、啓蒙思想の影響も受けて革命が起こった。',kw:['聖職者・貴族の特権','平民が重い税','財政難','啓蒙思想']},
+{r:'fr',t:'e',q:'ナポレオンの支配は、ヨーロッパの国々にどのような影響を与えたか説明しなさい。',m:'ナポレオン法典などを通じて、フランス革命の自由・平等の考えがヨーロッパに広まった。一方で、支配された国々では外国の支配に反発して、民族の独立や統一を求める意識が高まった。',kw:['自由・平等が広まる','民族意識の高まり']},
+// ---- 産業革命 ----
+{r:'ir',t:'f',q:'18世紀後半にイギリスで始まった、機械の発明による産業と社会の大きな変化を何というか。',a:['産業革命'],x:''},
+{r:'ir',t:'f',q:'蒸気機関を改良し、工場の動力として使えるようにした人物はだれか。',a:['ワット','ジェームズ・ワット','ジェームス・ワット'],x:''},
+{r:'ir',t:'f',q:'蒸気機関車を実用化した人物はだれか。',a:['スティーブンソン','スチーブンソン','スティーヴンソン','ジョージ・スティーブンソン'],x:''},
+{r:'ir',t:'f',q:'産業革命で最初に機械化が進んだ工業は何か。',a:['綿工業','綿織物工業','綿織物業','せんい工業','繊維工業'],x:''},
+{r:'ir',t:'f',q:'工場や機械をもつ資本家が、労働者をやとって利益を上げる経済のしくみを何というか。',a:['資本主義'],x:''},
+{r:'ir',t:'f',q:'産業革命で工業製品を世界中に輸出したイギリスは「世界の（　）」と呼ばれた。（　）に入る語は何か。',a:['工場'],x:'地理で習う、現在の中国の呼び名と同じです。'},
+{r:'ir',t:'f',q:'『資本論』を書き、社会主義の考えを説いたドイツの人物はだれか。',a:['マルクス','カール・マルクス'],x:''},
+{r:'ir',t:'c',q:'産業革命のころの労働者の様子として正しいものはどれか。',ch:['子どもや女性も低い賃金で長時間働かされた','労働時間は法律で短く決められていた','すべての労働者が選挙権をもっていた','工場は郊外にあり、都市の環境は良かった'],x:''},
+{r:'ir',t:'c',q:'労働者が生活や権利を守るためにつくった団体はどれか。',ch:['労働組合','東インド会社','国民議会','イエズス会'],x:''},
+{r:'ir',t:'c',q:'資本主義の問題を解決するため、土地や工場を社会全体のものにして平等な社会をめざす考えはどれか。',ch:['社会主義','重商主義','絶対王政','啓蒙思想'],x:''},
+{r:'ir',t:'e',q:'産業革命がイギリスで最初に起こった理由を説明しなさい。',m:'貿易などによって資本（お金）がたくわえられており、石炭や鉄などの資源も豊富だった。また、農村から都市に移った人々が工場の労働力となり、製品を売る市場として広い植民地をもっていたから。',kw:['資本','石炭・鉄','労働力','植民地（市場）']},
+{r:'ir',t:'e',q:'産業革命によって、どのような社会問題が起こったか説明しなさい。',m:'労働者は低い賃金で長時間働かされ、子どもや女性も工場で働かされた。人口が集まった都市では住宅が不足し、衛生状態の悪化や公害が起こった。労働者は労働組合をつくって改善を求めた。',kw:['低賃金・長時間労働','子どもの労働','都市の衛生・公害','労働組合']},
+// ---- 19世紀 ----
+{r:'c19',t:'f',q:'「鉄血政策」で軍備を強化し、ドイツの統一を進めたプロイセンの首相はだれか。',a:['ビスマルク'],x:''},
+{r:'c19',t:'f',q:'1861年にアメリカで始まった、北部と南部の内戦を何というか。',a:['南北戦争'],x:''},
+{r:'c19',t:'f',q:'南北戦争中の1863年に奴隷解放宣言を出したアメリカの大統領はだれか。',a:['リンカン','リンカーン','エイブラハム・リンカン','エイブラハム・リンカーン'],x:''},
+{r:'c19',t:'f',q:'『種の起源』を書き、進化論を説いたイギリスの科学者はだれか。',a:['ダーウィン','ダーウイン'],x:''},
+{r:'c19',t:'f',q:'電球や蓄音機などを発明したアメリカの発明家はだれか。',a:['エジソン'],x:''},
+{r:'c19',t:'c',q:'リンカンがゲティスバーグで行った演説の言葉として正しいものはどれか。',ch:['人民の、人民による、人民のための政治','代表なくして課税なし','朕は国家なり','自由・平等・友愛'],x:''},
+{r:'c19',t:'c',q:'南北戦争のときの北部の特色として正しいものはどれか。',ch:['工業が発達し、奴隷制に反対した','綿花の大農園が多く、奴隷制を続けようとした','イギリスから独立しようとした','国王が強い権力をもっていた'],x:''},
+{r:'c19',t:'c',q:'『落穂拾い』をえがいたフランスの画家はだれか。',ch:['ミレー','モネ','ドラクロワ','ゴッホ'],x:''},
+{r:'c19',t:'c',q:'結核菌を発見したドイツの細菌学者はだれか。',ch:['コッホ','パスツール','ダーウィン','ノーベル'],x:''},
+{r:'c19',t:'c',q:'1871年に成立した国はどれか。',ch:['ドイツ帝国','アメリカ合衆国','イタリア王国','フランス共和国'],x:'イタリアの統一は1861年です。'},
+{r:'c19',t:'c',q:'「ピアノの詩人」と呼ばれた、ポーランド出身の作曲家はだれか。',ch:['ショパン','ベートーベン','モーツァルト','バッハ'],x:''},
+{r:'c19',t:'e',q:'南北戦争で北部と南部が対立した理由を説明しなさい。',m:'北部は工業が発達しており、奴隷制に反対していた。一方、南部は綿花の大農園で黒人奴隷の労働にたよっており、奴隷制を続けようとしたから。',kw:['北部＝工業・奴隷制反対','南部＝綿花の大農園・奴隷制維持']},
+// ---- 7月範囲 ----
+{r:'jul',t:'f',q:'14世紀にイタリアで始まった、古代ギリシャ・ローマの文化を見直す動きを何というか。',a:['ルネサンス','文芸復興'],x:''},
+{r:'jul',t:'f',q:'『モナ・リザ』をえがいた人物はだれか。',a:['レオナルド・ダ・ヴィンチ','レオナルドダヴィンチ','ダ・ヴィンチ','ダヴィンチ','レオナルド'],x:''},
+{r:'jul',t:'f',q:'1517年、免罪符の販売を批判して宗教改革を始めたドイツの人物はだれか。',a:['ルター','マルティン・ルター','マルチン・ルター'],x:''},
+{r:'jul',t:'f',q:'宗教改革によって生まれた、カトリックに対する新しい宗派の人々を何というか。',a:['プロテスタント','新教'],x:''},
+{r:'jul',t:'f',q:'カトリック側でつくられ、ザビエルらが海外布教を行った組織を何というか。',a:['イエズス会'],x:''},
+{r:'jul',t:'f',q:'1492年、スペインの援助を受けて西インド諸島に到達した人物はだれか。',a:['コロンブス'],x:''},
+{r:'jul',t:'c',q:'アフリカ南端を回り、1498年にインドに到達した人物はだれか。',ch:['バスコ・ダ・ガマ','コロンブス','マゼラン','ザビエル'],x:''},
+{r:'jul',t:'c',q:'その船隊が初めて世界一周を成しとげた人物はだれか。',ch:['マゼラン','コロンブス','バスコ・ダ・ガマ','ルター'],x:'マゼラン自身は航海の途中で亡くなりました。'},
+{r:'jul',t:'c',q:'ヨーロッパの人々がアジアへの新しい航路を求めた主な目的はどれか。',ch:['香辛料を直接手に入れるため','石炭を手に入れるため','綿花を売るため','奴隷制をなくすため'],x:'キリスト教を広めることも目的でした。'},
+{r:'jul',t:'e',q:'宗教改革が起こった理由を説明しなさい。',m:'ローマ教皇が大聖堂の修築費を集めるために免罪符を売り出したことに対し、ルターが「信仰のよりどころは聖書だけである」と批判したから。',kw:['免罪符','ローマ教皇','ルター','聖書']}
+];
+Q.forEach((q,i)=>q.id=i);
+
+const $=s=>document.querySelector(s);
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+
+const tabs={sum:$('#tab-sum'),quiz:$('#tab-quiz')};
+function showTab(k){for(const n in tabs){const on=n===k;tabs[n].setAttribute('aria-selected',on);$('#pane-'+n).hidden=!on}store.set('his-tab',k)}
+tabs.sum.onclick=()=>showTab('sum');tabs.quiz.onclick=()=>showTab('quiz');
+showTab(store.get('his-tab','sum'));
+
+const sb=$('#sheetBtn');
+sb.onclick=()=>{const on=document.body.classList.toggle('sheet');sb.classList.toggle('on',on);document.querySelectorAll('.k.show').forEach(e=>e.classList.remove('show'))};
+document.addEventListener('click',e=>{const k=e.target.closest('.k');if(k&&document.body.classList.contains('sheet'))k.classList.toggle('show')});
+
+/* timeline */
+const done=store.get('his-tl',{});
+const tl=$('#timeline');
+TL.forEach(([r,y,e],i)=>{const id='tl-'+i;const li=document.createElement('li');
+  li.innerHTML=`<label style="--c:${R[r].c}"><input type="checkbox" id="${id}"><span class="y">${y}</span><span class="e">${e}</span></label>`;
+  const c=li.querySelector('input');c.checked=!!done[id];c.onchange=()=>{done[id]=c.checked;store.set('his-tl',done)};tl.appendChild(li)});
+$('#legend').innerHTML=Object.values(R).map(v=>`<span style="--c:${v.c}">${v.n}</span>`).join('');
+
+/* quiz */
+const ro=$('#rangeOpts');
+Object.entries(R).forEach(([k,v])=>{const l=document.createElement('label');l.className='opt';l.innerHTML=`<input type="checkbox" id="r-${k}" value="${k}" checked><span class="tag" style="--c:${v.c}">&nbsp;</span>${v.n}`;ro.appendChild(l)});
+let wrong=new Set(store.get('his-wrong',[]));
+const saveWrong=()=>store.set('his-wrong',[...wrong]);
+function pool(){const rs=[...ro.querySelectorAll('input:checked')].map(i=>i.value);const ts=['f','c','e'].filter(t=>$('#t-'+t).checked);return Q.filter(q=>rs.includes(q.r)&&ts.includes(q.t))}
+function upd(){const p=pool();$('#poolInfo').textContent=`対象 ${p.length}問 ／ まちがえた問題 ${wrong.size}問`;$('#startBtn').disabled=!p.length;$('#wrongBtn').disabled=!wrong.size}
+document.querySelectorAll('#setup input').forEach(i=>i.addEventListener('change',upd));upd();
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+
+let S=null;
+$('#startBtn').onclick=()=>{const n=+document.querySelector('input[name=n]:checked').value;start(shuffle(pool()).slice(0,n))};
+$('#wrongBtn').onclick=()=>start(shuffle(Q.filter(q=>wrong.has(q.id))));
+function start(list){S={list,i:0,score:[]};$('#setup').hidden=true;$('#result').hidden=true;$('#play').hidden=false;render()}
+
+const norm=s=>s.normalize('NFKC').replace(/[\s　・（）()「」『』]/g,'').replace(/ヴィ/g,'ビ').replace(/ヴ/g,'ブ').toLowerCase();
+const KANA='アイウエ';
+function head(q){const r=R[q.r];const tn={f:'穴埋め',c:'記号選び',e:'説明'}[q.t];
+  return `<div class="prog"><i style="width:${S.i/S.list.length*100}%"></i></div>
+  <div class="meta"><span><span class="tag" style="--c:${r.c}">${r.n}</span>　${tn}</span><span>${S.i+1} / ${S.list.length}</span></div>
+  <div class="qtext">${q.q}</div>`}
+function render(){
+  const q=S.list[S.i],p=$('#play');
+  if(q.t==='f'){
+    p.innerHTML=head(q)+`<div class="row"><input id="fillIn" autocomplete="off" placeholder="答えを入力" style="flex:1;min-width:0"><button class="btn" id="chk" type="button">答え合わせ</button></div><div id="fb"></div>`;
+    const inp=$('#fillIn');inp.focus({preventScroll:true});
+    const go=()=>{if($('#chk').disabled)return;const ok=q.a.some(a=>norm(a)===norm(inp.value));$('#chk').disabled=true;inp.disabled=true;
+      $('#fb').innerHTML=`<div class="fb"><div class="v ${ok?'ok':'ng'}">${ok?'正解':'不正解'}</div>正解：<b>${q.a[0]}</b>${q.x?'<br>'+q.x:''}
+      <div class="row" style="margin-top:10px">${ok?'':'<button class="btn ghost" id="ovr" type="button">合ってた（書き方のちがい）</button>'}<button class="btn" id="nx" type="button">次へ</button></div></div>`;
+      let res=ok?1:0;
+      if(!ok)$('#ovr').onclick=()=>{res=1;$('#ovr').remove();$('#fb .v').className='v ok';$('#fb .v').textContent='正解（表記ちがい）'};
+      $('#nx').onclick=()=>next(q,res);$('#nx').focus({preventScroll:true})};
+    $('#chk').onclick=go;inp.onkeydown=e=>{if(e.key==='Enter'&&!e.isComposing)go()};
+  }else if(q.t==='c'){
+    const order=shuffle(q.ch.map((c,i)=>({c,i})));
+    p.innerHTML=head(q)+`<div class="choices">${order.map((o,k)=>`<button type="button" data-i="${o.i}"><b>${KANA[k]}</b><span>${o.c}</span></button>`).join('')}</div><div id="fb"></div>`;
+    p.querySelectorAll('.choices button').forEach(b=>b.onclick=()=>{
+      const box=p.querySelector('.choices');if(box.dataset.done)return;box.dataset.done=1;
+      const ok=b.dataset.i==='0';b.classList.add(ok?'right':'wrong');
+      p.querySelector('[data-i="0"]').classList.add('right');
+      $('#fb').innerHTML=`<div class="fb"><div class="v ${ok?'ok':'ng'}">${ok?'正解':'不正解'}</div>正解：<b>${q.ch[0]}</b>${q.x?'<br>'+q.x:''}<div class="row" style="margin-top:10px"><button class="btn" id="nx" type="button">次へ</button></div></div>`;
+      $('#nx').onclick=()=>next(q,ok?1:0);$('#nx').focus({preventScroll:true})});
+  }else{
+    p.innerHTML=head(q)+`<textarea id="expIn" placeholder="まず自分の言葉で書いてみよう（書かずに考えるだけでもOK）"></textarea>
+    <div class="row" style="margin-top:10px"><button class="btn" id="show" type="button">模範解答を見る</button></div><div id="fb"></div>`;
+    $('#show').onclick=()=>{$('#show').disabled=true;
+      $('#fb').innerHTML=`<div class="fb"><div class="v">模範解答</div>${q.m}<div style="margin-top:8px;font-size:.85rem;color:var(--sub)">入っていてほしいキーワード</div><div class="kw">${q.kw.map(k=>`<span>${k}</span>`).join('')}</div>
+      <div style="font-size:.85rem;margin-top:6px">自分の答えを採点しよう</div><div class="row" style="margin-top:6px">
+      <button class="btn" data-s="1" type="button">◯ 書けた</button><button class="btn ghost" data-s="0.5" type="button">△ 半分くらい</button><button class="btn ghost" data-s="0" type="button">✕ 書けなかった</button></div></div>`;
+      $('#fb').querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>next(q,+b.dataset.s))};
+  }
+}
+function next(q,s){S.score.push({q,s});if(s<1)wrong.add(q.id);else wrong.delete(q.id);saveWrong();S.i++;if(S.i<S.list.length)render();else finish()}
+function finish(){
+  $('#play').hidden=true;const r=$('#result');r.hidden=false;
+  const tot=S.score.reduce((a,b)=>a+b.s,0),pct=Math.round(tot/S.score.length*100);
+  const by={};S.score.forEach(({q,s})=>{(by[q.r]=by[q.r]||{n:0,s:0});by[q.r].n++;by[q.r].s+=s});
+  const msg=pct>=90?'すばらしい！この調子でキープ。':pct>=70?'いい感じ。まちがえた問題をもう一度やってみよう。':'まとめを読み直してから、もう一度チャレンジしよう。';
+  r.innerHTML=`<div class="meta"><span>結果</span><span>${S.score.length}問</span></div><div class="score">${pct}<span style="font-size:1.2rem">点</span></div><p style="margin:6px 0 0">${msg}</p>
+  <div class="res">${Object.keys(R).filter(k=>by[k]).map(k=>`<div style="--c:${R[k].c}"><span>${R[k].n}</span><span class="t"><i style="width:${by[k].s/by[k].n*100}%"></i></span><span>${Math.round(by[k].s/by[k].n*100)}%</span></div>`).join('')}</div>
+  <div class="row"><button class="btn" id="again" type="button">設定にもどる</button>${wrong.size?`<button class="btn ghost" id="rev" type="button">まちがえた問題を復習（${wrong.size}問）</button>`:''}</div>`;
+  $('#again').onclick=()=>{r.hidden=true;$('#setup').hidden=false;upd()};
+  if($('#rev'))$('#rev').onclick=()=>start(shuffle(Q.filter(q=>wrong.has(q.id))));
+}
+</script>
+
+</body>
+</html>

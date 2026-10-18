@@ -1,5 +1,6 @@
-# 中1地理 10月考査 まとめ＆問題
+# 中1 10月考査 まとめ＆問題
 
-2026年度10月考査（中国・朝鮮半島・東南アジア・南アジア・西／中央アジア）の学習用ページ。
+2026年度10月考査の学習用ページ。
 
-https://k2me14.github.io/geo-test-2026-10/
+- 地理：https://k2me14.github.io/geo-test-2026-10/
+- 歴史：https://k2me14.github.io/geo-test-2026-10/history.html
