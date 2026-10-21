@@ -11,22 +11,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
 <style>
-/* Layout: 地理と同じ骨組み。まとめは時代順の章と年表、問題は1問ずつのカード */
+/* Layout: プリントNo.11〜16の順に章を並べ、年表と問題をそえる */
 :root{
   --bg:#f1efee; --paper:#ffffff; --ink:#2a2224; --sub:#6b5f62; --line:#ddd5d4;
   --accent:#8b2f4a; --accent-ink:#ffffff; --mark:#fff1a8; --red:#c8323c; --ok:#2f7d4f;
-  --ab:#9a6a16; --uk:#3d5fb0; --en:#6b7b2a; --us:#2c7f8c; --fr:#c24a5a; --ir:#5b5f66; --c19:#7a4fae; --jul:#3f8f5a;
+  --ab:#9a6a16; --uk:#3d5fb0; --us:#2c7f8c; --fr:#c24a5a; --ir:#5b5f66; --eu:#7a4fae; --am:#a3542a; --cul:#2f7f6a; --jul:#3f8f5a;
   --display:"Dela Gothic One","Hiragino Sans","Yu Gothic",sans-serif;
   --body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#1a1517; --paper:#241d20; --ink:#efe6e8; --sub:#b0a1a5; --line:#3a3034;
   --accent:#e58aa3; --accent-ink:#1a1014; --mark:#5c5220; --red:#ff7a82; --ok:#6fd39a;
-  --ab:#e0b05a; --uk:#8aa6f0; --en:#b5c46a; --us:#6fc6d3; --fr:#ff8f9c; --ir:#a9adb5; --c19:#c39af0; --jul:#7fd39a; color-scheme:dark}}
+  --ab:#e0b05a; --uk:#8aa6f0; --us:#6fc6d3; --fr:#ff8f9c; --ir:#a9adb5; --eu:#c39af0; --am:#f0a07a; --cul:#7fd3bd; --jul:#7fd39a; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#1a1517; --paper:#241d20; --ink:#efe6e8; --sub:#b0a1a5; --line:#3a3034;
   --accent:#e58aa3; --accent-ink:#1a1014; --mark:#5c5220; --red:#ff7a82; --ok:#6fd39a;
-  --ab:#e0b05a; --uk:#8aa6f0; --en:#b5c46a; --us:#6fc6d3; --fr:#ff8f9c; --ir:#a9adb5; --c19:#c39af0; --jul:#7fd39a; color-scheme:dark}
+  --ab:#e0b05a; --uk:#8aa6f0; --us:#6fc6d3; --fr:#ff8f9c; --ir:#a9adb5; --eu:#c39af0; --am:#f0a07a; --cul:#7fd3bd; --jul:#7fd39a; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.75;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
@@ -42,25 +42,37 @@ h1 small{display:block;font-family:var(--body);font-size:.85rem;font-weight:500;
 .tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:6px;padding-block:12px;margin-top:6px;border-bottom:1px solid var(--line)}
 .tabs button{flex:1;font:inherit;font-weight:700;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
 .tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-button:focus-visible,input:focus-visible,textarea:focus-visible,label:focus-within{outline:3px solid var(--accent);outline-offset:2px}
+button:focus-visible,input:focus-visible,textarea:focus-visible,label:focus-within,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 .tool{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0 4px;font-size:.88rem;color:var(--sub)}
 .chip{font:inherit;font-size:.85rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
 .chip.on{background:var(--red);border-color:var(--red);color:#fff}
+.toc{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.toc a{font-size:.8rem;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:8px;padding:3px 10px}
 .group{margin-top:26px}
 .group>h2{font-size:.8rem;letter-spacing:.12em;color:var(--sub);margin:0 0 6px;font-weight:700}
 .group>h2 span{color:var(--ink);background:var(--mark);padding:1px 6px;border-radius:4px;margin-left:6px;letter-spacing:.02em}
-section.reg{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 18px 14px;margin-top:12px;border-top:6px solid var(--c)}
-section.reg h3{font-family:var(--display);font-weight:400;font-size:1.3rem;margin:0 0 4px;color:var(--c)}
-section.reg h3 small{font-family:var(--body);font-size:.8rem;color:var(--sub);font-weight:500;margin-left:6px}
+section.reg{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 18px 14px;margin-top:12px;border-top:6px solid var(--c);scroll-margin-top:72px}
+section.reg h3{font-family:var(--display);font-weight:400;font-size:1.3rem;margin:0 0 2px;color:var(--c)}
+.src{font-size:.78rem;color:var(--sub);letter-spacing:.04em}
 section.reg h4{font-size:.95rem;margin:16px 0 4px;padding-left:8px;border-left:3px solid var(--c)}
 section.reg ul{margin:0;padding-left:1.2em}
 section.reg li{margin:3px 0}
+.y{font-weight:700;font-variant-numeric:tabular-nums}
 .k{font-weight:700;color:var(--red);background:linear-gradient(transparent 62%,var(--mark) 62%);border-radius:2px;cursor:default}
 body.sheet .k{color:transparent;background:var(--red);opacity:.85;cursor:pointer;user-select:none}
 body.sheet .k.show{color:var(--red);background:linear-gradient(transparent 62%,var(--mark) 62%);opacity:1}
 .why{background:var(--bg);border-radius:10px;padding:10px 12px;margin-top:12px;font-size:.9rem}
 .why b{display:block;font-size:.78rem;letter-spacing:.06em;color:var(--sub)}
+.tbl{overflow-x:auto;margin-top:8px}
+table{border-collapse:collapse;font-size:.9rem;min-width:100%}
+th,td{border-bottom:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
+th{font-size:.78rem;color:var(--sub);font-weight:700;letter-spacing:.04em;white-space:nowrap}
+td:first-child{white-space:nowrap;color:var(--sub);font-size:.82rem}
 /* 年表 */
+details.tlbox summary{cursor:pointer;font-weight:700;list-style:none}
+details.tlbox summary::-webkit-details-marker{display:none}
+details.tlbox summary::after{content:"▼ ひらく";font-size:.75rem;color:var(--sub);margin-left:8px;font-weight:500}
+details.tlbox[open] summary::after{content:"▲ とじる"}
 .tl{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:2px}
 .tl label{display:grid;grid-template-columns:1.2em 4.6em 1fr;gap:8px;align-items:baseline;padding:5px 8px;border-radius:8px;cursor:pointer;border-left:4px solid var(--c)}
 .tl label:hover{background:var(--bg)}
@@ -103,12 +115,12 @@ body.sheet .tl label:hover .y{color:var(--ink);background:none;opacity:1}
 .kw span{font-size:.8rem;padding:2px 8px;border-radius:6px;background:var(--mark);font-weight:700}
 .score{font-family:var(--display);font-size:3rem;line-height:1;font-variant-numeric:tabular-nums}
 .res{display:grid;gap:6px;margin:14px 0;font-size:.9rem}
-.res div{display:grid;grid-template-columns:9em 1fr 3.5em;gap:8px;align-items:center}
+.res div{display:grid;grid-template-columns:10em 1fr 3.5em;gap:8px;align-items:center}
 .res .t{height:8px;background:var(--line);border-radius:4px;overflow:hidden}
 .res .t i{display:block;height:100%;background:var(--c)}
 .res span:last-child{text-align:right;font-variant-numeric:tabular-nums}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
-@media (max-width:480px){h1{font-size:1.4rem}.res div{grid-template-columns:7em 1fr 3em}}
+@media (max-width:480px){h1{font-size:1.4rem}.res div{grid-template-columns:7.5em 1fr 3em}}
 </style>
 
 <div class="wrap">
@@ -116,7 +128,7 @@ body.sheet .tl label:hover .y{color:var(--ink);background:none;opacity:1}
     <h1><small>2026年度 10月考査</small>中1歴史 まとめ＆問題</h1>
     <div class="sib"><a href="https://k2me14.github.io/test-2026-10/geography.html">地理のページへ</a>　<a href="https://k2me14.github.io/test-2026-10/">科目えらびにもどる</a></div>
     <div class="info">
-      <div><b>範囲</b>世界史（近代）：絶対王政、三大市民革命、産業革命、19世紀の文化など。プリントNo.11〜16、実力錬成テキストp.82〜87。</div>
+      <div><b>範囲</b>世界史（近代）。授業プリントNo.11〜16（教科書p.27〜40）、実力錬成テキストp.82〜87。</div>
       <div><b>出題と配点</b>穴埋め・記号選びが約80点、文章で説明する問題が約20点。このうち20点分は7月考査範囲の確認問題。</div>
       <div><b>先生から</b>板書が中心。教科書はよく読んでおくこと（教えていないことも出ます）。質問はテスト前日まで。</div>
     </div>
@@ -131,143 +143,289 @@ body.sheet .tl label:hover .y{color:var(--ink);background:none;opacity:1}
   <div id="pane-sum" role="tabpanel">
     <div class="tool">
       <button class="chip" id="sheetBtn" type="button">赤シートモード</button>
-      <span>オンにすると赤字と年号が隠れます。タップでめくれます。</span>
+      <span>オンにするとプリントの空欄の語と年号が隠れます。タップでめくれます。</span>
     </div>
+    <div class="toc" id="toc"></div>
 
     <section class="reg" style="--c:var(--accent);margin-top:18px">
-      <h3>年表チェック</h3>
-      <div style="font-size:.88rem;color:var(--sub)">覚えたらチェック。並び順（どれが先か）もよく問われます。</div>
-      <ul class="tl" id="timeline"></ul>
-      <div class="legend" id="legend"></div>
+      <details class="tlbox" id="tlbox">
+        <summary>年表チェック</summary>
+        <div style="font-size:.88rem;color:var(--sub);margin-top:4px">覚えたらチェック。「古い順に並べる」問題もよく出ます。</div>
+        <ul class="tl" id="timeline"></ul>
+        <div class="legend" id="legend"></div>
+      </details>
     </section>
 
     <div class="group">
-      <h2>今回の範囲（近代）<span>約80点</span></h2>
+      <h2>今回の範囲（プリントNo.11〜16）<span>約80点</span></h2>
 
-      <section class="reg" style="--c:var(--ab)">
-        <h3>絶対王政<small>16〜18世紀</small></h3>
+      <!-- No.11 -->
+      <section class="reg" id="s-ab" style="--c:var(--ab)">
+        <h3>絶対王政と啓蒙思想</h3>
+        <div class="src">プリントNo.11 ／ 教科書p.27〜28</div>
+        <h4>絶対王政とは</h4>
         <ul>
-          <li>国王が強い権力をにぎり、思うままに国を治める政治＝<span class="k">絶対王政</span>。王の権力は神から授けられたとする<span class="k">王権神授説</span>が支えになった。</li>
-          <li>王は<span class="k">常備軍</span>（いつもいる軍隊）と<span class="k">官僚</span>を整え、商工業者を保護して税を集めた（<span class="k">重商主義</span>）。</li>
-          <li>スペイン：<span class="k">フェリペ2世</span>のころ全盛。「太陽のしずまない国」。1588年、<span class="k">無敵艦隊</span>がイギリスに敗れる。</li>
-          <li>イギリス：<span class="k">エリザベス1世</span>。1600年に<span class="k">東インド会社</span>をつくりアジアと貿易。</li>
-          <li>フランス：<span class="k">ルイ14世</span>（太陽王）。豪華な<span class="k">ヴェルサイユ宮殿</span>を建てた。</li>
+          <li>中世ヨーロッパの崩壊（封建制度の崩壊、教皇の衰退）→ 国王による一元的支配（1つにまとまった支配）がすすむ。</li>
+          <li><span class="k">絶対王政</span>：国王が絶対的な権力をもっている政治体制（16世紀以降）。</li>
+          <li>手段：強力な軍隊（＝<span class="k">常備軍</span>）と多くの役人（＝<span class="k">官僚制</span>）。</li>
+          <li>根拠：<span class="k">王権神授説</span>（王の権力は神から授けられたもの）。</li>
+          <li>つまり<span class="k">議会</span>で話し合って政治を決めるのではない！ → 絶対王政では議会と対立しがち。</li>
+          <li><span class="k">重商主義</span>：絶対王政の国王がとった経済政策。特定の商人を保護し、貿易を奨励（<span class="k">輸出</span>を多く）→ 市場と原料供給地を求め、<span class="k">植民地</span>獲得競争へ。</li>
         </ul>
+        <h4>各国の状況</h4>
+        <div class="tbl"><table>
+          <thead><tr><th>国</th><th>国王</th><th>ポイント</th></tr></thead>
+          <tbody>
+            <tr><td>イギリス</td><td>女王<span class="k">エリザベス1世</span><br><small>在位1558〜1603</small></td><td>権威：国王が<span class="k">イギリス国教会</span>の首長を兼任<br>軍事力：<span class="k">スペイン</span>の<span class="k">無敵艦隊</span>を破る<br>経済力：<span class="k">東インド会社</span>を設立（1600）→ インド・アジアへ進出。<span class="k">マニュファクチュア</span>（工場制手工業）で<span class="k">毛織物</span>を生産 → 家内工業より効率よく生産</td></tr>
+            <tr><td>フランス</td><td><span class="k">ルイ14世</span><br><small>在位1643〜1715</small></td><td>権威：王権神授説を唱え、議会（<span class="k">三部会</span>）を無視。「<span class="k">朕は国家なり</span>」<br>軍事力：アメリカ大陸に<span class="k">ルイジアナ</span>植民地をひらく<br>経済力：フランス東インド会社を再建 → 繁栄し<span class="k">ベルサイユ宮殿</span>が建設</td></tr>
+            <tr><td>ロシア</td><td><span class="k">ピョートル1世</span><br><small>在位1682〜1725</small></td><td>経済力：英仏とは違い、<span class="k">農奴制</span>を強化<br>軍事力：<span class="k">スウェーデン</span>を破るなど西方進出で強国化 → ヨーロッパの窓口として<span class="k">ペテルブルク</span>へ遷都</td></tr>
+            <tr><td>イタリア</td><td>―</td><td>ローマ教皇や都市などが独自に国を作る ＝ 統一されず</td></tr>
+            <tr><td>ドイツ</td><td>―</td><td>宗教改革をめぐる<span class="k">30年戦争</span>（1618〜1648）で統一されず。<span class="k">ウェストファリア条約</span>で終結</td></tr>
+          </tbody>
+        </table></div>
+        <h4>市民革命と啓蒙思想</h4>
+        <ul>
+          <li><span class="k">市民革命</span>：絶対王政を倒し、市民（国民）が中心の自由な社会に変えること。例：イギリス革命（1642〜1688、ピューリタン革命＋名誉革命）、アメリカ独立革命（1776〜1783）、フランス革命（1789〜1799）。</li>
+          <li>根拠：<span class="k">啓蒙思想</span>（絶対王政を否定し、合理的な社会を目指す考え）。</li>
+        </ul>
+        <div class="tbl"><table>
+          <thead><tr><th>人物</th><th>著書</th><th>主張</th><th>影響</th></tr></thead>
+          <tbody>
+            <tr><td><span class="k">ロック</span>（英）</td><td>『<span class="k">統治二論</span>』</td><td><span class="k">革命権</span>：政府が不公正な場合は革命を起こしてもよい</td><td><span class="k">アメリカ独立革命</span>（1776）</td></tr>
+            <tr><td><span class="k">モンテスキュー</span>（仏）</td><td>『<span class="k">法の精神</span>』</td><td><span class="k">三権分立</span>：政府・議会・裁判所に権力をわける</td><td><span class="k">アメリカ合衆国憲法</span>（1787）</td></tr>
+            <tr><td><span class="k">ルソー</span>（仏）</td><td>『<span class="k">社会契約論</span>』</td><td><span class="k">国民主権</span>：国家の主役は国王ではなく国民</td><td><span class="k">フランス革命</span>（1789）</td></tr>
+          </tbody>
+        </table></div>
+        <div class="why"><b>説明問題の型：絶対王政で国王と議会が対立しがちな理由</b>
+          国王が<span class="k">王権神授説</span>を根拠に絶対的な権力をもち、<span class="k">議会で話し合って</span>政治を決めるのではなかったから。</div>
       </section>
 
-      <section class="reg" style="--c:var(--uk)">
-        <h3>イギリスの革命<small>17世紀</small></h3>
+      <!-- No.12 イギリス -->
+      <section class="reg" id="s-uk" style="--c:var(--uk)">
+        <h3>イギリス革命</h3>
+        <div class="src">プリントNo.12 ／ 教科書p.29〜30</div>
+        <h4>ピューリタン革命（清教徒革命）<span class="y">1642〜1649</span></h4>
         <ul>
-          <li>国王が議会を無視して税を課すなどの専制政治 → 議会が反発。</li>
-          <li>1642年 <span class="k">ピューリタン革命</span>（清教徒革命）。<span class="k">クロムウェル</span>が議会側を指導し、国王<span class="k">チャールズ1世</span>を処刑して<span class="k">共和政</span>に。</li>
-          <li>クロムウェルの死後、王政が復活。再び国王が専制を行う。</li>
-          <li>1688年 <span class="k">名誉革命</span>。血を流さずに国王を追放し、オランダから<span class="k">ウィリアム3世とメアリ2世</span>を迎えた。</li>
-          <li>1689年 <span class="k">権利章典</span>。議会の同意なしに法律の停止や課税ができないことを確認 → <span class="k">立憲君主制</span>と<span class="k">議会政治</span>が始まる。</li>
+          <li>中心：イギリスのカルヴァン派（<span class="k">ピューリタン</span>）。地主・商工業者などの「<span class="k">市民階級</span>」→ 自由な経済活動を求める。</li>
+          <li>背景：<span class="k">重商主義</span>への不満。</li>
+          <li><span class="y">1628年</span> <span class="k">権利の請願</span>：議会が「勝手に税金をかけない・勝手に逮捕しない」ことを王に頼む → 国王<span class="k">チャールズ1世</span>は反発し、議会を閉鎖。</li>
+          <li><span class="y">1642年</span> 議会派と国王派で国内の戦いが勃発。</li>
+          <li><span class="y">1649年</span> 国王チャールズ1世を議会派の指導者<span class="k">クロムウェル</span>が処刑 → 王政が廃止され<span class="k">共和政</span>に（クロムウェルが政治を担う）。</li>
         </ul>
-        <div class="why"><b>説明問題の型：名誉革命でイギリスの政治はどう変わったか</b>
-          <span class="k">権利章典</span>が出され、国王は<span class="k">議会の同意</span>なしに法律の停止や課税ができなくなった。国王も法に従う<span class="k">立憲君主制</span>と、議会が中心となる<span class="k">議会政治</span>が確立した。</div>
+        <h4>名誉革命 <span class="y">1688</span></h4>
+        <ul>
+          <li>クロムウェルの死後、<span class="k">チャールズ2世</span>が国王に復帰。</li>
+          <li>Q. なぜ復帰できた？ → 民衆がクロムウェルによる<span class="k">独裁政治</span>に不満をもっていたから。</li>
+          <li>しかしチャールズ2世や、その弟<span class="k">ジェームズ2世</span>は議会を無視。</li>
+          <li>議会は<span class="k">オランダ</span>から新たな国王（メアリとその夫ウィレム）を迎える → ジェームズ2世は<span class="k">フランス</span>へ亡命。血を流さなかったので<span class="k">名誉革命</span>とよぶ。</li>
+          <li>翌年、新しい王は<span class="k">メアリ2世</span>と<span class="k">ウィリアム3世</span>として即位。</li>
+          <li><span class="y">1689年</span>「<span class="k">権利の章典</span>」：ウィリアム3世とメアリ2世が議会の権利を法律で認める。</li>
+        </ul>
+        <div class="why"><b>資料：権利の章典（読み取り問題に注意）</b>
+          ① 国王は議会の承認なしに法律を停止することはできない。<br>
+          ④ 国王は議会の承認なしに課税することはできない。<br>
+          ⑨ 議会における言論の自由は守られなければならない。<br>
+          ⑬ 議会はしばしば開かれなければならない。<br>
+          → 意義：イギリス革命の成果をまとめたもの。「<span class="k">王は君臨すれども統治せず</span>」の伝統が誕生 ＝ <span class="k">立憲君主制</span>の基礎となる。</div>
       </section>
 
-      <section class="reg" style="--c:var(--en)">
-        <h3>啓蒙思想<small>17〜18世紀</small></h3>
+      <!-- No.12 アメリカ -->
+      <section class="reg" id="s-us" style="--c:var(--us)">
+        <h3>アメリカ独立革命</h3>
+        <div class="src">プリントNo.12 ／ 教科書p.31〜32</div>
         <ul>
-          <li>人は生まれながらに<span class="k">自由・平等</span>だという考え。市民革命の支えとなった。</li>
-          <li><span class="k">ロック</span>（イギリス）『統治二論』：政府が人々の権利をおかしたら、人々は<span class="k">抵抗する権利（抵抗権）</span>をもつ。</li>
-          <li><span class="k">モンテスキュー</span>（フランス）『<span class="k">法の精神</span>』：権力を立法・行政・司法に分ける<span class="k">三権分立</span>。</li>
-          <li><span class="k">ルソー</span>（フランス）『<span class="k">社会契約論</span>』：国の主権は人民にある＝<span class="k">人民主権</span>。</li>
+          <li>17世紀初め、<span class="k">メイフラワー号</span>に乗ったイギリス人がアメリカに移住 → 先住民（<span class="k">ネイティブアメリカン</span>）から土地を奪い、約100年間で植民地を建設（＝<span class="k">アメリカ13植民地</span>）。</li>
+          <li>Q. なぜイギリス人がきた？ → このイギリス人は<span class="k">ピューリタン</span>だったから。</li>
+          <li><span class="y">1765年</span> イギリス本国は植民地に自治を認める一方、<span class="k">印紙法</span>（植民地の印刷物に課税）を制定。</li>
+          <li>植民地側は「<span class="k">代表なくして課税なし</span>」と唱えて抗議（本国の議会に13植民地は参加していないのに、勝手に税金をかけるのはおかしい）。</li>
+          <li><span class="y">1773年</span> <span class="k">ボストン茶会事件</span>：茶税に反発し、<span class="k">イギリス東インド会社</span>の茶をボストン港に投げ捨てる → イギリスはボストン港を閉鎖。</li>
+          <li><span class="y">1775年</span> <span class="k">アメリカ独立戦争</span>開始。総司令官は<span class="k">ワシントン</span>。</li>
+          <li><span class="y">1776年7月4日</span> <span class="k">アメリカ独立宣言</span>発表（<span class="k">ジェファソン</span>が起草）。思想家<span class="k">ロック</span>の<span class="k">革命権</span>の影響。</li>
+          <li><span class="y">1783年</span> アメリカがイギリスに勝利。イギリスが独立を承認。</li>
+          <li><span class="y">1787年</span> <span class="k">アメリカ合衆国憲法</span>：<span class="k">三権分立</span>（モンテスキューの影響）、<span class="k">共和政</span>（皇帝や国王などの君主がいない政治）↳ <span class="k">大統領制</span>を採用。</li>
+          <li>意義：独立と同時に<span class="k">市民革命</span>を実現。</li>
         </ul>
+        <div class="why"><b>資料：アメリカ独立宣言（革命権の部分）</b>
+          「いかなる政府であってもこの目的をこわすものになったときは、人民は政府を変更もしくは廃止して、…新しい政府を作ることができる。」→ ロックの<span class="k">革命権</span>の影響。</div>
       </section>
 
-      <section class="reg" style="--c:var(--us)">
-        <h3>アメリカの独立<small>18世紀後半</small></h3>
+      <!-- No.13 フランス -->
+      <section class="reg" id="s-fr" style="--c:var(--fr)">
+        <h3>フランス革命とナポレオン</h3>
+        <div class="src">プリントNo.13 ／ 教科書p.33〜34</div>
+        <h4>フランス革命</h4>
         <ul>
-          <li>イギリスは北アメリカ東海岸に<span class="k">13</span>の植民地をもっていた。</li>
-          <li>イギリスが植民地に新しい税（印紙法・茶法など）を課す → 植民地側は「<span class="k">代表なくして課税なし</span>」と反対。1773年 <span class="k">ボストン茶会事件</span>。</li>
-          <li>1775年 <span class="k">独立戦争</span>。総司令官は<span class="k">ワシントン</span>。フランスなどが植民地側を支援。</li>
-          <li>1776年7月4日 <span class="k">独立宣言</span>（<span class="k">ジェファソン</span>らが起草）。人は平等で、生命・自由・幸福追求の権利をもつ。</li>
-          <li>1783年 イギリスが独立を認める。1787年 <span class="k">合衆国憲法</span>（<span class="k">三権分立</span>、人民主権）。初代大統領は<span class="k">ワシントン</span>。</li>
+          <li>背景：絶対王政とアメリカ独立戦争の支援による<span class="k">財政難</span> → 平民へ重税。</li>
+          <li>3つの身分：<span class="k">聖職者</span>・<span class="k">貴族</span>（＝特権身分）、<span class="k">平民</span>（第3身分）。</li>
+          <li><span class="y">1789年</span> 国王<span class="k">ルイ16世</span>が貴族にも課税を検討 → 貴族は反発。<span class="k">三部会</span>を再開（3つの身分の議会、1615年に中断）。</li>
+          <li>議決方式をめぐり貴族と平民が対立 → 平民は三部会を離脱し<span class="k">国民議会</span>を結成。</li>
+          <li><span class="y">1789年6月20日</span> 憲法が制定されるまで国民議会を解散しないと約束 ＝ <span class="k">球戯場の誓い</span>（テニスコートの誓い）。</li>
+          <li><span class="y">1789年7月14日</span> 平民たちが<span class="k">バスチーユ牢獄</span>を襲撃 ＝ <span class="k">フランス革命</span>の開始。</li>
+          <li><span class="y">1789年8月</span> 国民議会が<span class="k">フランス人権宣言</span>を発表（聖職者や貴族の特権を廃止）。起草は<span class="k">ラファイエット</span>。</li>
+          <li><span class="y">1791年</span> 国王一家が<span class="k">オーストリア</span>への国外逃亡をはかるも失敗・逮捕 → 周辺諸国は革命が広がるのをおそれ、革命に干渉。</li>
+          <li><span class="y">1792年</span> フランスがオーストリアに宣戦布告 → 苦戦 → <span class="k">義勇軍</span>を結成 → <span class="k">国民意識</span>が高まる → 王政廃止、<span class="k">共和政</span>が開始。</li>
+          <li><span class="y">1793年</span> 1月 ルイ16世処刑、10月 <span class="k">マリー・アントワネット</span>も処刑 → イギリス・オーストリアを中心に同盟を組みフランスを攻撃。政治は不安定に。</li>
         </ul>
-        <div class="why"><b>説明問題の型：独立戦争が起こった理由</b>
-          植民地の人々はイギリス本国の議会に<span class="k">代表を送れない</span>のに、イギリスが<span class="k">一方的に税</span>を課したため反発したから。</div>
-      </section>
-
-      <section class="reg" style="--c:var(--fr)">
-        <h3>フランス革命とナポレオン<small>1789年〜</small></h3>
-        <h4>革命前（旧体制＝<span class="k">アンシャン・レジーム</span>）</h4>
-        <ul>
-          <li>第一身分＝<span class="k">聖職者</span>、第二身分＝<span class="k">貴族</span>は税を免除される特権あり。第三身分＝<span class="k">平民</span>（農民・商工業者）が人口の9割以上で、重い税を負担。</li>
-        </ul>
-        <h4>革命の流れ</h4>
-        <ul>
-          <li>国王<span class="k">ルイ16世</span>が財政難のため1789年に<span class="k">三部会</span>を開く → 第三身分が<span class="k">国民議会</span>をつくる。</li>
-          <li>1789年7月14日 パリの民衆が<span class="k">バスチーユ牢獄</span>を襲撃 → 革命が始まる。</li>
-          <li>1789年8月 <span class="k">人権宣言</span>：自由・平等、<span class="k">国民主権</span>、私有財産の不可侵。</li>
-          <li>1792年 王政を廃止し<span class="k">共和政</span>に。1793年 ルイ16世と王妃<span class="k">マリー・アントワネット</span>を処刑。<span class="k">ロベスピエール</span>の恐怖政治。</li>
-        </ul>
+        <div class="why"><b>資料：人権宣言（人間および市民の権利の宣言）</b>
+          第1条 人は、生まれながらにして、<span class="k">自由かつ平等</span>な権利をもっている。<br>
+          第3条 あらゆる主権の原理は、本来、<span class="k">国民</span>の中にある。<br>
+          第17条 <span class="k">財産の所有権</span>は、神聖で不可侵の権利である。</div>
         <h4>ナポレオン</h4>
         <ul>
-          <li>軍人<span class="k">ナポレオン</span>が1799年に権力をにぎり、1804年に<span class="k">皇帝</span>となる。同年 <span class="k">ナポレオン法典</span>（民法典：法の下の平等など）。</li>
-          <li>ヨーロッパの大部分を支配 → 1812年<span class="k">ロシア遠征</span>に失敗して没落。</li>
-          <li>その後 <span class="k">ウィーン会議</span>（1814〜15年）でヨーロッパの秩序を話し合った。</li>
+          <li>革命の邪魔をするヨーロッパ諸国に対抗。中心は<span class="k">コルシカ島</span>出身の軍人<span class="k">ナポレオン</span> → 外国への遠征で活躍し人気を得る → 不安定だった国内の政権をにぎる。</li>
+          <li><span class="y">1804年</span> <span class="k">ナポレオン法典</span>（フランス民法典）制定。内容：所有権の不可侵、法の下の平等。意義：<span class="k">フランス革命</span>の成果を表す。</li>
+          <li><span class="y">1804年</span> <span class="k">国民投票</span>で皇帝に就任（＝<span class="k">ナポレオン1世</span>）。共和政ではなく<span class="k">帝政</span>へ。</li>
+          <li>外国遠征をくりかえし、<span class="k">イギリス</span>以外のヨーロッパのほぼ全域を支配 → 自由・平等の考えがヨーロッパに広がる一方、各国でも<span class="k">国民意識</span>が高まる。</li>
+          <li><span class="y">1812年</span> <span class="k">ロシア遠征</span>に大失敗 → 各国が一斉に攻撃、ナポレオンは敗北 → 地中海の<span class="k">エルバ島</span>に流罪。</li>
+          <li><span class="y">1814年</span> 混乱収拾のため<span class="k">ウィーン会議</span>開催 → 話し合いが長引き、ナポレオンはエルバ島を脱出しパリに戻る。</li>
+          <li><span class="y">1815年</span> ナポレオン再び敗北。南大西洋の<span class="k">セントヘレナ島</span>に流罪。</li>
         </ul>
-        <div class="why"><b>説明問題の型：フランス革命が起こった原因</b>
-          <span class="k">聖職者と貴族</span>は税を免除される特権をもつ一方、<span class="k">平民</span>が重い税を負担していた。財政難をきっかけに平民の不満が高まり、<span class="k">啓蒙思想</span>の影響も受けて革命が起こった。</div>
       </section>
 
-      <section class="reg" style="--c:var(--ir)">
-        <h3>産業革命<small>18世紀後半〜</small></h3>
+      <!-- No.14 産業革命 -->
+      <section class="reg" id="s-ir" style="--c:var(--ir)">
+        <h3>産業革命</h3>
+        <div class="src">プリントNo.14 ／ 教科書p.35〜37</div>
         <ul>
-          <li>18世紀後半、<span class="k">イギリス</span>で始まった、機械の発明による産業と社会の大きな変化＝<span class="k">産業革命</span>。</li>
-          <li>まず<span class="k">綿工業</span>で機械化（紡績機・力織機）。<span class="k">ワット</span>が<span class="k">蒸気機関</span>を改良し、工場の動力に。</li>
-          <li><span class="k">スティーブンソン</span>が蒸気機関車を実用化。1825年に鉄道が開通。蒸気船も登場。</li>
-          <li>イギリスは工業製品を世界に輸出し「<span class="k">世界の工場</span>」と呼ばれた。</li>
-          <li>工場や機械をもつ<span class="k">資本家</span>が<span class="k">労働者</span>を雇って利益を上げる<span class="k">資本主義</span>が広まった。</li>
-          <li>社会問題：低賃金・長時間労働、<span class="k">子ども</span>や女性の労働、都市の不衛生・公害 → 労働者は<span class="k">労働組合</span>をつくった。</li>
-          <li>平等な社会をめざす<span class="k">社会主義</span>の考え。<span class="k">マルクス</span>が『資本論』で説いた。</li>
+          <li><span class="k">産業革命</span>：手作業ではなく、機械を使って大量生産すること（<span class="k">工場制手工業</span>から<span class="k">工場制機械工業</span>へ変化）。</li>
         </ul>
-        <div class="why"><b>説明問題の型：産業革命がイギリスで最初に起こった理由</b>
-          貿易などで<span class="k">資本（お金）</span>がたくわえられていた。<span class="k">石炭や鉄</span>が豊富だった。農村から都市に移った人が<span class="k">労働力</span>になった。製品を売る<span class="k">植民地（市場）</span>をもっていた。</div>
+        <h4>なぜイギリスで始まった？</h4>
+        <ul>
+          <li>15〜17世紀 <span class="k">大航海時代</span>：ヨーロッパとアジアの直接貿易が始まる → イギリス東インド会社はインドから<span class="k">綿織物</span>を輸入 → 輸入が多く貿易は<span class="k">赤字</span>。</li>
+          <li>（絶対王政のころのイギリスの主な輸出品は<span class="k">毛織物</span>）</li>
+          <li>18世紀 イギリスは綿織物の国内生産（<span class="k">国産化</span>）を目指す。簡単に安く売るには → <span class="k">大量に作る</span> → 綿糸を作る<span class="k">紡績機</span>や布を織る<span class="k">織機</span>を発明（<span class="k">軽工業</span>）→ 大量生産が可能に ＝ 産業革命の始まり。</li>
+        </ul>
+        <h4>機械の動力</h4>
+        <ul>
+          <li>18世紀前半：人力や<span class="k">水力</span>が中心。</li>
+          <li>18世紀後半：<span class="k">ワット</span>が<span class="k">蒸気機関</span>を改良 → 水力から<span class="k">蒸気力</span>へ。燃料は<span class="k">石炭</span>。<span class="k">カートライト</span>の力織機は蒸気機関で布を織る。</li>
+        </ul>
+        <h4>産業革命の影響</h4>
+        <ul>
+          <li>① 重工業の発展：機械を作るため<span class="k">鉄鋼業</span>が発達 → <span class="k">鉄鉱石</span>・<span class="k">石炭</span>の採掘もさかんに。</li>
+          <li>② 輸送手段の発達：<span class="k">フルトン</span>が蒸気船を発明、<span class="k">スティーブンソン</span>が蒸気機関車を改良 → イギリスは「<span class="k">世界の工場</span>」と呼ばれる。</li>
+          <li>③ 経済の変化：<span class="k">農業</span>社会から<span class="k">工業</span>社会へ。<span class="k">重商主義</span>（特定の商人が活躍）から<span class="k">資本主義</span>（だれでも経済活動できる）の時代へ。平等を目指す<span class="k">社会主義</span>も登場（<span class="k">マルクス</span>（独）が『<span class="k">資本論</span>』を出版）。</li>
+          <li>④ 労働問題：労働者が増える一方、工場の持ち主である<span class="k">資本家</span>は利潤を求めるため労働環境は劣悪に。<span class="k">長時間</span>労働、<span class="k">低賃金</span>労働、<span class="k">児童</span>労働。</li>
+          <li>都市の人口が<span class="k">増加</span> → 水道の不備、トイレの不足、住宅の密集 → <span class="k">伝染病</span>（<span class="k">コレラ</span>、天然痘）が流行 → 労働条件の改善を求める<span class="k">労働運動</span>。</li>
+          <li>政府の対策：<span class="y">1833年</span> イギリスで<span class="k">工場法</span>成立（未成年の夜間労働禁止、13歳未満は9時間労働など）。</li>
+        </ul>
+        <h4>政治参加の広がり（イギリス）</h4>
+        <ul>
+          <li><span class="k">参政権</span>（選挙権）の拡大：以前は貴族のみ → <span class="k">選挙法</span>改正で多くの人が政治参加。</li>
+          <li><span class="y">1832年</span> 第1回選挙法改正：<span class="k">資本家</span>に参政権 → <span class="k">チャーティスト運動</span>（1838〜48）：労働者が政治改革を求める → <span class="y">1867年</span> 第2回選挙法改正：<span class="k">都市の労働者</span>に参政権。</li>
+          <li>19世紀 <span class="k">二大政党制</span>：<span class="k">保守党</span>（貴族・地主が支持）と<span class="k">自由党</span>（資本家が支持）。20世紀には労働党も結成。</li>
+          <li>イギリスは原料供給地と市場を求めて海外に進出 → アメリカなどを植民地に。アメリカは砂糖・タバコ・コーヒー・綿花の大農場（<span class="k">プランテーション</span>）に依存し、<span class="k">モノカルチャー経済</span>（特定の農作物の生産・輸出に依存）に。</li>
+        </ul>
       </section>
 
-      <section class="reg" style="--c:var(--c19)">
-        <h3>19世紀の欧米と文化</h3>
-        <h4>国の統一と南北戦争</h4>
+      <!-- No.15 ヨーロッパ -->
+      <section class="reg" id="s-eu" style="--c:var(--eu)">
+        <h3>19世紀のヨーロッパ</h3>
+        <div class="src">プリントNo.15 ／ 教科書p.31〜32、37〜38</div>
+        <h4>フランス</h4>
         <ul>
-          <li>イタリア：1861年に統一（<span class="k">イタリア王国</span>）。</li>
-          <li>ドイツ：プロイセンの首相<span class="k">ビスマルク</span>が「<span class="k">鉄血政策</span>」で軍備を強化し、1871年に<span class="k">ドイツ帝国</span>を成立させた。</li>
-          <li>アメリカ：1861年<span class="k">南北戦争</span>。工業が発達し奴隷制に反対する<span class="k">北部</span>と、綿花のプランテーションで奴隷を使う<span class="k">南部</span>が対立。</li>
-          <li>大統領<span class="k">リンカン</span>が1863年<span class="k">奴隷解放宣言</span>。同年の演説「<span class="k">人民の、人民による、人民のための政治</span>」。北部が勝利。</li>
+          <li>ナポレオンの<span class="k">失脚</span>（地位や立場を失うこと）後、<span class="k">ウィーン会議</span>（1814〜15）→ <span class="k">ブルボン家</span>が復活 ＝ 王政の復活。</li>
+          <li><span class="y">1830年</span> <span class="k">七月革命</span>で国王は国外追放。参考：<span class="k">ドラクロワ</span>「民衆を導く自由の女神」→ 自由主義者の国王<span class="k">ルイ＝フィリップ</span>が誕生し、産業革命が進む。</li>
+          <li><span class="y">1848年</span> <span class="k">二月革命</span>：労働者らも立ち上がる → ルイ＝フィリップは亡命、再び<span class="k">共和政</span>へ。<span class="k">普通選挙</span>も実現。</li>
+          <li><span class="k">ルイ＝ナポレオン</span>（ナポレオンの<span class="k">甥</span>）が大統領に当選 → <span class="y">1852年</span> <span class="k">ナポレオン3世</span>として即位（在位1852〜70）。</li>
         </ul>
-        <h4>19世紀の文化・科学</h4>
+        <h4>イタリアとドイツの統一</h4>
         <ul>
-          <li>音楽：<span class="k">ベートーベン</span>（ドイツ）、<span class="k">ショパン</span>（ポーランド）。</li>
-          <li>文学：<span class="k">ユゴー</span>『レ・ミゼラブル』、<span class="k">ディケンズ</span>『クリスマス・キャロル』。</li>
-          <li>美術：<span class="k">ミレー</span>『落穂拾い』、<span class="k">ドラクロワ</span>『民衆を導く自由の女神』、<span class="k">モネ</span>やゴッホなど印象派。</li>
-          <li>科学：<span class="k">ダーウィン</span>『種の起源』（進化論）、<span class="k">パスツール</span>・<span class="k">コッホ</span>（細菌学、コッホは結核菌）、<span class="k">エジソン</span>（電球・蓄音機）、<span class="k">ノーベル</span>（ダイナマイト）、<span class="k">ベル</span>（電話）。</li>
+          <li>イタリア：中世以来、多くの共和国（都市共和国、教皇領など）に分裂 → <span class="k">サルデーニャ王国</span>が中心となり統一を目指す → 首相<span class="k">カヴール</span>により統一（＝<span class="k">イタリア王国</span> <span class="y">1861</span>）。</li>
+          <li>ドイツ：<span class="k">30年戦争</span>（1618〜48）以来、中小の国々に分裂 → <span class="k">プロイセン王国</span>が中心となり統一を目指す（首相<span class="k">ビスマルク</span>）。</li>
+          <li>課題：<span class="k">オーストリア</span>・<span class="k">フランス</span>がプロイセン中心の統一に反対 → プロイセンが戦争で勝利し統一（＝<span class="k">ドイツ帝国</span> <span class="y">1871</span>、立憲君主制）。</li>
+          <li>参考：<span class="k">プロイセン憲法</span>（1851）は<span class="k">大日本帝国憲法</span>（1889）のもとになった。</li>
         </ul>
-        <div class="why"><b>説明問題の型：南北戦争で北部と南部が対立した理由</b>
-          <span class="k">北部</span>は工業が発達し、奴隷制に反対していた。<span class="k">南部</span>は綿花の大農園で<span class="k">奴隷の労働</span>にたよっており、奴隷制を続けようとしたから。</div>
+        <h4>ロシア</h4>
+        <ul>
+          <li>絶対王政を継続。18世紀：<span class="k">エカチェリーナ2世</span>（在位1762〜96）が<span class="k">農奴制</span>を強化。</li>
+          <li><span class="k">南下政策</span>：冬でも凍らない港（＝<span class="k">不凍港</span>）を探すための外交政策。目標は<span class="k">地中海</span>沿岸 → 英仏は反発。</li>
+          <li>19世紀：<span class="k">クリミア戦争</span>（1853〜56）。ロシアが本格的に地中海へ進出しようとして英仏と対立。<span class="k">ナイチンゲール</span>（英）が従軍看護師として活躍。</li>
+          <li>結果：ロシアの敗北 → 近代化に着手。<span class="k">農奴解放</span>（<span class="y">1861</span>）→ ロシアでも産業革命が進む。</li>
+        </ul>
+      </section>
+
+      <!-- No.15 アメリカ大陸 -->
+      <section class="reg" id="s-am" style="--c:var(--am)">
+        <h3>19世紀のアメリカ大陸</h3>
+        <div class="src">プリントNo.15 ／ 教科書p.37〜38</div>
+        <h4>ラテンアメリカ</h4>
+        <ul>
+          <li>ヨーロッパの植民地支配から独立を目指す。背景：① アメリカ独立革命・フランス革命の影響　② ナポレオン戦争による<span class="k">ポルトガル</span>・<span class="k">スペイン</span>の混乱。</li>
+          <li><span class="k">クリオーリョ</span>（南米生まれの白人）を中心に独立運動が起きる。</li>
+        </ul>
+        <h4>アメリカ合衆国と南北戦争</h4>
+        <ul>
+          <li>独立後、人口が増え<span class="k">フロンティア</span>（西部）を開拓。1848年には<span class="k">カリフォルニア</span>を獲得 → <span class="k">ゴールドラッシュ</span>で西海岸に移住者が殺到。</li>
+          <li>課題：西部の開拓地をめぐり、<span class="k">北部</span>と<span class="k">南部</span>が対立。</li>
+        </ul>
+        <div class="tbl"><table>
+          <thead><tr><th></th><th>北部</th><th>南部</th></tr></thead>
+          <tbody>
+            <tr><td>産業</td><td><span class="k">商工業</span>中心 → <span class="k">保護貿易</span>を主張（英に対抗し、自国製品を売りたい）</td><td><span class="k">農業</span>中心 → <span class="k">自由貿易</span>を主張（英と協調し、<span class="k">綿花</span>を輸出したい）</td></tr>
+            <tr><td>奴隷制</td><td><span class="k">反対</span></td><td><span class="k">賛成</span></td></tr>
+            <tr><td>支持政党</td><td><span class="k">共和党</span></td><td><span class="k">民主党</span></td></tr>
+          </tbody>
+        </table></div>
+        <ul style="margin-top:8px">
+          <li><span class="y">1861年</span> <span class="k">南北戦争</span>勃発。きっかけ：共和党の<span class="k">リンカーン</span>が大統領に当選（1860）→ 反発した南部が<span class="k">アメリカ連合国</span>を結成 → 認めない北部と戦争。</li>
+          <li>当初は<span class="k">南部</span>が有利。</li>
+          <li><span class="y">1862年</span> <span class="k">ホームステッド法</span>制定 → <span class="k">西部農民</span>が北部を支持。</li>
+          <li><span class="y">1863年</span> <span class="k">奴隷解放宣言</span> → <span class="k">国内外</span>が北部を支持。同年 <span class="k">ゲティスバーグ</span>の戦いで北部が勝利。演説「<span class="k">人民の、人民による、人民のための政治</span>」（Government of the people, by the people, for the people）。</li>
+          <li>結果：北部・南部・西部を束ねる巨大国家に。黒人奴隷は解放されたが人種差別は続く（<span class="k">ジム＝クロウ法</span>（人種隔離制度）、<span class="k">KKK</span>（クー・クラックス・クラン））。</li>
+        </ul>
+        <div class="why"><b>説明問題の型：北部は奴隷制に反対し、南部は賛成したのはなぜか</b>
+          北部は<span class="k">工業化</span>を進めるため、奴隷ではなく<span class="k">労働者</span>が必要だった。南部は<span class="k">プランテーション</span>（綿花の大農場）のために<span class="k">奴隷</span>が必要だったから。</div>
+      </section>
+
+      <!-- No.16 科学と文化 -->
+      <section class="reg" id="s-cul" style="--c:var(--cul)">
+        <h3>ヨーロッパの科学と文化</h3>
+        <div class="src">プリントNo.16（宿題プリント・考査範囲に含む） ／ 教科書p.39〜40</div>
+        <div class="tbl"><table>
+          <thead><tr><th>分野</th><th>人物</th><th>業績</th></tr></thead>
+          <tbody>
+            <tr><td>物理学</td><td><span class="k">ニュートン</span>（英）</td><td>「<span class="k">万有引力の法則</span>」を発見［17世紀後半］</td></tr>
+            <tr><td>物理学</td><td><span class="k">レントゲン</span>（独）</td><td><span class="k">X線</span>発見［19世紀末］→ 第1回<span class="k">ノーベル</span>物理学賞</td></tr>
+            <tr><td>物理学</td><td><span class="k">キュリー夫妻</span>（ポーランド）</td><td>放射性物質<span class="k">ラジウム</span>発見［19世紀末］</td></tr>
+            <tr><td>生物学</td><td><span class="k">ダーウィン</span>（英）</td><td>『<span class="k">種の起源</span>』で<span class="k">進化論</span>（人類は猿から進化して生まれた）→ 聖書の記述を信じていた人々に衝撃、論争に</td></tr>
+            <tr><td>発明</td><td><span class="k">モールス</span>（米）</td><td><span class="k">電信機</span>を発明</td></tr>
+            <tr><td>発明</td><td><span class="k">グラハム・ベル</span>（米）</td><td><span class="k">電話機</span>を発明</td></tr>
+            <tr><td>発明</td><td><span class="k">ノーベル</span>（スウェーデン）</td><td><span class="k">ダイナマイト</span>を発明 → 鉱山の採掘や戦争などに使用</td></tr>
+          </tbody>
+        </table></div>
+        <ul style="margin-top:8px">
+          <li>医学：<span class="k">顕微鏡</span>の発明 → 病原菌の発見 → 伝染病の予防が進む。<span class="k">下水道</span>の整備 → 都市の衛生が改善。</li>
+        </ul>
+        <h4>新しい芸術</h4>
+        <ul>
+          <li>文学：18世紀末〜19世紀前半 <span class="k">ロマン主義</span>（人間の感情や想像力を重視）例 <span class="k">ユーゴー</span>（仏）『<span class="k">レ・ミゼラブル</span>』。19世紀後半 <span class="k">自然主義</span>（人間や社会をありのままに描く）例 <span class="k">ドストエフスキー</span>『<span class="k">罪と罰</span>』。</li>
+          <li>絵画：19世紀末 <span class="k">印象派</span>（色彩が明るい絵）例 <span class="k">モネ</span>（仏）「<span class="k">睡蓮</span>」、<span class="k">ゴッホ</span>（オランダ）「<span class="k">ひまわり</span>」。</li>
+          <li>ゴッホ「タンギー爺さん」、モネ「ラ・ジャポネーズ」には日本の<span class="k">浮世絵</span>が描かれている → 欧米で日本ブーム（<span class="k">ジャポニスム</span>）。ゴッホは<span class="k">歌川広重</span>の「名所江戸百景 亀戸梅屋敷」をまねた絵も描いた。</li>
+        </ul>
+        <div class="why"><b>説明問題の型：なぜ日本の絵画の影響は18世紀以前ではなく19世紀に表れたのか</b>
+          以前の日本は<span class="k">鎖国</span>政策で海外との交流が制限されていたが、19世紀半ばに<span class="k">開国</span>したことで海外との交流が盛んになったから。</div>
       </section>
     </div>
 
     <div class="group">
       <h2>7月考査範囲の確認<span>20点</span></h2>
-      <section class="reg" style="--c:var(--jul)">
-        <h3>ヨーロッパの近世<small>14〜16世紀</small></h3>
+      <section class="reg" id="s-jul" style="--c:var(--jul)">
+        <h3>ヨーロッパの近世</h3>
+        <div class="src">実力錬成テキストp.48〜53 を想定</div>
         <ul>
           <li><span class="k">ルネサンス</span>（文芸復興）：14世紀に<span class="k">イタリア</span>で始まる。古代ギリシャ・ローマの文化を見直す。<span class="k">レオナルド・ダ・ヴィンチ</span>『モナ・リザ』、<span class="k">ミケランジェロ</span>『ダビデ』。</li>
           <li>火薬・羅針盤・活版印刷の改良。活版印刷は<span class="k">グーテンベルク</span>。</li>
           <li><span class="k">宗教改革</span>：1517年、ドイツの<span class="k">ルター</span>がローマ教皇の<span class="k">免罪符（贖宥状）</span>販売を批判。スイスでは<span class="k">カルバン</span>。新しい宗派＝<span class="k">プロテスタント</span>。</li>
           <li>カトリック側は<span class="k">イエズス会</span>をつくり海外へ布教（<span class="k">ザビエル</span>が日本へ）。</li>
           <li><span class="k">大航海時代</span>：アジアの<span class="k">香辛料</span>を直接手に入れ、キリスト教を広めるため。<span class="k">コロンブス</span>1492年 西インド諸島、<span class="k">バスコ・ダ・ガマ</span>1498年 インド、<span class="k">マゼラン</span>の船隊が世界一周。</li>
-          <li>スペインがアステカ王国・インカ帝国をほろぼした。</li>
         </ul>
         <div class="why"><b>説明問題の型：宗教改革が起こった理由</b>
           ローマ教皇が大聖堂の修築費を集めるため<span class="k">免罪符</span>を売り出したことに対し、<span class="k">ルター</span>が「信仰のよりどころは<span class="k">聖書</span>だけ」と批判したから。</div>
       </section>
     </div>
 
-    <p class="note">7月考査範囲は、実力錬成テキストp.48〜53の内容（ルネサンス・宗教改革・大航海時代）と仮定して作っています。7月の範囲表とちがう場合は、そちらを優先してください。教科書・板書の言い回しも優先してください。年表のチェックはこの端末に保存されます。</p>
+    <p class="note">まとめと問題は授業プリントNo.11〜16の板書にそろえています。7月考査範囲は、実力錬成テキストp.48〜53（ルネサンス・宗教改革・大航海時代）と仮定しています。年表のチェックはこの端末に保存されます。</p>
   </div>
 
   <!-- ===================== 問題 ===================== -->
@@ -275,6 +433,7 @@ body.sheet .tl label:hover .y{color:var(--ink);background:none;opacity:1}
     <div class="panel" id="setup">
       <h3>範囲</h3>
       <div class="opts" id="rangeOpts"></div>
+      <div class="row" style="margin:-6px 0 14px"><button class="chip" id="allOn" type="button">全部えらぶ</button><button class="chip" id="allOff" type="button">全部はずす</button></div>
       <h3>問題の形式</h3>
       <div class="opts">
         <label class="opt"><input type="checkbox" id="t-f" value="f" checked>穴埋め</label>
@@ -285,6 +444,7 @@ body.sheet .tl label:hover .y{color:var(--ink);background:none;opacity:1}
       <div class="opts">
         <label class="opt"><input type="radio" name="n" id="n10" value="10" checked>10問</label>
         <label class="opt"><input type="radio" name="n" id="n20" value="20">20問</label>
+        <label class="opt"><input type="radio" name="n" id="n40" value="40">40問</label>
         <label class="opt"><input type="radio" name="n" id="nall" value="999">全部</label>
       </div>
       <div class="row">
@@ -300,123 +460,296 @@ body.sheet .tl label:hover .y{color:var(--ink);background:none;opacity:1}
 
 <script>
 const R={
-  ab:{n:'絶対王政',c:'var(--ab)'},
-  uk:{n:'イギリスの革命',c:'var(--uk)'},
-  en:{n:'啓蒙思想',c:'var(--en)'},
-  us:{n:'アメリカの独立',c:'var(--us)'},
-  fr:{n:'フランス革命',c:'var(--fr)'},
-  ir:{n:'産業革命',c:'var(--ir)'},
-  c19:{n:'19世紀の欧米・文化',c:'var(--c19)'},
-  jul:{n:'7月範囲',c:'var(--jul)'}
+  ab:{n:'絶対王政・啓蒙思想',s:'No.11',c:'var(--ab)'},
+  uk:{n:'イギリス革命',s:'No.12',c:'var(--uk)'},
+  us:{n:'アメリカ独立革命',s:'No.12',c:'var(--us)'},
+  fr:{n:'フランス革命・ナポレオン',s:'No.13',c:'var(--fr)'},
+  ir:{n:'産業革命',s:'No.14',c:'var(--ir)'},
+  eu:{n:'19世紀のヨーロッパ',s:'No.15',c:'var(--eu)'},
+  am:{n:'19世紀のアメリカ大陸',s:'No.15',c:'var(--am)'},
+  cul:{n:'科学と文化',s:'No.16',c:'var(--cul)'},
+  jul:{n:'7月範囲',s:'',c:'var(--jul)'}
 };
 const TL=[
  ['jul','1492','コロンブスが西インド諸島に到達'],
  ['jul','1498','バスコ・ダ・ガマがインドに到達'],
  ['jul','1517','ルターが宗教改革を始める'],
+ ['ab','1558','エリザベス1世が即位（〜1603）'],
  ['ab','1588','スペインの無敵艦隊がイギリスに敗れる'],
  ['ab','1600','イギリスが東インド会社を設立'],
+ ['ab','1618','30年戦争（〜1648）'],
+ ['ab','1643','ルイ14世が即位（〜1715）'],
+ ['uk','1628','権利の請願'],
  ['uk','1642','ピューリタン革命が始まる'],
  ['uk','1649','チャールズ1世を処刑、共和政へ'],
+ ['ab','1682','ピョートル1世が即位（〜1725）'],
  ['uk','1688','名誉革命'],
- ['uk','1689','権利章典'],
+ ['uk','1689','権利の章典'],
+ ['eu','1762','エカチェリーナ2世が即位（〜1796）'],
+ ['us','1765','印紙法'],
  ['us','1773','ボストン茶会事件'],
  ['us','1775','アメリカ独立戦争が始まる'],
- ['us','1776','独立宣言'],
- ['us','1787','合衆国憲法'],
- ['fr','1789','フランス革命（バスチーユ襲撃・人権宣言）'],
- ['fr','1793','ルイ16世を処刑'],
- ['fr','1804','ナポレオンが皇帝に／ナポレオン法典'],
+ ['us','1776','アメリカ独立宣言（7月4日）'],
+ ['us','1783','イギリスがアメリカの独立を承認'],
+ ['us','1787','アメリカ合衆国憲法'],
+ ['fr','1789','球戯場の誓い（6月）・バスチーユ牢獄襲撃（7月14日）・人権宣言（8月）'],
+ ['fr','1791','国王一家の国外逃亡が失敗'],
+ ['fr','1792','オーストリアに宣戦布告、王政廃止・共和政へ'],
+ ['fr','1793','ルイ16世・マリー・アントワネットを処刑'],
+ ['fr','1804','ナポレオン法典／ナポレオンが皇帝に'],
+ ['fr','1812','ナポレオンのロシア遠征が失敗'],
  ['fr','1814','ウィーン会議（〜1815）'],
- ['ir','1825','イギリスで蒸気機関車の鉄道が開通'],
- ['c19','1861','南北戦争が始まる／イタリア統一'],
- ['c19','1863','リンカンの奴隷解放宣言'],
- ['c19','1871','ドイツ帝国の成立']
+ ['fr','1815','ナポレオンが再び敗北、セントヘレナ島へ'],
+ ['eu','1830','七月革命'],
+ ['ir','1832','第1回選挙法改正（資本家に参政権）'],
+ ['ir','1833','工場法'],
+ ['eu','1848','二月革命／アメリカがカリフォルニアを獲得'],
+ ['eu','1852','ナポレオン3世が即位'],
+ ['eu','1853','クリミア戦争（〜1856）'],
+ ['am','1860','リンカーンが大統領に当選'],
+ ['am','1861','南北戦争／イタリア王国成立／ロシアの農奴解放'],
+ ['am','1862','ホームステッド法'],
+ ['am','1863','奴隷解放宣言・ゲティスバーグの戦い'],
+ ['ir','1867','第2回選挙法改正（都市の労働者に参政権）'],
+ ['eu','1871','ドイツ帝国成立']
 ];
 // t: f=穴埋め c=記号選び（ch[0]が正解） e=説明
 const Q=[
-// ---- 絶対王政 ----
-{r:'ab',t:'f',q:'16〜18世紀のヨーロッパで、国王が強い権力をにぎって国を治めた政治を何というか。',a:['絶対王政','絶対主義','絶対君主制'],x:''},
-{r:'ab',t:'f',q:'国王の権力は神から授けられたものだとする考えを何というか。',a:['王権神授説'],x:''},
-{r:'ab',t:'f',q:'「太陽王」と呼ばれ、豪華なヴェルサイユ宮殿を建てたフランスの国王はだれか。',a:['ルイ14世','ルイ十四世'],x:'処刑されたルイ16世と混同しないように。'},
-{r:'ab',t:'f',q:'1588年にスペインの無敵艦隊を破ったときのイギリスの女王はだれか。',a:['エリザベス1世','エリザベス一世','エリザベス'],x:''},
-{r:'ab',t:'c',q:'1600年にイギリスがアジアとの貿易のためにつくった会社はどれか。',ch:['東インド会社','西インド会社','南海会社','ハドソン湾会社'],x:''},
-{r:'ab',t:'c',q:'絶対王政の国王が権力を支えるために整えたものの組み合わせとして正しいものはどれか。',ch:['常備軍と官僚','議会と憲法','労働組合と政党','教会と修道院'],x:'いつもいる軍隊（常備軍）と、王の命令で政治を行う役人（官僚）です。'},
-{r:'ab',t:'c',q:'16世紀に全盛期をむかえ「太陽のしずまない国」と呼ばれた国はどれか。',ch:['スペイン','イギリス','フランス','ドイツ'],x:'フェリペ2世のころです。'},
-// ---- イギリス ----
-{r:'uk',t:'f',q:'1642年、国王と議会の対立から始まったイギリスの革命を何というか。',a:['ピューリタン革命','清教徒革命'],x:''},
-{r:'uk',t:'f',q:'ピューリタン革命で議会側を指導し、国王を処刑して共和政をしいた人物はだれか。',a:['クロムウェル','オリバー・クロムウェル','オリヴァー・クロムウェル'],x:''},
-{r:'uk',t:'f',q:'1688年、血を流さずに国王を追放し、新しい国王を迎えた革命を何というか。',a:['名誉革命'],x:''},
-{r:'uk',t:'f',q:'名誉革命の翌年（1689年）に出され、議会の権利を確認した文書を何というか。',a:['権利章典','権利の章典'],x:''},
-{r:'uk',t:'f',q:'国王も憲法や法律に従って政治を行うしくみを何というか。',a:['立憲君主制','立憲君主政'],x:''},
-{r:'uk',t:'c',q:'ピューリタン革命で処刑されたイギリスの国王はだれか。',ch:['チャールズ1世','ジェームズ2世','ルイ16世','ジョージ3世'],x:'ジェームズ2世は名誉革命で追放された国王です。'},
-{r:'uk',t:'c',q:'名誉革命でオランダから迎えられ、イギリスの国王となったのはだれか。',ch:['ウィリアム3世とメアリ2世','エリザベス1世','クロムウェル','ナポレオン'],x:''},
-{r:'uk',t:'c',q:'次のできごとを古い順に正しく並べたものはどれか。',ch:['ピューリタン革命 → 名誉革命 → 権利章典','名誉革命 → ピューリタン革命 → 権利章典','権利章典 → ピューリタン革命 → 名誉革命','ピューリタン革命 → 権利章典 → 名誉革命'],x:'1642年 → 1688年 → 1689年。'},
-{r:'uk',t:'e',q:'名誉革命と権利章典によって、イギリスの政治はどのように変わったか説明しなさい。',m:'権利章典によって、国王は議会の同意なしに法律の停止や課税ができなくなった。国王も法に従う立憲君主制と、議会を中心とする議会政治が確立した。',kw:['権利章典','議会の同意','立憲君主制','議会政治']},
-// ---- 啓蒙思想 ----
-{r:'en',t:'f',q:'『法の精神』を書き、三権分立を説いたフランスの思想家はだれか。',a:['モンテスキュー'],x:''},
-{r:'en',t:'f',q:'『社会契約論』を書き、人民主権を説いたフランスの思想家はだれか。',a:['ルソー'],x:''},
-{r:'en',t:'f',q:'『統治二論』を書き、人々は政府に抵抗する権利をもつと説いたイギリスの思想家はだれか。',a:['ロック','ジョン・ロック'],x:''},
-{r:'en',t:'c',q:'三権分立の「三権」の組み合わせとして正しいものはどれか。',ch:['立法・行政・司法','立法・軍事・宗教','行政・財政・外交','司法・教育・宗教'],x:''},
-{r:'en',t:'c',q:'思想家とその主張の組み合わせとして正しいものはどれか。',ch:['ロック ― 抵抗権','ルソー ― 三権分立','モンテスキュー ― 人民主権','ロック ― 王権神授説'],x:'ロック＝抵抗権、モンテスキュー＝三権分立、ルソー＝人民主権。'},
-// ---- アメリカ ----
-{r:'us',t:'f',q:'イギリスが北アメリカの東海岸につくった植民地はいくつあったか。（数字で）',a:['13','十三'],x:''},
-{r:'us',t:'f',q:'1773年、イギリスの茶の政策に反対した人々が、船の茶箱を海に投げ捨てた事件を何というか。',a:['ボストン茶会事件','ボストンティーパーティー','ボストン・ティーパーティー'],x:''},
-{r:'us',t:'f',q:'1776年7月4日に発表された、アメリカの独立を宣言した文書を何というか。',a:['独立宣言','アメリカ独立宣言'],x:''},
-{r:'us',t:'f',q:'独立戦争で植民地軍の総司令官をつとめ、のちに初代大統領となった人物はだれか。',a:['ワシントン','ジョージ・ワシントン'],x:''},
-{r:'us',t:'f',q:'1787年に定められ、三権分立を取り入れたアメリカの憲法を何というか。',a:['合衆国憲法','アメリカ合衆国憲法'],x:''},
-{r:'us',t:'c',q:'イギリスの課税に反対した植民地の人々の主張として正しいものはどれか。',ch:['代表なくして課税なし','朕は国家なり','人民の、人民による、人民のための政治','万国の労働者よ、団結せよ'],x:'本国の議会に代表を送っていないのに税を課すのはおかしい、という主張です。'},
-{r:'us',t:'c',q:'アメリカ独立宣言を中心となって起草した人物はだれか。',ch:['ジェファソン','リンカン','ワシントン','ロック'],x:''},
-{r:'us',t:'e',q:'アメリカの独立戦争が起こった理由を説明しなさい。',m:'植民地の人々はイギリス本国の議会に代表を送っていないのに、イギリスが印紙法や茶法などで一方的に税を課したため、植民地の人々が反発したから。',kw:['代表を送れない','一方的な課税','反発']},
-// ---- フランス ----
-{r:'fr',t:'f',q:'フランス革命前の、身分によって権利や義務がちがう社会のしくみを何というか。',a:['アンシャン・レジーム','アンシャンレジーム','旧体制','旧制度'],x:''},
-{r:'fr',t:'f',q:'1789年7月14日、パリの民衆が襲撃し、フランス革命の始まりとなった建物は何か。',a:['バスチーユ牢獄','バスティーユ牢獄','バスチーユ','バスティーユ','バスチーユ監獄','バスティーユ監獄'],x:''},
-{r:'fr',t:'f',q:'1789年8月に発表され、自由・平等・国民主権などを唱えた宣言を何というか。',a:['人権宣言','フランス人権宣言','人間と市民の権利の宣言'],x:''},
-{r:'fr',t:'f',q:'フランス革命中の1793年に処刑されたフランスの国王はだれか。',a:['ルイ16世','ルイ十六世'],x:''},
-{r:'fr',t:'f',q:'1804年に皇帝となり、ヨーロッパの大部分を支配した軍人はだれか。',a:['ナポレオン','ナポレオン・ボナパルト','ナポレオン1世'],x:''},
-{r:'fr',t:'f',q:'ナポレオンが定めた、法の下の平等や私有財産の保護などを定めた法律を何というか。',a:['ナポレオン法典','民法典','フランス民法典'],x:''},
-{r:'fr',t:'f',q:'財政難になったルイ16世が1789年に開いた、3つの身分の代表による議会を何というか。',a:['三部会','全国三部会'],x:''},
-{r:'fr',t:'c',q:'革命前のフランスで、重い税を負担していたのはどの身分か。',ch:['第三身分（平民）','第一身分（聖職者）','第二身分（貴族）','国王'],x:'聖職者と貴族は税を免除される特権をもっていました。'},
-{r:'fr',t:'c',q:'次のできごとを古い順に正しく並べたものはどれか。',ch:['バスチーユ牢獄襲撃 → 人権宣言 → ルイ16世の処刑 → ナポレオンが皇帝に','人権宣言 → バスチーユ牢獄襲撃 → ナポレオンが皇帝に → ルイ16世の処刑','ルイ16世の処刑 → バスチーユ牢獄襲撃 → 人権宣言 → ナポレオンが皇帝に','バスチーユ牢獄襲撃 → ナポレオンが皇帝に → 人権宣言 → ルイ16世の処刑'],x:'1789年7月 → 1789年8月 → 1793年 → 1804年。'},
-{r:'fr',t:'c',q:'ナポレオンの失脚後、ヨーロッパの秩序を話し合うために開かれた会議はどれか。',ch:['ウィーン会議','パリ講和会議','ベルリン会議','三部会'],x:''},
-{r:'fr',t:'c',q:'フランス革命中に反対派を次々と処刑する恐怖政治を行った人物はだれか。',ch:['ロベスピエール','ナポレオン','ルイ14世','モンテスキュー'],x:''},
-{r:'fr',t:'e',q:'フランス革命が起こった原因を、身分制度にふれて説明しなさい。',m:'第一身分の聖職者と第二身分の貴族は税を免除される特権をもつ一方、人口の大部分をしめる第三身分の平民が重い税を負担していた。国の財政難をきっかけに平民の不満が高まり、啓蒙思想の影響も受けて革命が起こった。',kw:['聖職者・貴族の特権','平民が重い税','財政難','啓蒙思想']},
-{r:'fr',t:'e',q:'ナポレオンの支配は、ヨーロッパの国々にどのような影響を与えたか説明しなさい。',m:'ナポレオン法典などを通じて、フランス革命の自由・平等の考えがヨーロッパに広まった。一方で、支配された国々では外国の支配に反発して、民族の独立や統一を求める意識が高まった。',kw:['自由・平等が広まる','民族意識の高まり']},
-// ---- 産業革命 ----
-{r:'ir',t:'f',q:'18世紀後半にイギリスで始まった、機械の発明による産業と社会の大きな変化を何というか。',a:['産業革命'],x:''},
-{r:'ir',t:'f',q:'蒸気機関を改良し、工場の動力として使えるようにした人物はだれか。',a:['ワット','ジェームズ・ワット','ジェームス・ワット'],x:''},
-{r:'ir',t:'f',q:'蒸気機関車を実用化した人物はだれか。',a:['スティーブンソン','スチーブンソン','スティーヴンソン','ジョージ・スティーブンソン'],x:''},
-{r:'ir',t:'f',q:'産業革命で最初に機械化が進んだ工業は何か。',a:['綿工業','綿織物工業','綿織物業','せんい工業','繊維工業'],x:''},
-{r:'ir',t:'f',q:'工場や機械をもつ資本家が、労働者をやとって利益を上げる経済のしくみを何というか。',a:['資本主義'],x:''},
-{r:'ir',t:'f',q:'産業革命で工業製品を世界中に輸出したイギリスは「世界の（　）」と呼ばれた。（　）に入る語は何か。',a:['工場'],x:'地理で習う、現在の中国の呼び名と同じです。'},
-{r:'ir',t:'f',q:'『資本論』を書き、社会主義の考えを説いたドイツの人物はだれか。',a:['マルクス','カール・マルクス'],x:''},
-{r:'ir',t:'c',q:'産業革命のころの労働者の様子として正しいものはどれか。',ch:['子どもや女性も低い賃金で長時間働かされた','労働時間は法律で短く決められていた','すべての労働者が選挙権をもっていた','工場は郊外にあり、都市の環境は良かった'],x:''},
-{r:'ir',t:'c',q:'労働者が生活や権利を守るためにつくった団体はどれか。',ch:['労働組合','東インド会社','国民議会','イエズス会'],x:''},
-{r:'ir',t:'c',q:'資本主義の問題を解決するため、土地や工場を社会全体のものにして平等な社会をめざす考えはどれか。',ch:['社会主義','重商主義','絶対王政','啓蒙思想'],x:''},
-{r:'ir',t:'e',q:'産業革命がイギリスで最初に起こった理由を説明しなさい。',m:'貿易などによって資本（お金）がたくわえられており、石炭や鉄などの資源も豊富だった。また、農村から都市に移った人々が工場の労働力となり、製品を売る市場として広い植民地をもっていたから。',kw:['資本','石炭・鉄','労働力','植民地（市場）']},
-{r:'ir',t:'e',q:'産業革命によって、どのような社会問題が起こったか説明しなさい。',m:'労働者は低い賃金で長時間働かされ、子どもや女性も工場で働かされた。人口が集まった都市では住宅が不足し、衛生状態の悪化や公害が起こった。労働者は労働組合をつくって改善を求めた。',kw:['低賃金・長時間労働','子どもの労働','都市の衛生・公害','労働組合']},
-// ---- 19世紀 ----
-{r:'c19',t:'f',q:'「鉄血政策」で軍備を強化し、ドイツの統一を進めたプロイセンの首相はだれか。',a:['ビスマルク'],x:''},
-{r:'c19',t:'f',q:'1861年にアメリカで始まった、北部と南部の内戦を何というか。',a:['南北戦争'],x:''},
-{r:'c19',t:'f',q:'南北戦争中の1863年に奴隷解放宣言を出したアメリカの大統領はだれか。',a:['リンカン','リンカーン','エイブラハム・リンカン','エイブラハム・リンカーン'],x:''},
-{r:'c19',t:'f',q:'『種の起源』を書き、進化論を説いたイギリスの科学者はだれか。',a:['ダーウィン','ダーウイン'],x:''},
-{r:'c19',t:'f',q:'電球や蓄音機などを発明したアメリカの発明家はだれか。',a:['エジソン'],x:''},
-{r:'c19',t:'c',q:'リンカンがゲティスバーグで行った演説の言葉として正しいものはどれか。',ch:['人民の、人民による、人民のための政治','代表なくして課税なし','朕は国家なり','自由・平等・友愛'],x:''},
-{r:'c19',t:'c',q:'南北戦争のときの北部の特色として正しいものはどれか。',ch:['工業が発達し、奴隷制に反対した','綿花の大農園が多く、奴隷制を続けようとした','イギリスから独立しようとした','国王が強い権力をもっていた'],x:''},
-{r:'c19',t:'c',q:'『落穂拾い』をえがいたフランスの画家はだれか。',ch:['ミレー','モネ','ドラクロワ','ゴッホ'],x:''},
-{r:'c19',t:'c',q:'結核菌を発見したドイツの細菌学者はだれか。',ch:['コッホ','パスツール','ダーウィン','ノーベル'],x:''},
-{r:'c19',t:'c',q:'1871年に成立した国はどれか。',ch:['ドイツ帝国','アメリカ合衆国','イタリア王国','フランス共和国'],x:'イタリアの統一は1861年です。'},
-{r:'c19',t:'c',q:'「ピアノの詩人」と呼ばれた、ポーランド出身の作曲家はだれか。',ch:['ショパン','ベートーベン','モーツァルト','バッハ'],x:''},
-{r:'c19',t:'e',q:'南北戦争で北部と南部が対立した理由を説明しなさい。',m:'北部は工業が発達しており、奴隷制に反対していた。一方、南部は綿花の大農園で黒人奴隷の労働にたよっており、奴隷制を続けようとしたから。',kw:['北部＝工業・奴隷制反対','南部＝綿花の大農園・奴隷制維持']},
-// ---- 7月範囲 ----
-{r:'jul',t:'f',q:'14世紀にイタリアで始まった、古代ギリシャ・ローマの文化を見直す動きを何というか。',a:['ルネサンス','文芸復興'],x:''},
-{r:'jul',t:'f',q:'『モナ・リザ』をえがいた人物はだれか。',a:['レオナルド・ダ・ヴィンチ','レオナルドダヴィンチ','ダ・ヴィンチ','ダヴィンチ','レオナルド'],x:''},
-{r:'jul',t:'f',q:'1517年、免罪符の販売を批判して宗教改革を始めたドイツの人物はだれか。',a:['ルター','マルティン・ルター','マルチン・ルター'],x:''},
-{r:'jul',t:'f',q:'宗教改革によって生まれた、カトリックに対する新しい宗派の人々を何というか。',a:['プロテスタント','新教'],x:''},
-{r:'jul',t:'f',q:'カトリック側でつくられ、ザビエルらが海外布教を行った組織を何というか。',a:['イエズス会'],x:''},
-{r:'jul',t:'f',q:'1492年、スペインの援助を受けて西インド諸島に到達した人物はだれか。',a:['コロンブス'],x:''},
-{r:'jul',t:'c',q:'アフリカ南端を回り、1498年にインドに到達した人物はだれか。',ch:['バスコ・ダ・ガマ','コロンブス','マゼラン','ザビエル'],x:''},
-{r:'jul',t:'c',q:'その船隊が初めて世界一周を成しとげた人物はだれか。',ch:['マゼラン','コロンブス','バスコ・ダ・ガマ','ルター'],x:'マゼラン自身は航海の途中で亡くなりました。'},
-{r:'jul',t:'c',q:'ヨーロッパの人々がアジアへの新しい航路を求めた主な目的はどれか。',ch:['香辛料を直接手に入れるため','石炭を手に入れるため','綿花を売るため','奴隷制をなくすため'],x:'キリスト教を広めることも目的でした。'},
+// ===== No.11 絶対王政・啓蒙思想 =====
+{r:'ab',t:'f',q:'国王が絶対的な権力をもっている政治体制（16世紀以降）を何というか。',a:['絶対王政','絶対主義','絶対王制']},
+{r:'ab',t:'f',q:'絶対王政の国王が権力を支えるために整えた、強力な軍隊を何というか。',a:['常備軍']},
+{r:'ab',t:'f',q:'絶対王政の国王が、多くの役人を使って国を治めたしくみを何というか。',a:['官僚制','官僚']},
+{r:'ab',t:'f',q:'絶対王政の根拠となった、「王の権力は神から授けられたもの」という考えを何というか。',a:['王権神授説']},
+{r:'ab',t:'f',q:'特定の商人を保護し、輸出を多くするよう貿易を奨励した、絶対王政の国王の経済政策を何というか。',a:['重商主義']},
+{r:'ab',t:'f',q:'無敵艦隊を破り、東インド会社を設立したイギリスの女王はだれか。',a:['エリザベス1世','エリザベス一世']},
+{r:'ab',t:'f',q:'エリザベス1世が首長を兼任した教会を何というか。',a:['イギリス国教会','国教会','英国国教会']},
+{r:'ab',t:'f',q:'イギリスで行われた、工場に職人を集めて手作業で効率よく生産する方式を何というか。カタカナで答えなさい。',a:['マニュファクチュア'],x:'日本語では「工場制手工業」です。'},
+{r:'ab',t:'f',q:'絶対王政のころ、イギリスがマニュファクチュアで生産した主な輸出品は何か。',a:['毛織物']},
+{r:'ab',t:'f',q:'「朕は国家なり」と言ったとされるフランスの国王はだれか。',a:['ルイ14世','ルイ十四世']},
+{r:'ab',t:'f',q:'ルイ14世が無視した、フランスの議会を何というか。',a:['三部会','全国三部会']},
+{r:'ab',t:'f',q:'ルイ14世がアメリカ大陸にひらいた植民地を何というか。',a:['ルイジアナ','ルイジアナ植民地']},
+{r:'ab',t:'f',q:'フランスの繁栄を示す、ルイ14世が建てた宮殿を何というか。',a:['ベルサイユ宮殿','ヴェルサイユ宮殿','ベルサイユ','ヴェルサイユ']},
+{r:'ab',t:'f',q:'スウェーデンを破るなど西方へ進出し、ロシアを強国にした皇帝はだれか。',a:['ピョートル1世','ピョートル一世','ピョートル大帝']},
+{r:'ab',t:'f',q:'ピョートル1世が「ヨーロッパの窓口」として都を移した都市はどこか。',a:['ペテルブルク','サンクトペテルブルク','ペテルスブルク']},
+{r:'ab',t:'f',q:'英仏とは違い、ロシアのピョートル1世が強化した制度は何か。',a:['農奴制']},
+{r:'ab',t:'f',q:'宗教改革をめぐって起こり、ドイツが統一されない原因となった戦争（1618〜1648）を何というか。',a:['30年戦争','三十年戦争']},
+{r:'ab',t:'f',q:'30年戦争を終わらせた条約を何というか。',a:['ウェストファリア条約','ウエストファリア条約']},
+{r:'ab',t:'f',q:'絶対王政を倒し、市民（国民）が中心の自由な社会に変えることを何というか。',a:['市民革命']},
+{r:'ab',t:'f',q:'絶対王政を否定し、合理的な社会を目指す考えを何というか。',a:['啓蒙思想']},
+{r:'ab',t:'f',q:'『統治二論』を書いたイギリスの思想家はだれか。',a:['ロック','ジョン・ロック']},
+{r:'ab',t:'f',q:'『法の精神』を書いたフランスの思想家はだれか。',a:['モンテスキュー']},
+{r:'ab',t:'f',q:'『社会契約論』を書いたフランスの思想家はだれか。',a:['ルソー']},
+{r:'ab',t:'f',q:'ロックが認めた、「政府が不公正な場合は革命を起こしてもよい」という権利を何というか。',a:['革命権','抵抗権']},
+{r:'ab',t:'f',q:'モンテスキューが説いた、政府・議会・裁判所に権力をわける考えを何というか。',a:['三権分立']},
+{r:'ab',t:'f',q:'ルソーが説いた、「国家の主役は国王ではなく国民」という考えを何というか。',a:['国民主権','人民主権']},
+{r:'ab',t:'c',q:'思想家と、その考えが影響を与えたできごとの組み合わせとして正しいものはどれか。',ch:['ルソー ― フランス革命','ロック ― フランス革命','モンテスキュー ― 名誉革命','ルソー ― アメリカ独立革命']},
+{r:'ab',t:'c',q:'モンテスキューの考えが影響を与えたものはどれか。',ch:['アメリカ合衆国憲法','権利の請願','ナポレオン法典','奴隷解放宣言']},
+{r:'ab',t:'c',q:'「三大市民革命」にあてはまらないものはどれか。',ch:['産業革命','イギリス革命','アメリカ独立革命','フランス革命']},
+{r:'ab',t:'c',q:'重商主義をとった国々が植民地獲得競争を行うようになった理由として正しいものはどれか。',ch:['市場と原料供給地を求めたから','議会と対立したから','宗教改革を広めたいから','農奴制を強化したいから']},
+{r:'ab',t:'c',q:'ルイ14世について正しいものはどれか。',ch:['王権神授説を唱え、三部会を無視した','東インド会社を初めて設立した','農奴制を強化し、ペテルブルクに遷都した','議会の権利を法律で認めた']},
+{r:'ab',t:'c',q:'イタリアが統一されなかった理由として正しいものはどれか。',ch:['ローマ教皇や都市などが独自に国を作っていたから','30年戦争で国土が荒れたから','ナポレオンに支配されていたから','イギリスの植民地だったから']},
+{r:'ab',t:'e',q:'絶対王政のもとで、国王と議会が対立しがちだったのはなぜか説明しなさい。',m:'国王が王権神授説を根拠に絶対的な権力をもち、議会で話し合って政治を決めるのではなく、国王の考えで政治を進めようとしたから。',kw:['王権神授説','絶対的な権力','議会で話し合わない']},
+{r:'ab',t:'e',q:'重商主義が植民地獲得競争につながったのはなぜか説明しなさい。',m:'重商主義では特定の商人を保護して輸出を多くしようとしたため、製品を売る市場と原料を手に入れる土地（原料供給地）が必要になり、植民地を求めたから。',kw:['輸出を多く','市場','原料供給地']},
+// ===== No.12 イギリス革命 =====
+{r:'uk',t:'f',q:'1642〜1649年にイギリスで起こった、清教徒革命ともよばれる革命を何というか。',a:['ピューリタン革命','清教徒革命']},
+{r:'uk',t:'f',q:'ピューリタン革命の中心となった、地主・商工業者などの人々を何とよぶか。',a:['市民階級']},
+{r:'uk',t:'f',q:'1628年、議会が「勝手に税金をかけない・勝手に逮捕しない」ことを王に頼んだ文書を何というか。',a:['権利の請願']},
+{r:'uk',t:'f',q:'権利の請願に反発して議会を閉鎖し、のちに処刑された国王はだれか。',a:['チャールズ1世','チャールズ一世']},
+{r:'uk',t:'f',q:'ピューリタン革命で議会派を指導し、国王を処刑した人物はだれか。',a:['クロムウェル','オリバー・クロムウェル']},
+{r:'uk',t:'f',q:'国王が処刑され王政が廃止されたあと、イギリスはどのような政治になったか。',a:['共和政','共和制']},
+{r:'uk',t:'f',q:'クロムウェルの死後、国王に復帰した人物はだれか。',a:['チャールズ2世','チャールズ二世']},
+{r:'uk',t:'f',q:'議会を無視し、名誉革命でフランスへ亡命したイギリスの国王はだれか。',a:['ジェームズ2世','ジェームズ二世']},
+{r:'uk',t:'f',q:'議会が新しい国王（メアリとその夫）を迎えた国はどこか。',a:['オランダ']},
+{r:'uk',t:'f',q:'1688年、血を流さずに国王を交代させた革命を何というか。',a:['名誉革命']},
+{r:'uk',t:'f',q:'1689年、ウィリアム3世とメアリ2世が議会の権利を法律で認めたものを何というか。',a:['権利の章典','権利章典']},
+{r:'uk',t:'f',q:'権利の章典によって誕生した「王は君臨すれども（　）せず」という伝統。（　）に入る語は何か。',a:['統治']},
+{r:'uk',t:'f',q:'権利の章典が基礎となった、国王も法に従う政治のしくみを何というか。',a:['立憲君主制','立憲君主政']},
+{r:'uk',t:'c',q:'クロムウェルの死後、チャールズ2世が国王に復帰できた理由として正しいものはどれか。',ch:['民衆がクロムウェルによる独裁政治に不満をもっていたから','議会がオランダから国王を迎えたから','フランスが軍隊を送ったから','チャールズ2世が権利の章典を出したから']},
+{r:'uk',t:'c',q:'名誉革命の翌年に即位した国王の組み合わせとして正しいものはどれか。',ch:['ウィリアム3世とメアリ2世','チャールズ1世とチャールズ2世','エリザベス1世とジェームズ2世','ルイ14世とルイ16世']},
+{r:'uk',t:'c',q:'権利の章典の内容としてあてはまらないものはどれか。',ch:['国王は議会の承認がなくても課税できる','国王は議会の承認なしに法律を停止することはできない','議会における言論の自由は守られなければならない','議会はしばしば開かれなければならない'],x:'権利の章典では「国王は議会の承認なしに課税することはできない」とされました。'},
+{r:'uk',t:'c',q:'次のできごとを古い順に正しく並べたものはどれか。',ch:['権利の請願 → ピューリタン革命 → 名誉革命 → 権利の章典','ピューリタン革命 → 権利の請願 → 権利の章典 → 名誉革命','名誉革命 → 権利の請願 → ピューリタン革命 → 権利の章典','権利の請願 → 名誉革命 → ピューリタン革命 → 権利の章典'],x:'1628年 → 1642年 → 1688年 → 1689年。'},
+{r:'uk',t:'c',q:'ピューリタン革命の背景として、プリントにあげられているものはどれか。',ch:['重商主義への不満','奴隷制への反対','産業革命による労働問題','ナポレオンの支配']},
+{r:'uk',t:'e',q:'名誉革命と権利の章典によって、イギリスの政治はどのように変わったか説明しなさい。',m:'権利の章典で、国王は議会の承認なしに法律を停止したり課税したりできなくなった。「王は君臨すれども統治せず」の伝統が生まれ、立憲君主制の基礎となった。',kw:['議会の承認','王は君臨すれども統治せず','立憲君主制']},
+{r:'uk',t:'e',q:'チャールズ2世が国王に復帰できた理由を説明しなさい。',m:'クロムウェルが共和政のもとで独裁政治を行ったため、民衆が不満をもっていたから。',kw:['クロムウェル','独裁政治','民衆の不満']},
+// ===== No.12 アメリカ独立革命 =====
+{r:'us',t:'f',q:'17世紀初め、イギリス人がアメリカに移住するときに乗った船の名前は何か。',a:['メイフラワー号','メイフラワー']},
+{r:'us',t:'f',q:'イギリス人に土地を奪われた、アメリカの先住民を何というか。',a:['ネイティブアメリカン','ネイティブ・アメリカン','インディアン']},
+{r:'us',t:'f',q:'イギリス人が約100年間でつくった植民地はいくつあったか。（数字で）',a:['13','十三']},
+{r:'us',t:'f',q:'1765年、イギリス本国が植民地の印刷物に課税した法律を何というか。',a:['印紙法']},
+{r:'us',t:'f',q:'イギリスの課税に対して植民地側が唱えたスローガン「（　）なくして課税なし」。（　）に入る語は何か。',a:['代表']},
+{r:'us',t:'f',q:'1773年、茶税に反発した人々が茶をボストン港に投げ捨てた事件を何というか。',a:['ボストン茶会事件','ボストンティーパーティー']},
+{r:'us',t:'f',q:'アメリカ独立戦争で総司令官をつとめた人物はだれか。',a:['ワシントン','ジョージ・ワシントン']},
+{r:'us',t:'f',q:'1776年7月4日に発表された宣言を何というか。',a:['アメリカ独立宣言','独立宣言']},
+{r:'us',t:'f',q:'アメリカ独立宣言を起草した人物はだれか。',a:['ジェファソン','ジェファーソン','トマス・ジェファソン']},
+{r:'us',t:'f',q:'1787年に定められた、三権分立を規定した憲法を何というか。',a:['アメリカ合衆国憲法','合衆国憲法']},
+{r:'us',t:'f',q:'皇帝や国王などの君主がいない政治を何というか。',a:['共和政','共和制']},
+{r:'us',t:'f',q:'アメリカ合衆国憲法で採用された、国民が選んだ代表が国を治めるしくみを何というか。',a:['大統領制']},
+{r:'us',t:'c',q:'イギリス人がアメリカに移住してきた理由として、プリントにあげられているものはどれか。',ch:['ピューリタンだったから','金を求めたから','奴隷として連れてこられたから','フランスから逃げてきたから']},
+{r:'us',t:'c',q:'ボストン茶会事件で投げ捨てられたのは、どこの茶か。',ch:['イギリス東インド会社','フランス東インド会社','オランダ東インド会社','スペインの商人']},
+{r:'us',t:'c',q:'アメリカ独立宣言に影響を与えた思想家と、その考えの組み合わせとして正しいものはどれか。',ch:['ロック ― 革命権','ルソー ― 三権分立','モンテスキュー ― 国民主権','ロック ― 王権神授説']},
+{r:'us',t:'c',q:'イギリスがアメリカの独立を承認した年はどれか。',ch:['1783年','1776年','1775年','1787年']},
+{r:'us',t:'c',q:'「代表なくして課税なし」の意味として正しいものはどれか。',ch:['本国の議会に代表を送っていないのに、税をかけるのはおかしい','代表者がいなければ税を納めなくてよい','税を納めた人だけが代表になれる','植民地の議会が本国に課税できる']},
+{r:'us',t:'e',q:'植民地の人々が「代表なくして課税なし」と唱えて抗議したのはなぜか説明しなさい。',m:'イギリス本国の議会に13植民地は代表を送って参加していないのに、本国が印紙法などで勝手に税金をかけたから。',kw:['本国の議会','代表を送っていない','勝手に課税']},
+{r:'us',t:'e',q:'アメリカ独立革命が「市民革命」ともいえる理由を説明しなさい。',m:'イギリスから独立すると同時に、三権分立を定めた合衆国憲法をつくり、君主のいない共和政（大統領制）を実現したから。',kw:['独立と同時','合衆国憲法・三権分立','共和政']},
+// ===== No.13 フランス革命・ナポレオン =====
+{r:'fr',t:'f',q:'フランス革命の背景となった、絶対王政とアメリカ独立戦争の支援による国の状態を何というか。',a:['財政難','財政危機','財政赤字']},
+{r:'fr',t:'f',q:'革命前のフランスで、平民は第何身分とされていたか。（数字で）',a:['3','第3身分','三','第三身分']},
+{r:'fr',t:'f',q:'1789年、貴族にも課税しようとしたフランスの国王はだれか。',a:['ルイ16世','ルイ十六世']},
+{r:'fr',t:'f',q:'1789年に再開された、3つの身分から構成されるフランスの議会を何というか。',a:['三部会','全国三部会']},
+{r:'fr',t:'f',q:'三部会を離脱した平民が結成した議会を何というか。',a:['国民議会']},
+{r:'fr',t:'f',q:'憲法が制定されるまで国民議会を解散しないと約束したできごとを何というか。',a:['球戯場の誓い','テニスコートの誓い']},
+{r:'fr',t:'f',q:'1789年7月14日、平民たちが襲撃した、政治犯を収容する建物は何か。',a:['バスチーユ牢獄','バスティーユ牢獄','バスチーユ','バスティーユ']},
+{r:'fr',t:'f',q:'1789年8月、国民議会が発表した宣言を何というか。',a:['フランス人権宣言','人権宣言']},
+{r:'fr',t:'f',q:'フランス人権宣言を起草した人物はだれか。',a:['ラファイエット']},
+{r:'fr',t:'f',q:'1791年、国王一家が逃亡しようとした国はどこか。',a:['オーストリア']},
+{r:'fr',t:'f',q:'1792年、苦戦したフランスで国民が結成した軍隊を何というか。',a:['義勇軍']},
+{r:'fr',t:'f',q:'1793年10月に処刑された、ルイ16世の王妃はだれか。',a:['マリー・アントワネット','マリーアントワネット']},
+{r:'fr',t:'f',q:'ナポレオンの出身地である島はどこか。',a:['コルシカ島','コルシカ']},
+{r:'fr',t:'f',q:'1804年に制定された、所有権の不可侵や法の下の平等を定めた法典を何というか。',a:['ナポレオン法典','フランス民法典','民法典']},
+{r:'fr',t:'f',q:'国民投票で皇帝となったナポレオンは、何とよばれたか。',a:['ナポレオン1世','ナポレオン一世']},
+{r:'fr',t:'f',q:'1812年、ナポレオンが大失敗した遠征はどこへの遠征か。',a:['ロシア','ロシア遠征']},
+{r:'fr',t:'f',q:'敗北したナポレオンが最初に流された、地中海の島はどこか。',a:['エルバ島','エルバ']},
+{r:'fr',t:'f',q:'ナポレオンが最後に流された、南大西洋の島はどこか。',a:['セントヘレナ島','セントヘレナ']},
+{r:'fr',t:'f',q:'1814年、ナポレオンの失脚後の混乱を収めるために開かれた会議を何というか。',a:['ウィーン会議']},
+{r:'fr',t:'c',q:'革命前のフランスで「特権身分」とされた身分の組み合わせはどれか。',ch:['聖職者と貴族','貴族と平民','聖職者と平民','国王と平民']},
+{r:'fr',t:'c',q:'フランス人権宣言の内容として正しいものはどれか。',ch:['あらゆる主権の原理は、本来、国民の中にある','国王の権力は神から授けられたものである','国王は君臨すれども統治せず','議会はしばしば開かれなければならない'],x:'「議会はしばしば開かれなければならない」はイギリスの権利の章典です。'},
+{r:'fr',t:'c',q:'次のできごとを古い順に正しく並べたものはどれか。',ch:['球戯場の誓い → バスチーユ牢獄襲撃 → 人権宣言 → 王政廃止','バスチーユ牢獄襲撃 → 球戯場の誓い → 人権宣言 → 王政廃止','人権宣言 → 球戯場の誓い → バスチーユ牢獄襲撃 → 王政廃止','球戯場の誓い → 人権宣言 → 王政廃止 → バスチーユ牢獄襲撃'],x:'1789年6月 → 1789年7月 → 1789年8月 → 1792年。'},
+{r:'fr',t:'c',q:'オーストリアなどの周辺諸国がフランス革命に干渉した理由として正しいものはどれか。',ch:['革命が自分の国に広がるのをおそれたから','フランスの植民地を奪いたかったから','ナポレオンをたおしたかったから','ルイ16世が助けを求めなかったから']},
+{r:'fr',t:'c',q:'ナポレオンが政権をにぎることができた理由として正しいものはどれか。',ch:['外国への遠征で活躍し、人気を得たから','国王の子どもだったから','三部会で選ばれたから','イギリスの支援を受けたから']},
+{r:'fr',t:'c',q:'ナポレオンの支配がヨーロッパに与えた影響として正しいものはどれか。',ch:['自由・平等の考えが広がる一方、各国で国民意識が高まった','各国で絶対王政が強まった','ヨーロッパ全体がイギリスの支配下に入った','各国で奴隷制が広まった']},
+{r:'fr',t:'c',q:'ナポレオンが支配できなかった国はどれか。',ch:['イギリス','オーストリア','スペイン','プロイセン']},
+{r:'fr',t:'e',q:'フランス革命が起こった背景を、身分と財政にふれて説明しなさい。',m:'絶対王政とアメリカ独立戦争の支援で財政難となり、特権身分の聖職者・貴族ではなく平民に重い税がかけられた。さらに議決方式をめぐって貴族と平民が対立し、平民の不満が高まったから。',kw:['財政難','平民へ重税','特権身分（聖職者・貴族）']},
+{r:'fr',t:'e',q:'1792年にフランスで国民意識が高まった理由を説明しなさい。',m:'革命に干渉するオーストリアに宣戦布告したが苦戦したため、国民が義勇軍を結成して自分たちで国を守ろうとしたから。',kw:['オーストリアとの戦争','苦戦','義勇軍']},
+{r:'fr',t:'e',q:'ナポレオン法典にはどのような意義があるか説明しなさい。',m:'所有権の不可侵や法の下の平等を定めており、フランス革命の成果を法律として表したものだから。',kw:['所有権の不可侵','法の下の平等','フランス革命の成果']},
+// ===== No.14 産業革命 =====
+{r:'ir',t:'f',q:'手作業ではなく、機械を使って大量生産するようになった変化を何というか。',a:['産業革命']},
+{r:'ir',t:'f',q:'産業革命によって、工場制手工業から何へ変化したか。',a:['工場制機械工業']},
+{r:'ir',t:'f',q:'大航海時代以降、イギリス東インド会社がインドから輸入した製品は何か。',a:['綿織物']},
+{r:'ir',t:'f',q:'インドからの輸入が多かったころのイギリスの貿易は、黒字・赤字のどちらだったか。',a:['赤字']},
+{r:'ir',t:'f',q:'綿糸を作る機械を何というか。',a:['紡績機']},
+{r:'ir',t:'f',q:'綿織物など、生活に使う軽いものを作る工業を何というか。',a:['軽工業']},
+{r:'ir',t:'f',q:'18世紀後半に蒸気機関を改良した人物はだれか。',a:['ワット','ジェームズ・ワット']},
+{r:'ir',t:'f',q:'蒸気機関の燃料は何か。',a:['石炭']},
+{r:'ir',t:'f',q:'蒸気機関を使って布を織る力織機を発明した人物はだれか。',a:['カートライト']},
+{r:'ir',t:'f',q:'機械の製造のために発達した、鉄を作る工業を何というか。',a:['鉄鋼業']},
+{r:'ir',t:'f',q:'蒸気船を発明した人物はだれか。',a:['フルトン']},
+{r:'ir',t:'f',q:'蒸気機関車を改良した人物はだれか。',a:['スティーブンソン','スチーブンソン','スティーヴンソン']},
+{r:'ir',t:'f',q:'産業革命を達成したイギリスは「世界の（　）」とよばれた。（　）に入る語は何か。',a:['工場']},
+{r:'ir',t:'f',q:'工場の持ち主で、利潤を求めて労働者をやとう人を何というか。',a:['資本家']},
+{r:'ir',t:'f',q:'産業革命で広まった、だれでも経済活動ができる経済のしくみを何というか。',a:['資本主義']},
+{r:'ir',t:'f',q:'平等な社会を目指す思想を何というか。',a:['社会主義']},
+{r:'ir',t:'f',q:'『資本論』を出版したドイツの人物はだれか。',a:['マルクス','カール・マルクス']},
+{r:'ir',t:'f',q:'1833年にイギリスで成立した、未成年の夜間労働を禁止するなどした法律を何というか。',a:['工場法']},
+{r:'ir',t:'f',q:'政治に参加する権利（選挙権など）を何というか。',a:['参政権']},
+{r:'ir',t:'f',q:'1838〜48年に、イギリスの労働者が政治改革を求めた運動を何というか。',a:['チャーティスト運動']},
+{r:'ir',t:'f',q:'19世紀のイギリスで、貴族・地主が支持した政党を何というか。',a:['保守党']},
+{r:'ir',t:'f',q:'19世紀のイギリスで、資本家が支持した政党を何というか。',a:['自由党']},
+{r:'ir',t:'f',q:'2つの大きな政党が交代で政権をになう政治を何というか。',a:['二大政党制']},
+{r:'ir',t:'f',q:'特定の農作物の生産・輸出に依存する経済を何というか。',a:['モノカルチャー経済','モノカルチャー']},
+{r:'ir',t:'f',q:'砂糖・タバコ・コーヒー・綿花などを栽培する大農場をカタカナで何というか。',a:['プランテーション']},
+{r:'ir',t:'c',q:'イギリスが綿織物の機械を発明した理由として正しいものはどれか。',ch:['綿織物を国内で大量に作り、安く売るため','毛織物の輸出をやめるため','インドに綿花を売るため','労働者の数を減らすため']},
+{r:'ir',t:'c',q:'18世紀後半の機械の動力の変化として正しいものはどれか。',ch:['水力から蒸気力へ','蒸気力から水力へ','人力から電力へ','水力から石油へ']},
+{r:'ir',t:'c',q:'第1回選挙法改正（1832年）で参政権を得たのはだれか。',ch:['資本家','都市の労働者','女性','農民']},
+{r:'ir',t:'c',q:'第2回選挙法改正（1867年）で参政権を得たのはだれか。',ch:['都市の労働者','資本家','貴族','女性']},
+{r:'ir',t:'c',q:'産業革命のころ、人口が増えた都市で流行した伝染病はどれか。',ch:['コレラ','インフルエンザ','結核','マラリア']},
+{r:'ir',t:'c',q:'産業革命による経済の変化として正しいものはどれか。',ch:['重商主義から資本主義の時代へ','資本主義から重商主義の時代へ','工業社会から農業社会へ','社会主義から資本主義へ']},
+{r:'ir',t:'c',q:'産業革命のころの労働者の様子として正しくないものはどれか。',ch:['労働時間が法律で短く守られていた','長時間労働が多かった','低賃金で働かされた','子どもも働かされた']},
+{r:'ir',t:'e',q:'イギリスで産業革命が始まった流れを、綿織物にふれて説明しなさい。',m:'インドから綿織物を多く輸入して貿易が赤字になったため、綿織物を国内で生産しようとした。安く売るには大量に作る必要があり、紡績機や織機などの機械が発明されて大量生産ができるようになった。',kw:['綿織物の輸入','赤字','国産化','機械で大量生産']},
+{r:'ir',t:'e',q:'産業革命によって労働者にどのような問題が起きたか説明しなさい。',m:'資本家が利潤を求めたため、労働者は長時間・低賃金で働かされ、子どもも働かされた。都市では住宅が密集し、水道やトイレが不十分でコレラなどの伝染病が流行した。',kw:['長時間・低賃金','児童労働','都市の生活環境','伝染病']},
+{r:'ir',t:'e',q:'イギリスで参政権がどのように広がったか説明しなさい。',m:'以前は貴族だけが参政権をもっていたが、1832年の第1回選挙法改正で資本家に、労働者のチャーティスト運動を経て、1867年の第2回選挙法改正で都市の労働者に参政権が認められた。',kw:['貴族のみ','第1回＝資本家','第2回＝都市の労働者']},
+// ===== No.15 19世紀のヨーロッパ =====
+{r:'eu',t:'f',q:'ナポレオンが地位や立場を失うことを何というか。',a:['失脚']},
+{r:'eu',t:'f',q:'ウィーン会議の結果、フランスで復活した王家は何か。',a:['ブルボン家','ブルボン朝','ブルボン']},
+{r:'eu',t:'f',q:'1830年にフランスで国王が国外追放された革命を何というか。',a:['七月革命','7月革命']},
+{r:'eu',t:'f',q:'「民衆を導く自由の女神」をえがいた画家はだれか。',a:['ドラクロワ']},
+{r:'eu',t:'f',q:'七月革命のあとに誕生した、自由主義者のフランス国王はだれか。',a:['ルイ＝フィリップ','ルイ・フィリップ','ルイフィリップ']},
+{r:'eu',t:'f',q:'1848年、労働者らも立ち上がり、フランスが再び共和政となった革命を何というか。',a:['二月革命','2月革命']},
+{r:'eu',t:'f',q:'二月革命で実現した、一定の年齢以上の男性すべてが投票できる選挙を何というか。',a:['普通選挙']},
+{r:'eu',t:'f',q:'1852年に皇帝として即位した、ナポレオンの甥はだれか。',a:['ナポレオン3世','ナポレオン三世','ルイ＝ナポレオン']},
+{r:'eu',t:'f',q:'イタリア統一の中心となった王国はどこか。',a:['サルデーニャ王国','サルデーニャ']},
+{r:'eu',t:'f',q:'イタリアを統一した首相はだれか。',a:['カヴール','カブール']},
+{r:'eu',t:'f',q:'1861年に成立したイタリアの国を何というか。',a:['イタリア王国']},
+{r:'eu',t:'f',q:'ドイツ統一の中心となった王国はどこか。',a:['プロイセン王国','プロイセン']},
+{r:'eu',t:'f',q:'ドイツ統一を進めたプロイセンの首相はだれか。',a:['ビスマルク']},
+{r:'eu',t:'f',q:'1871年に成立した国を何というか。',a:['ドイツ帝国']},
+{r:'eu',t:'f',q:'18世紀に農奴制を強化したロシアの皇帝（女帝）はだれか。',a:['エカチェリーナ2世','エカチェリーナ二世','エカテリーナ2世']},
+{r:'eu',t:'f',q:'冬でも凍らない港を何というか。',a:['不凍港']},
+{r:'eu',t:'f',q:'不凍港を探すためのロシアの外交政策を何というか。',a:['南下政策']},
+{r:'eu',t:'f',q:'1853〜56年、地中海に進出しようとしたロシアと英仏が戦った戦争を何というか。',a:['クリミア戦争']},
+{r:'eu',t:'f',q:'クリミア戦争で従軍看護師として活躍したイギリスの女性はだれか。',a:['ナイチンゲール']},
+{r:'eu',t:'f',q:'クリミア戦争に敗れたロシアが、1861年に行った改革は何か。',a:['農奴解放','農奴解放令']},
+{r:'eu',t:'c',q:'プロイセン中心のドイツ統一に反対した国の組み合わせとして正しいものはどれか。',ch:['オーストリアとフランス','イギリスとロシア','イタリアとスペイン','オーストリアとロシア']},
+{r:'eu',t:'c',q:'プロイセン憲法（1851年）がもとになったものはどれか。',ch:['大日本帝国憲法','アメリカ合衆国憲法','ナポレオン法典','権利の章典']},
+{r:'eu',t:'c',q:'ロシアの南下政策の目標とされた地域はどれか。',ch:['地中海沿岸','北海沿岸','カリブ海沿岸','インド洋沿岸']},
+{r:'eu',t:'c',q:'クリミア戦争の結果として正しいものはどれか。',ch:['ロシアが敗北し、近代化に着手した','ロシアが勝利し、地中海を支配した','フランスが敗北し、王政が復活した','イギリスが敗北し、植民地を失った']},
+{r:'eu',t:'c',q:'次のフランスのできごとを古い順に正しく並べたものはどれか。',ch:['ウィーン会議 → 七月革命 → 二月革命 → ナポレオン3世の即位','七月革命 → ウィーン会議 → 二月革命 → ナポレオン3世の即位','ウィーン会議 → 二月革命 → 七月革命 → ナポレオン3世の即位','二月革命 → 七月革命 → ウィーン会議 → ナポレオン3世の即位'],x:'1814〜15年 → 1830年 → 1848年 → 1852年。'},
+{r:'eu',t:'c',q:'ドイツが長く統一されなかったきっかけとなった戦争はどれか。',ch:['30年戦争','クリミア戦争','南北戦争','七年戦争']},
+{r:'eu',t:'e',q:'ロシアの南下政策とはどのような政策か。また、英仏がそれに反発したのはなぜか説明しなさい。',m:'冬でも凍らない港（不凍港）を求めて南へ進出し、地中海沿岸を目指した外交政策。ロシアが地中海に進出すると英仏の利益がおびやかされるため反発した。',kw:['不凍港','地中海沿岸','英仏の反発']},
+{r:'eu',t:'e',q:'クリミア戦争のあと、ロシアはどのように変わったか説明しなさい。',m:'敗北したロシアは近代化に着手し、1861年に農奴解放を行い、産業革命が進むようになった。',kw:['敗北','近代化','農奴解放']},
+// ===== No.15 19世紀のアメリカ大陸 =====
+{r:'am',t:'f',q:'ラテンアメリカの独立運動の中心となった、南米生まれの白人を何というか。',a:['クリオーリョ']},
+{r:'am',t:'f',q:'アメリカで開拓が進められた西部の未開拓地を何というか。',a:['フロンティア']},
+{r:'am',t:'f',q:'1848年にアメリカが獲得し、金が発見された地域はどこか。',a:['カリフォルニア']},
+{r:'am',t:'f',q:'金を求めて西海岸に移住者が殺到したできごとを何というか。',a:['ゴールドラッシュ']},
+{r:'am',t:'f',q:'イギリスに対抗し自国製品を売りたい北部が主張した貿易は何か。',a:['保護貿易']},
+{r:'am',t:'f',q:'イギリスと協調し綿花を輸出したい南部が主張した貿易は何か。',a:['自由貿易']},
+{r:'am',t:'f',q:'北部が支持した政党は何か。',a:['共和党']},
+{r:'am',t:'f',q:'南部が支持した政党は何か。',a:['民主党']},
+{r:'am',t:'f',q:'1861年に始まった、アメリカの北部と南部の戦争を何というか。',a:['南北戦争']},
+{r:'am',t:'f',q:'1860年に大統領に当選した共和党の人物はだれか。',a:['リンカーン','リンカン','エイブラハム・リンカーン']},
+{r:'am',t:'f',q:'リンカーンの当選に反発した南部がつくった国を何というか。',a:['アメリカ連合国']},
+{r:'am',t:'f',q:'1862年に制定され、西部農民が北部を支持するきっかけとなった法律を何というか。',a:['ホームステッド法']},
+{r:'am',t:'f',q:'1863年、リンカーンが発表した宣言を何というか。',a:['奴隷解放宣言']},
+{r:'am',t:'f',q:'1863年、北部が南部に勝利し、リンカーンが演説を行った戦いを何というか。',a:['ゲティスバーグの戦い','ゲティスバーグ']},
+{r:'am',t:'f',q:'南北戦争後も人種差別を続けた、人種隔離制度の法律を何というか。',a:['ジム＝クロウ法','ジム・クロウ法','ジムクロウ法']},
+{r:'am',t:'c',q:'ラテンアメリカ諸国の独立の背景としてあてはまるものはどれか。',ch:['ナポレオン戦争によるポルトガル・スペインの混乱','イギリスの産業革命','ロシアの南下政策','ドイツの統一']},
+{r:'am',t:'c',q:'南部がイギリスに輸出したかった作物はどれか。',ch:['綿花','小麦','茶','毛織物']},
+{r:'am',t:'c',q:'北部と南部の違いとして正しいものはどれか。',ch:['北部は商工業中心で奴隷制に反対、南部は農業中心で奴隷制に賛成','北部は農業中心で奴隷制に賛成、南部は商工業中心で奴隷制に反対','北部も南部も奴隷制に賛成','北部は自由貿易、南部は保護貿易を主張']},
+{r:'am',t:'c',q:'南北戦争の最初のころに有利だったのはどちらか。',ch:['南部','北部','西部','イギリス']},
+{r:'am',t:'c',q:'奴隷解放宣言の効果として正しいものはどれか。',ch:['国内外が北部を支持した','南部が戦争に勝利した','西部がアメリカ連合国に加わった','イギリスが南部を支持した']},
+{r:'am',t:'c',q:'リンカーンの演説の言葉として正しいものはどれか。',ch:['人民の、人民による、人民のための政治','代表なくして課税なし','朕は国家なり','王は君臨すれども統治せず']},
+{r:'am',t:'c',q:'南北戦争後も人種差別が続いたことを示すものの組み合わせはどれか。',ch:['ジム＝クロウ法とKKK','ホームステッド法とゴールドラッシュ','権利の章典と人権宣言','工場法と選挙法改正']},
+{r:'am',t:'e',q:'北部が奴隷制に反対し、南部が賛成したのはなぜか説明しなさい。',m:'北部は工業化を進めるため、奴隷ではなく自由に働く労働者が必要だった。南部は綿花などのプランテーション（大農場）で働かせるために奴隷が必要だったから。',kw:['北部＝工業化・労働者','南部＝プランテーション・奴隷']},
+{r:'am',t:'e',q:'南北戦争で、はじめ不利だった北部が勝利できた理由を説明しなさい。',m:'リンカーンがホームステッド法を制定して西部農民の支持を得て、さらに奴隷解放宣言を発表して国内外の支持を集めたから。',kw:['ホームステッド法＝西部農民','奴隷解放宣言＝国内外の支持']},
+// ===== No.16 科学と文化 =====
+{r:'cul',t:'f',q:'「万有引力の法則」を発見したイギリスの科学者はだれか。',a:['ニュートン']},
+{r:'cul',t:'f',q:'X線を発見し、第1回ノーベル物理学賞を受賞したドイツの科学者はだれか。',a:['レントゲン']},
+{r:'cul',t:'f',q:'放射性物質ラジウムを発見した夫妻はだれか。',a:['キュリー夫妻','キュリー']},
+{r:'cul',t:'f',q:'『種の起源』を書いたイギリスの科学者はだれか。',a:['ダーウィン','ダーウイン']},
+{r:'cul',t:'f',q:'ダーウィンが主張した、「人類は猿から進化して生まれた」という考えを何というか。',a:['進化論']},
+{r:'cul',t:'f',q:'発明されたことで病原菌が発見されるようになった器具は何か。',a:['顕微鏡']},
+{r:'cul',t:'f',q:'都市の衛生を改善するために整備されたものは何か。',a:['下水道']},
+{r:'cul',t:'f',q:'電信機を発明したアメリカの人物はだれか。',a:['モールス','モース']},
+{r:'cul',t:'f',q:'電話機を発明したアメリカの人物はだれか。',a:['グラハム・ベル','ベル','グラハムベル']},
+{r:'cul',t:'f',q:'ダイナマイトを発明したスウェーデンの人物はだれか。',a:['ノーベル']},
+{r:'cul',t:'f',q:'18世紀末〜19世紀前半に広まった、人間の感情や想像力を重視する芸術の考えを何というか。',a:['ロマン主義']},
+{r:'cul',t:'f',q:'『レ・ミゼラブル』を書いたフランスの作家はだれか。',a:['ユーゴー','ユゴー','ヴィクトル・ユーゴー']},
+{r:'cul',t:'f',q:'19世紀後半に広まった、人間や社会をありのままに描く芸術の考えを何というか。',a:['自然主義']},
+{r:'cul',t:'f',q:'『罪と罰』を書いたロシアの作家はだれか。',a:['ドストエフスキー']},
+{r:'cul',t:'f',q:'19世紀末に登場した、色彩が明るい絵をえがいた画家たちを何派というか。',a:['印象派']},
+{r:'cul',t:'f',q:'「睡蓮」をえがいたフランスの画家はだれか。',a:['モネ']},
+{r:'cul',t:'f',q:'「ひまわり」「タンギー爺さん」をえがいたオランダの画家はだれか。',a:['ゴッホ']},
+{r:'cul',t:'f',q:'ゴッホやモネの作品にえがかれた、日本の絵画を何というか。',a:['浮世絵']},
+{r:'cul',t:'f',q:'19世紀の欧米で起こった日本ブームを何というか。',a:['ジャポニスム','ジャポニズム']},
+{r:'cul',t:'f',q:'ゴッホがまねてえがいた「名所江戸百景 亀戸梅屋敷」の作者はだれか。',a:['歌川広重','広重','安藤広重']},
+{r:'cul',t:'c',q:'キュリー夫妻の出身国はどこか。',ch:['ポーランド','フランス','ドイツ','イギリス']},
+{r:'cul',t:'c',q:'ダーウィンの進化論が人々に衝撃を与えた理由として正しいものはどれか。',ch:['聖書の記述を歴史そのものと信じていた人々がいたから','電話で世界中に広まったから','ナポレオンが禁止したから','産業革命を止めることになったから']},
+{r:'cul',t:'c',q:'人物と業績の組み合わせとして正しいものはどれか。',ch:['ノーベル ― ダイナマイト','モールス ― 電話機','ベル ― 電信機','レントゲン ― ラジウム']},
+{r:'cul',t:'c',q:'人物と国の組み合わせとして正しいものはどれか。',ch:['ゴッホ ― オランダ','モネ ― イギリス','ニュートン ― ドイツ','ユーゴー ― ロシア']},
+{r:'cul',t:'c',q:'ロマン主義の作品はどれか。',ch:['『レ・ミゼラブル』','『罪と罰』','「睡蓮」','『種の起源』']},
+{r:'cul',t:'e',q:'日本の絵画（浮世絵）の影響を受けた作品が、18世紀以前ではなく19世紀に登場したのはなぜか説明しなさい。',m:'18世紀以前の日本は鎖国政策で海外との交流が制限されていたが、19世紀半ばに開国したことで海外との交流が盛んになり、浮世絵がヨーロッパに伝わったから。',kw:['鎖国','開国','海外との交流']},
+{r:'cul',t:'e',q:'顕微鏡の発明と下水道の整備は、人々の生活をどのように変えたか説明しなさい。',m:'顕微鏡の発明で病原菌が発見され、伝染病の予防が進んだ。下水道が整備されて都市の衛生が改善した。',kw:['病原菌の発見','伝染病の予防','都市の衛生']},
+// ===== 7月範囲 =====
+{r:'jul',t:'f',q:'14世紀にイタリアで始まった、古代ギリシャ・ローマの文化を見直す動きを何というか。',a:['ルネサンス','文芸復興']},
+{r:'jul',t:'f',q:'『モナ・リザ』をえがいた人物はだれか。',a:['レオナルド・ダ・ヴィンチ','レオナルドダヴィンチ','ダ・ヴィンチ','ダヴィンチ']},
+{r:'jul',t:'f',q:'1517年、免罪符の販売を批判して宗教改革を始めたドイツの人物はだれか。',a:['ルター','マルティン・ルター']},
+{r:'jul',t:'f',q:'スイスで宗教改革を進めた人物はだれか。',a:['カルバン','カルヴァン']},
+{r:'jul',t:'f',q:'宗教改革によって生まれた、カトリックに対する新しい宗派を何というか。',a:['プロテスタント','新教']},
+{r:'jul',t:'f',q:'カトリック側でつくられ、ザビエルらが海外布教を行った組織を何というか。',a:['イエズス会']},
+{r:'jul',t:'f',q:'1492年、西インド諸島に到達した人物はだれか。',a:['コロンブス']},
+{r:'jul',t:'c',q:'1498年にインドに到達した人物はだれか。',ch:['バスコ・ダ・ガマ','コロンブス','マゼラン','ザビエル']},
+{r:'jul',t:'c',q:'その船隊が初めて世界一周を成しとげた人物はだれか。',ch:['マゼラン','コロンブス','バスコ・ダ・ガマ','ルター']},
+{r:'jul',t:'c',q:'ヨーロッパの人々がアジアへの新しい航路を求めた主な目的はどれか。',ch:['香辛料を直接手に入れるため','石炭を手に入れるため','綿花を売るため','奴隷制をなくすため']},
 {r:'jul',t:'e',q:'宗教改革が起こった理由を説明しなさい。',m:'ローマ教皇が大聖堂の修築費を集めるために免罪符を売り出したことに対し、ルターが「信仰のよりどころは聖書だけである」と批判したから。',kw:['免罪符','ローマ教皇','ルター','聖書']}
 ];
 Q.forEach((q,i)=>q.id=i);
@@ -433,41 +766,49 @@ const sb=$('#sheetBtn');
 sb.onclick=()=>{const on=document.body.classList.toggle('sheet');sb.classList.toggle('on',on);document.querySelectorAll('.k.show').forEach(e=>e.classList.remove('show'))};
 document.addEventListener('click',e=>{const k=e.target.closest('.k');if(k&&document.body.classList.contains('sheet'))k.classList.toggle('show')});
 
-/* timeline */
-const done=store.get('his-tl',{});
+/* 目次 */
+const SEC={ab:'s-ab',uk:'s-uk',us:'s-us',fr:'s-fr',ir:'s-ir',eu:'s-eu',am:'s-am',cul:'s-cul',jul:'s-jul'};
+$('#toc').innerHTML=Object.entries(R).map(([k,v])=>`<a href="#${SEC[k]}" style="--c:${v.c}">${v.s?v.s+' ':''}${v.n}</a>`).join('');
+
+/* 年表 */
+const done=store.get('his-tl2',{});
 const tl=$('#timeline');
-TL.forEach(([r,y,e],i)=>{const id='tl-'+i;const li=document.createElement('li');
+TL.forEach(([r,y,e],i)=>{const id='tl-'+y+'-'+i;const li=document.createElement('li');
   li.innerHTML=`<label style="--c:${R[r].c}"><input type="checkbox" id="${id}"><span class="y">${y}</span><span class="e">${e}</span></label>`;
-  const c=li.querySelector('input');c.checked=!!done[id];c.onchange=()=>{done[id]=c.checked;store.set('his-tl',done)};tl.appendChild(li)});
+  const c=li.querySelector('input');c.checked=!!done[id];c.onchange=()=>{done[id]=c.checked;store.set('his-tl2',done)};tl.appendChild(li)});
 $('#legend').innerHTML=Object.values(R).map(v=>`<span style="--c:${v.c}">${v.n}</span>`).join('');
+const tb=$('#tlbox');if(store.get('his-tl-open',true))tb.open=true;tb.addEventListener('toggle',()=>store.set('his-tl-open',tb.open));
 
 /* quiz */
 const ro=$('#rangeOpts');
-Object.entries(R).forEach(([k,v])=>{const l=document.createElement('label');l.className='opt';l.innerHTML=`<input type="checkbox" id="r-${k}" value="${k}" checked><span class="tag" style="--c:${v.c}">&nbsp;</span>${v.n}`;ro.appendChild(l)});
-let wrong=new Set(store.get('his-wrong',[]));
-const saveWrong=()=>store.set('his-wrong',[...wrong]);
+Object.entries(R).forEach(([k,v])=>{const l=document.createElement('label');l.className='opt';l.innerHTML=`<input type="checkbox" id="r-${k}" value="${k}" checked><span class="tag" style="--c:${v.c}">${v.s||'7月'}</span>${v.n}`;ro.appendChild(l)});
+let wrong=new Set(store.get('his-wrong2',[]));
+const saveWrong=()=>store.set('his-wrong2',[...wrong]);
 function pool(){const rs=[...ro.querySelectorAll('input:checked')].map(i=>i.value);const ts=['f','c','e'].filter(t=>$('#t-'+t).checked);return Q.filter(q=>rs.includes(q.r)&&ts.includes(q.t))}
 function upd(){const p=pool();$('#poolInfo').textContent=`対象 ${p.length}問 ／ まちがえた問題 ${wrong.size}問`;$('#startBtn').disabled=!p.length;$('#wrongBtn').disabled=!wrong.size}
-document.querySelectorAll('#setup input').forEach(i=>i.addEventListener('change',upd));upd();
+document.querySelectorAll('#setup input').forEach(i=>i.addEventListener('change',upd));
+$('#allOn').onclick=()=>{ro.querySelectorAll('input').forEach(i=>i.checked=true);upd()};
+$('#allOff').onclick=()=>{ro.querySelectorAll('input').forEach(i=>i.checked=false);upd()};
+upd();
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
 
 let S=null;
 $('#startBtn').onclick=()=>{const n=+document.querySelector('input[name=n]:checked').value;start(shuffle(pool()).slice(0,n))};
 $('#wrongBtn').onclick=()=>start(shuffle(Q.filter(q=>wrong.has(q.id))));
-function start(list){S={list,i:0,score:[]};$('#setup').hidden=true;$('#result').hidden=true;$('#play').hidden=false;render()}
+function start(list){S={list,i:0,score:[]};$('#setup').hidden=true;$('#result').hidden=true;$('#play').hidden=false;render();window.scrollTo({top:0})}
 
-const norm=s=>s.normalize('NFKC').replace(/[\s　・（）()「」『』]/g,'').replace(/ヴィ/g,'ビ').replace(/ヴ/g,'ブ').toLowerCase();
+const norm=s=>s.normalize('NFKC').replace(/[\s　・･（）()「」『』=＝]/g,'').replace(/ヴィ/g,'ビ').replace(/ヴ/g,'ブ').replace(/一世/g,'1世').replace(/二世/g,'2世').replace(/三世/g,'3世').toLowerCase();
 const KANA='アイウエ';
 function head(q){const r=R[q.r];const tn={f:'穴埋め',c:'記号選び',e:'説明'}[q.t];
   return `<div class="prog"><i style="width:${S.i/S.list.length*100}%"></i></div>
-  <div class="meta"><span><span class="tag" style="--c:${r.c}">${r.n}</span>　${tn}</span><span>${S.i+1} / ${S.list.length}</span></div>
+  <div class="meta"><span><span class="tag" style="--c:${r.c}">${r.s||'7月'}</span>　${r.n}・${tn}</span><span>${S.i+1} / ${S.list.length}</span></div>
   <div class="qtext">${q.q}</div>`}
 function render(){
   const q=S.list[S.i],p=$('#play');
   if(q.t==='f'){
     p.innerHTML=head(q)+`<div class="row"><input id="fillIn" autocomplete="off" placeholder="答えを入力" style="flex:1;min-width:0"><button class="btn" id="chk" type="button">答え合わせ</button></div><div id="fb"></div>`;
     const inp=$('#fillIn');inp.focus({preventScroll:true});
-    const go=()=>{if($('#chk').disabled)return;const ok=q.a.some(a=>norm(a)===norm(inp.value));$('#chk').disabled=true;inp.disabled=true;
+    const go=()=>{if($('#chk').disabled||!inp.value.trim())return;const ok=q.a.some(a=>norm(a)===norm(inp.value));$('#chk').disabled=true;inp.disabled=true;
       $('#fb').innerHTML=`<div class="fb"><div class="v ${ok?'ok':'ng'}">${ok?'正解':'不正解'}</div>正解：<b>${q.a[0]}</b>${q.x?'<br>'+q.x:''}
       <div class="row" style="margin-top:10px">${ok?'':'<button class="btn ghost" id="ovr" type="button">合ってた（書き方のちがい）</button>'}<button class="btn" id="nx" type="button">次へ</button></div></div>`;
       let res=ok?1:0;
